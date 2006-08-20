@@ -1,0 +1,10 @@
+WELCOME TO GOLDBERG
+
+Goldberg is a Rails generator.  The "goldberg" directory here needs to
+be installed in a place where Rails looks for generators, such as
+~/.rails/generators or lib/generators in your application directory.
+
+For more introductory details read goldberg/USAGE, or visit the
+Goldberg web site:
+
+    http://goldberg.rubyforge.org

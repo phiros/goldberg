@@ -1,0 +1,27 @@
+<h1>Controllers and Actions</h1>
+
+<h2>Application Controllers</h2>
+<% if @app_site_controllers.length > 0 -%>
+<%= render(:partial => 'list',
+           :locals => { :site_controllers => @app_site_controllers }
+	   ) %>
+<% else -%>
+<p>(None)</p>
+<% end -%>
+
+<hr/>
+<h2>Builtin Controllers</h2>
+<% if @builtin_site_controllers.length > 0 -%>
+<p><strong>NB:</strong> Use caution in editing these: you could lock
+yourself out of the site.  And DO NOT delete these unless you know what
+you're doing!</p>
+
+<%= render(:partial => 'list',
+           :locals => { :site_controllers => @builtin_site_controllers }
+	   ) %>
+<% else -%>
+<p>(None)</p>
+<% end -%>
+
+<hr/>
+<%= link_to 'New Controller', :action => 'new' %>

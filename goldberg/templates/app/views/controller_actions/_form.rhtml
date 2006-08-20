@@ -1,0 +1,17 @@
+<%= error_messages_for 'controller_action' %>
+
+<!--[form:controller_action]-->
+
+<p><label for="controller_action_site_controller_id">Controller ID</label><br/>
+<%= collection_select :controller_action, :site_controller_id,
+    @controllers, :id, :name %></p>
+
+<p><label for="controller_action_name">Name</label><br/>
+<%= text_field :controller_action, :name  %></p>
+
+<p><label for="controller_action_permission_id">Permission</label><br/>
+<%= collection_select 'controller_action', 'permission_id',
+      @permissions, :id, :name %></p>
+
+<!--[eoform:controller_action]-->
+

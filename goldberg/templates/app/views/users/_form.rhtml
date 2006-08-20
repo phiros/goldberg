@@ -1,0 +1,14 @@
+<%= error_messages_for 'user' %>
+
+<!--[form:user]-->
+<p><label for="user_name">Name</label><br/>
+<%= text_field 'user', 'name'  %></p>
+
+<p><label for="password">Password</label><br/>
+<%= text_field 'user', 'clear_password' %></p>
+
+<p><label for="role_id">Role</label><br/>
+<%= collection_select 'user', 'role_id', @all_roles, :id, :name %></p>
+
+<!--[eoform:user]-->
+

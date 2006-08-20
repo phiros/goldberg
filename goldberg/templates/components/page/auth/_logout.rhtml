@@ -1,0 +1,5 @@
+<p> Welcome, <%= session[:user].name %>
+<%= start_form_tag :controller => 'auth', :action => 'logout' %>
+  <%= submit_tag "Logout" %>
+<%= end_form_tag %>
+</p>

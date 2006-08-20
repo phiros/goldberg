@@ -1,0 +1,24 @@
+WELCOME TO GOLDBERG!
+
+All the files for your site should now be in place.  The following
+steps are required to complete your setup:
+
+1. Set up your database using the following commands (replace
+   {hostname}, {username} and {dbname} with appropriate values): 
+
+    $ mysql -h {hostname} -u {username} -p -e "create database {dbname};"
+    $ mysql -h {hostname} -u {username} -p {dbname} < db/goldberg_db_mysql.sql
+
+2. Edit your config/databases.yml in accordance with the above.
+
+3. Delete the file public/index.html that was automatically generated
+   by Rails.  You won't need it.
+
+There may be extra steps required to get Rails working, especially if
+you are using shared hosting and/or FastCGI.  Check your provider's
+Rails documentation.
+
+Good luck using Goldberg!
+
+
+David Nelson <urbanus@240gl.org>
