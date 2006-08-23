@@ -4,7 +4,8 @@
 
 <head>
 <title><% if params[:controller] == 'content_pages' and
-            params[:action] == 'view' -%>
+            ( params[:action] == 'view' or 
+              params[:action] == 'view_default') -%>
 <%= @content_page.title %>
 <% else -%>
 <%= params[:controller] %> | <%= params[:action] %> 

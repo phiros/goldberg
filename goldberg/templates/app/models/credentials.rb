@@ -1,14 +1,17 @@
 class Credentials
   
-  attr_accessor :role, :role_ids
+  attr_accessor :role_id, :updated_at, :role_ids
   attr_accessor :permissions, :permission_ids
   attr_accessor :controllers, :actions, :pages
 
   # Create a new credentials object for the given role
-  def initialize(role)
-    @role = role
-    
-    roles = @role.get_parents
+  def initialize(role_id)
+    @role_id = role_id
+
+    role = Role.find(@role_id)
+    @updated_at = role.updated_at
+
+    roles = role.get_parents
     @role_ids = Array.new
     for r in roles do
       @role_ids << r.id

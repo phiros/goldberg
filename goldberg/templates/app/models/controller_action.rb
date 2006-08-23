@@ -21,7 +21,7 @@ class ControllerAction < ActiveRecord::Base
   end
 
   def fullname
-    if self.site_controller_id > 0
+    if self.site_controller_id and self.site_controller_id > 0
       return "#{self.controller.name}: #{self.name}"
     else
       return "#{self.name}"

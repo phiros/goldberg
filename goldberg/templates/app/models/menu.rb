@@ -54,9 +54,9 @@ class Menu
     end
 
     def add_child(child)
-      self.children ||= Array.new
-      self.children << child
-      child.parent = self
+      @children ||= Array.new
+      @children << child
+#      child.parent = self.id
     end
 
 
@@ -128,7 +128,7 @@ class Menu
       end  # if items.size > 0
       
       
-      if @root.children
+      if @root.children and @root.children.length > 0
         select(@root.children[0].name) 
       end
     end  # if items
@@ -148,7 +148,7 @@ class Menu
       while node and node.id
         @selected[node.id] = node
         @vector.unshift node
-        node = node.parent
+        node = @by_id[node.parent_id]
       end
       @vector.unshift @root
       return @by_name[name]

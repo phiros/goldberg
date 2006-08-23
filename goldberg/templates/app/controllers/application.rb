@@ -17,12 +17,14 @@ class ApplicationController < ActionController::Base
 
       # If there's already a session, check that it's still up to date
       if session[:credentials]
-        role = Role.find_by_sql(["select updated_at from roles where id = ?",
-                                 session[:credentials].role.id])
+#        role = Role.find_by_sql(["select updated_at from roles where id = ?",
+#                                 session[:credentials].role.id])
+        role = Role.find(session[:credentials].role_id)
         if role
           # Check if the role has been updated
-          if role[0].updated_at > session[:credentials].role.updated_at
-            role = Role.find(session[:credentials].role.id)
+#          if role[0].updated_at > session[:credentials].role.updated_at
+          if role.updated_at > session[:credentials].updated_at
+#            role = Role.find(session[:credentials].role.id)
             menu_selection = session[:menu].selected  # remember this
             session[:credentials] = role.cache[:credentials]
             session[:menu] = role.cache[:menu]
@@ -41,17 +43,18 @@ class ApplicationController < ActionController::Base
       end
 
       if make_public
-        public_role = @settings.public_role
-        if public_role.cache and public_role.cache[:credentials] and 
+        public_role = Role.find(@settings.public_role_id)
+        if not public_role.cache or not public_role.cache[:credentials] or not 
             public_role.cache[:menu]
-          session[:credentials] = public_role.cache[:credentials]
-          session[:menu] = public_role.cache[:menu]
-        else
           Role.rebuild_cache
+          public_role = Role.find(@settings.public_role_id)
         end
+
+        session[:credentials] = public_role.cache[:credentials]
+        session[:menu] = public_role.cache[:menu]
       end
       
-      if session[:credentials].role.id != @settings.public_role_id
+      if session[:credentials].role_id != @settings.public_role_id
         logger.info "(Logged-in user)"
         if session[:last_time] != nil
           if (Time.now - session[:last_time]) > @settings.session_timeout

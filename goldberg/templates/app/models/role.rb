@@ -19,7 +19,7 @@ class Role < ActiveRecord::Base
   end
 
   def rebuild_credentials
-    self.cache[:credentials] = Credentials.new(self)
+    self.cache[:credentials] = Credentials.new(self.id)
   end
 
 
