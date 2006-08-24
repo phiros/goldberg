@@ -6,7 +6,6 @@ class Menu
     attr_accessor :id, :name, :label, :url
 
     def initialize()
-      # @item = item
       @parent = nil
     end
 
@@ -55,8 +54,7 @@ class Menu
 
     def add_child(child)
       @children ||= Array.new
-      @children << child
-#      child.parent = self.id
+      @children << child.id
     end
 
 
@@ -113,7 +111,6 @@ class Menu
         end
 
         # Then build tree of items
-        # @by_id.keys.each do |key|
         for item in items do
           node = @by_id[item.menu_item_id]
           p_id = node.parent_id
@@ -129,7 +126,7 @@ class Menu
       
       
       if @root.children and @root.children.length > 0
-        select(@root.children[0].name) 
+        select(@by_id[@root.children[0]].name) 
       end
     end  # if items
     
@@ -157,6 +154,9 @@ class Menu
     end
   end
 
+  def get_item(item_id)
+    return @by_id[item_id]
+  end
 
   # Returns the array of items at the given level.
   def get_menu(level)

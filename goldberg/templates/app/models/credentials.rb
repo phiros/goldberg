@@ -1,7 +1,7 @@
 class Credentials
   
   attr_accessor :role_id, :updated_at, :role_ids
-  attr_accessor :permissions, :permission_ids
+  attr_accessor :permission_ids
   attr_accessor :controllers, :actions, :pages
 
   # Create a new credentials object for the given role
@@ -17,9 +17,9 @@ class Credentials
       @role_ids << r.id
     end
 
-    @permissions = Permission.find_for_role(@role_ids)
+    permissions = Permission.find_for_role(@role_ids)
     @permission_ids = Array.new
-    for p in @permissions do
+    for p in permissions do
       @permission_ids << p.id
     end
 
@@ -64,4 +64,3 @@ class Credentials
   end
 
 end
-

@@ -1,5 +1,6 @@
 <% counter = 0
-for item in items do -%>
+for item_id in items do 
+  item = @menu.get_item(item_id) -%>
 <tr class="depth<%= depth %>">
 <td> <div class="menu_title"><%= link_to item.label, :action =>  'edit', 
      :id => item.id%><br/>[<%= item.name %>]</div></td>
