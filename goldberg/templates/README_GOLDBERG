@@ -3,11 +3,12 @@ WELCOME TO GOLDBERG!
 All the files for your site should now be in place.  The following
 steps are required to complete your setup:
 
-1. Set up your database using the following commands (replace
-   {hostname}, {username} and {dbname} with appropriate values): 
-
-    $ mysql -h {hostname} -u {username} -p -e "create database {dbname};"
-    $ mysql -h {hostname} -u {username} -p {dbname} < db/goldberg_db_mysql.sql
+1. Set up your database.  This distribution includes starter databases
+   with minimal configurations for either MySQL 5 or PostgreSQL.
+   These database files have already been unpacked to the /db
+   directory here.  The Goldberg website <http://goldberg.240gl.org>
+   provides more information on setting these up on specific
+   platforms.
 
 2. Edit your config/databases.yml in accordance with the above.
 
@@ -21,4 +22,4 @@ Rails documentation.
 Good luck using Goldberg!
 
 
-David Nelson <urbanus@240gl.org>
+Dave Nelson, urbanus at 240gl dot org

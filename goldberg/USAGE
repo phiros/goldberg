@@ -29,7 +29,7 @@ REQUIREMENTS
 Goldberg depends on some other free software:
 
 * MySQL version 5 or above (sorry, but Goldberg will *never* work on
-  MySQL 4).  In future Goldberg will support other databases.
+  MySQL 4), or PostgreSQL.
 
 * Bluecloth: the Ruby implementation of Markdown, available from:
     http://www.deveiate.org/projects/BlueCloth
@@ -41,7 +41,7 @@ Goldberg depends on some other free software:
 If you can't install Bluecloth and Redcloth on your system (e.g. if
 you are using shared hosting) download them and copy the
 "bluecloth.rb" and "redcloth.rb" files to the lib/ folder in your
-Goldberg site.
+Rails site.
 
 
 LICENSING
@@ -53,10 +53,10 @@ comes with no warranty whatsoever.
 CONTACT DETAILS
 
 Project homepage:
-  http://www.goldberg.240gl.org
+  http://goldberg.240gl.org
 
 RubyForge project repository:
   http://rubyforge.org/projects/goldberg
 
 Project Admin:
-  David Nelson <urbanus@240gl.org>
+  Dave Nelson, urbanus at 240gl dot org

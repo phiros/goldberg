@@ -1,10 +1,23 @@
 WELCOME TO GOLDBERG
 
 Goldberg is a Rails generator.  The "goldberg" directory here needs to
-be installed in a place where Rails looks for generators, such as
-~/.rails/generators or lib/generators in your application directory.
+be installed in a place where Rails looks for generators.  On
+UNIX/Linux systems you can put it here:
 
-For more introductory details read goldberg/USAGE, or visit the
-Goldberg web site:
+    ~/.rails/generators 
 
-    http://goldberg.rubyforge.org
+Windows users can put it here:
+
+    %USERPROFILE%\.rails\generators
+
+(i.e. C:\Documents and Settings\<userid>\.rails\generators)
+
+
+The Goldberg website contains more information on installing and using
+Goldberg:
+
+    http://goldberg.240gl.org
+
+Or visit Goldberg's Rubyforge project page:
+
+    http://rubyforge.org/projects/goldberg
