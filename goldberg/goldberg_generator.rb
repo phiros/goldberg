@@ -240,10 +240,11 @@ class GoldbergGenerator < Rails::Generator::Base
       m.file "public/images/up.png",         "public/images/up.png"
 
       # db/
-      m.file "db/goldberg_backup_mysql.sh", "db/goldberg_backup_mysql.sh"
-      m.file "db/goldberg_restore_mysql.sh","db/goldberg_restore_mysql.sh"
-      m.file "db/goldberg_db_mysql.sql",    "db/goldberg_db_mysql.sql"
-
+      m.file "db/goldberg_backup_mysql.sh",  "db/goldberg_backup_mysql.sh"
+      m.file "db/goldberg_restore_mysql.sh", "db/goldberg_restore_mysql.sh"
+      m.file "db/goldberg_db_mysql.sql",     "db/goldberg_db_mysql.sql"
+      m.file "db/goldberg_db_postgresql.sql","db/goldberg_db_postgresql.sql" 
+ 
       # Show message
       m.file "README_GOLDBERG", "README_GOLDBERG"
       m.readme "README_GOLDBERG"
