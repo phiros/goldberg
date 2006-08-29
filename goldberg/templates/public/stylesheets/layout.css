@@ -35,7 +35,7 @@ margin:0 0 15px;
 
 /*** Main container ***/
 
-#container {
+div.container {
 background:#f0f0f0 url(/images/bodybg.jpg) repeat-x;
 color:#303030;
 margin:0;
@@ -47,59 +47,59 @@ width:100%;
 
 /*** Header section ***/
 
-#header {
+div.header {
 color:#ffffff;
 height:85px;
 margin:0 20px 10px;
 text-align:left;
 }
 
-#header img.logo_right {  
+div.header img.logo_right {  
 float: right ;
 height:85px ;
 margin:0 0 0 0px ;
 border:0 0 0 0px ;
 }
 
-#header p {
+div.header p {
 line-height:1.5em;
 margin:0 0 0px;
 }
 
-#header p.right_text { 
+div.header p.right_text { 
 text-align: right ;
 }
 
-#header h1,#header h2 {
+div.header h1, div.header h2 {
 font-weight:400;
 letter-spacing:-2px;
 margin:0;
 padding:0;
 }
 
-#header h1 {
+div.header h1 {
 font-size:2.4em;
 padding-top:15px;
 }
 
-#header h2 {
+div.header h2 {
 font-size:1.6em;
 }
 
 /*** Horizontal menu ***/
 
-#mainmenu {
+div.mainmenu {
 float:left;
 margin-bottom:25px;
 }
 
-#mainmenu ul {
+div.mainmenu ul {
 font-size:16px;
 margin:0;
 padding:0;
 }
 
-#mainmenu li {
+div.mainmenu li {
 float:left;
 /*height:20px;*/
 list-style:none;
@@ -107,7 +107,7 @@ margin:0;
 padding:0;
 }
 
-#mainmenu a {
+div.mainmenu a {
 border-right:1px solid #b0b0b0;
 color:#606060;
 display:block;
@@ -116,13 +116,13 @@ padding:5px 7px 5px;
 /* text-transform:uppercase; */
 }
 
-#mainmenu a:hover {
+div.mainmenu a:hover {
 background:#f0f0f0 url(/images/menuhover.jpg) top left repeat-x;
 color:#505050;
 text-decoration:none;
 }
 
-#mainmenu li.selected a {
+div.mainmenu li.selected a {
 background:#f0f0f0 url(/images/menuhover.jpg) top left repeat-x;
 color:#505050;
 text-decoration:none;
@@ -130,7 +130,7 @@ text-decoration:none;
 
 /*** Content wrap ***/
 
-#wrap {
+div.wrap {
 clear:both;
 font-size:0.9em;
 padding:0;
@@ -138,23 +138,23 @@ padding:0;
 
 /*** Sidebars ***/
 
-#leftside,#rightside {
+div.leftside,div.rightside {
 margin:0;
 padding:0 10px 10px;
 width:165px;
 }
 
-#leftside {
+div.leftside {
 float:left;
 margin-right:10px;
 }
 
-#rightside {
+div.rightside {
 float:right;
 margin-left:10px;
 }
 
-#leftside h1,#rightside h1 {
+div.leftside h1, div.rightside h1 {
 color:#505050;
 font-size:1.6em;
 font-weight:bold;
@@ -162,12 +162,12 @@ letter-spacing:-1px;
 margin:0 0 12px;
 }
 
-#leftside h2,#rightside h2 {
+div.leftside h2, div.rightside h2 {
 font-size:1.1em;
 margin:0 0 20px;
 }
 
-#leftside p,#rightside p {
+div.leftside p, div.rightside p {
 font-size:0.9em;
 line-height:1.4em;
 margin:0 0 16px 10px;
@@ -209,7 +209,6 @@ padding:4px 2px 2px 8px;
 width:134px;
 }
 
-/*ul.sidemenu a:hover, ul.sidemenu li.selected a {*/
 ul.sidemenu a:hover, ul.sidemenu > li.selected > a {
 background:#f8f9fa;
 border:1px solid #909090;
@@ -220,17 +219,16 @@ text-decoration:none;
 
 /*** Content ***/
 
-#content,#contentalt {
+.content {
 background-color:#fafcff;
 border:1px solid #909090;
 color:#2a2a2a;
 padding:15px 20px 5px;
 }
 
-#content {margin:0 200px;}
-#contentalt {margin:0 200px 0 20px;}
+.content {margin:0 200px;}
 
-#content h1,#content h2,#contentalt h1,#contentalt h2 {
+div.content h1, div.content h2 {
 background-color:inherit;
 color:#606060;
 font-size:1.8em;
@@ -240,23 +238,18 @@ margin:0 0 15px;
 padding:0;
 }
 
-#content h2,#contentalt h2 {
+div.content h2 {
 font-size:1.6em;
 margin-bottom:10px;
 }
 
-#content img,#contentalt img {
+div.content img {
 border:1px solid #b0b0b0;
-/*
-float:left;
-margin:5px 15px 6px;
-padding:5px;
-*/
 }
 
 /*** Footer ***/
 
-#footer {
+div.footer {
 background:#8b8b8b url(/images/footerbg.jpg) top left repeat-x;
 clear:both;
 color:#d0d0d0;
@@ -268,7 +261,7 @@ text-align:center;
 width:100%;
 }
 
-#footer a {
+div.footer a {
 color:#d0d0d0;
 font-weight:bold;
 }
@@ -292,7 +285,6 @@ margin:0 4px 0 0;
 width:100px;
 }
 
-/*.searchbutton {*/
 input[type="submit"] {
 background:#f0f0f0;
 border:1px solid #b0b0b0;

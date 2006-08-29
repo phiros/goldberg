@@ -16,15 +16,11 @@ class ApplicationController < ActionController::Base
       make_public = false  # Going to check if we need to
 
       # If there's already a session, check that it's still up to date
-      if session[:credentials]
-#        role = Role.find_by_sql(["select updated_at from roles where id = ?",
-#                                 session[:credentials].role.id])
+      if session[:credentials] and session[:credentials].role_id
         role = Role.find(session[:credentials].role_id)
         if role
           # Check if the role has been updated
-#          if role[0].updated_at > session[:credentials].role.updated_at
           if role.updated_at > session[:credentials].updated_at
-#            role = Role.find(session[:credentials].role.id)
             menu_selection = session[:menu].selected  # remember this
             session[:credentials] = role.cache[:credentials]
             session[:menu] = role.cache[:menu]
@@ -44,8 +40,9 @@ class ApplicationController < ActionController::Base
 
       if make_public
         public_role = Role.find(@settings.public_role_id)
-        if not public_role.cache or not public_role.cache[:credentials] or not 
-            public_role.cache[:menu]
+        if not public_role or not public_role.cache or 
+            not public_role.cache[:credentials] or 
+            not public_role.cache[:menu]
           Role.rebuild_cache
           public_role = Role.find(@settings.public_role_id)
         end
@@ -70,59 +67,13 @@ class ApplicationController < ActionController::Base
       
       # PERMISSIONS
       # If this is a page request, check the page permissions
-      authorised = false  # default
-      check_controller = false
-      if params[:controller] == 'content_pages' and
-          params[:action] == 'view'
-        if session[:credentials].pages.has_key?(params[:page_name].to_s)
-          if session[:credentials].pages[params[:page_name].to_s] == true
-            logger.info "Page: authorised"
-            authorised = true
-          else
-            logger.info "Page: NOT authorised"
-          end
-        else
-          logger.warn "(Unknown page? #{params[:page_name].to_s})"
-        end
-      else
-        # Check if there's a specific permission for an action
-        if session[:credentials].actions.has_key?(params[:controller])
-          if session[:credentials].actions[params[:controller]].has_key?(params[:action])
-            if session[:credentials].actions[params[:controller]][params[:action]]
-              logger.info "Action: authorised"
-              authorised = true
-            else
-              logger.info "Action: NOT authorised"
-            end
-          else
-            check_controller = true
-          end
-        else
-          check_controller = true
-        end
-        
-        # Check if there's a general permission for a controller
-        if check_controller
-          if session[:credentials].controllers.has_key?(params[:controller])
-            if session[:credentials].controllers[params[:controller]]
-              logger.info "Controller: authorised"
-              authorised = true
-            else
-              logger.info "Controller: NOT authorised"
-            end
-          else
-          end
-        end
-      end  # Check permissions
-
-      logger.info "Authorised? #{authorised.to_s}"
-      if not authorised
+      if not AuthController.authorised?(session, params)
         redirect_to @settings.permission_denied_page.url
       end
-    end  # if settings
+    end  # if @settings
     
     session[:last_time] = Time.now
     
-  end
+  end  # def authorise
 
-end
+end  # class ApplicationController
