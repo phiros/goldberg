@@ -216,7 +216,6 @@ class GoldbergGenerator < Rails::Generator::Base
       "components/page/menubar/_menubar.rhtml"
 
       # CONFIG
-      m.file "config/environment.rb", "config/environment.rb"
       m.file "config/routes.rb",      "config/routes.rb"
 
       # PUBLIC

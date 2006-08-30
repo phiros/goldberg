@@ -1,8 +1,3 @@
--- MySQL dump 10.10
---
--- Host: localhost    Database: goldberg
--- ------------------------------------------------------
--- Server version	5.0.22-Debian_0ubuntu6.06-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,11 +9,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `content_pages`
---
-
 DROP TABLE IF EXISTS `content_pages`;
 CREATE TABLE `content_pages` (
   `id` int(11) NOT NULL auto_increment,
@@ -36,21 +26,18 @@ CREATE TABLE `content_pages` (
   CONSTRAINT `fk_content_page_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `content_pages`
---
-
 
 /*!40000 ALTER TABLE `content_pages` DISABLE KEYS */;
 LOCK TABLES `content_pages` WRITE;
-INSERT INTO `content_pages` VALUES (1,'Home Page','home',2,'h1. Welcome to Goldberg!\r\n\r\nLooks like you have succeeded in getting Goldberg up and running.  Now you will probably want to customise your site.\r\n\r\n*Very important:* The default login for the administrator is \"admin\", password \"admin\".  You must change that before you make your site public!\r\n\r\nh2. Administering the Site\r\n\r\nAt the login prompt, enter an administrator username and password.  The top menu should change: a new item called \"Administration\" will appear.  Go there for further details.\r\n\r\n\r\n',3,'2006-06-11 14:31:56','2006-08-16 10:58:41'),(2,'Session Expired','expired',NULL,'Your session has expired.',3,'2006-06-11 14:33:14','2006-06-11 14:33:14'),(3,'Not Found!','notfound',2,'h1. Not Found\r\n\r\nThe page you requested was not found!',3,'2006-06-11 14:33:49','2006-08-04 10:42:16'),(4,'Permission Denied!','denied',NULL,'Sorry, but you don\'t have permission to view that page.\r\n\r\nPlease contact your system administrator.',3,'2006-06-11 14:34:30','2006-06-11 14:34:30'),(6,'Contact Us','contact_us',2,'h1. Contact Us\r\n\r\nVisit the Goldberg Project Homepage at [http://goldberg.rubyforge.org](http://goldberg.rubyforge.org) for further information on Goldberg.  Visit the Goldberg RubyForge Project Info Page at [http://rubyforge.org/projects/goldberg](http://rubyforge.org/projects/goldberg/) to access the project\'s files and development information.\r\n\r\n\r\nh2. Credits\r\n\r\nThe default Goldberg site layout is based on Andreas Viklund\'s excellent template \"Andreas09\".  Andreas is widely known as the designer of some of the finest open source web templates.  His website is at [http://andreasviklund.com](http://andreasviklund.com).\r\n\r\n',3,'2006-06-12 00:13:47','2006-08-20 09:54:56'),(8,'Site Administration','site_admin',2,'h1. Goldberg Setup\r\n\r\nThis is where you will find all the Goldberg-specific administration and configuration features.  In here you can:\r\n\r\n* Set up Users.\r\n\r\n* Manage Roles and their Permissions.\r\n\r\n* Set up any Controllers and their Actions for your application.\r\n\r\n* Edit the Content Pages of the site.\r\n\r\n* Adjust Goldberg\'s system settings.\r\n\r\n\r\nh2. Users\r\n\r\nYou can set up Users with a username, password and a Role.\r\n\r\n\r\nh2. Roles and Permissions\r\n\r\nA User\'s Permissions affect what Actions they can perform and what Pages they can see.  And because each Menu Item is based either on a Page or an Action, the Permissions determine what Menu Items the User can and cannot see.\r\n\r\nA Role is a set of Permissions.  Roles are assigned to Users.  Roles are hierarchical: a Role can have a parent Role; and if so it will inherit the Permissions of the parent Role, and all its parents.\r\n\r\n\r\nh2. Controllers and Actions\r\n\r\nTo execute any Action, a user must have the appropriate Permission.  Therefore all Controllers and Actions you set up for your Rails application need to be entered here, otherwise no user will be able to execute them.\r\n\r\nYou start by setting up the Controller and assigning it a Permission.  The Permission will be used as the default for any Actions invoked for that Controller.\r\n\r\nYou have the option of setting up specific Actions for the Controllers.  You would want to do that if the Action were to appear as a Menu Item, or if it were to have a different level of security to the default for the Controller.\r\n\r\n\r\nh2. Content Pages\r\n\r\nGoldberg has a very simple CMS built in.  You can create pages to be displayed on the site, possibly in menu items.\r\n\r\n\r\nh2. Menu Editor\r\n\r\nOnce you have set up your Controller Actions and Content Pages, you can put them into the site\'s menu using the Menu Editor.\r\n\r\nIn the Menu Editor you can add and remove Menu Items and move them around.  The security of a Menu Item (whether the user can see it or not) depends on the Permission of the Action or Page attached to that Menu Item.\r\n\r\nh2. System Settings\r\n\r\nGo here to view and edit the settings that determine how Goldberg operates.\r\n',1,'2006-06-21 11:32:35','2006-08-18 13:05:56'),(9,'Administration','admin',2,'h1. Site Administration\r\n\r\nThis is where the administrator can set up the site.\r\n\r\nThere is one menu item here by default -- [Setup](/menu/setup).  That contains all the Goldberg configuration options.\r\n\r\nYou can add more menu items here to administer your application if you want, by going to [Setup, Menu Editor](/menu/setup/menus).  \r\n',1,'2006-06-26 06:47:09','2006-08-18 12:51:34');
+INSERT INTO `content_pages` VALUES (1,'Home Page','home',2,'h1. Welcome to Goldberg!\r\n\r\nLooks like you have succeeded in getting Goldberg up and running.  Now you will probably want to customise your site.\r\n\r\n*Very important:* The default login for the administrator is \"admin\", password \"admin\".  You must change that before you make your site public!\r\n\r\nh2. Administering the Site\r\n\r\nAt the login prompt, enter an administrator username and password.  The top menu should change: a new item called \"Administration\" will appear.  Go there for further details.\r\n\r\n\r\n',3,'2006-06-11 14:31:56','2006-08-16 10:58:41');
+INSERT INTO `content_pages` VALUES (2,'Session Expired','expired',NULL,'Your session has expired.',3,'2006-06-11 14:33:14','2006-06-11 14:33:14');
+INSERT INTO `content_pages` VALUES (3,'Not Found!','notfound',2,'h1. Not Found\r\n\r\nThe page you requested was not found!',3,'2006-06-11 14:33:49','2006-08-04 10:42:16');
+INSERT INTO `content_pages` VALUES (4,'Permission Denied!','denied',NULL,'Sorry, but you don\'t have permission to view that page.\r\n\r\nPlease contact your system administrator.',3,'2006-06-11 14:34:30','2006-06-11 14:34:30');
+INSERT INTO `content_pages` VALUES (6,'Contact Us','contact_us',2,'h1. Contact Us\r\n\r\nVisit the Goldberg Project Homepage at [http://goldberg.rubyforge.org](http://goldberg.rubyforge.org) for further information on Goldberg.  Visit the Goldberg RubyForge Project Info Page at [http://rubyforge.org/projects/goldberg](http://rubyforge.org/projects/goldberg/) to access the project\'s files and development information.\r\n\r\n\r\nh2. Credits\r\n\r\nThe default Goldberg site layout is based on Andreas Viklund\'s excellent template \"Andreas09\".  Andreas is widely known as the designer of some of the finest open source web templates.  His website is at [http://andreasviklund.com](http://andreasviklund.com).\r\n\r\n',3,'2006-06-12 00:13:47','2006-08-20 09:54:56');
+INSERT INTO `content_pages` VALUES (8,'Site Administration','site_admin',2,'h1. Goldberg Setup\r\n\r\nThis is where you will find all the Goldberg-specific administration and configuration features.  In here you can:\r\n\r\n* Set up Users.\r\n\r\n* Manage Roles and their Permissions.\r\n\r\n* Set up any Controllers and their Actions for your application.\r\n\r\n* Edit the Content Pages of the site.\r\n\r\n* Adjust Goldberg\'s system settings.\r\n\r\n\r\nh2. Users\r\n\r\nYou can set up Users with a username, password and a Role.\r\n\r\n\r\nh2. Roles and Permissions\r\n\r\nA User\'s Permissions affect what Actions they can perform and what Pages they can see.  And because each Menu Item is based either on a Page or an Action, the Permissions determine what Menu Items the User can and cannot see.\r\n\r\nA Role is a set of Permissions.  Roles are assigned to Users.  Roles are hierarchical: a Role can have a parent Role; and if so it will inherit the Permissions of the parent Role, and all its parents.\r\n\r\n\r\nh2. Controllers and Actions\r\n\r\nTo execute any Action, a user must have the appropriate Permission.  Therefore all Controllers and Actions you set up for your Rails application need to be entered here, otherwise no user will be able to execute them.\r\n\r\nYou start by setting up the Controller and assigning it a Permission.  The Permission will be used as the default for any Actions invoked for that Controller.\r\n\r\nYou have the option of setting up specific Actions for the Controllers.  You would want to do that if the Action were to appear as a Menu Item, or if it were to have a different level of security to the default for the Controller.\r\n\r\n\r\nh2. Content Pages\r\n\r\nGoldberg has a very simple CMS built in.  You can create pages to be displayed on the site, possibly in menu items.\r\n\r\n\r\nh2. Menu Editor\r\n\r\nOnce you have set up your Controller Actions and Content Pages, you can put them into the site\'s menu using the Menu Editor.\r\n\r\nIn the Menu Editor you can add and remove Menu Items and move them around.  The security of a Menu Item (whether the user can see it or not) depends on the Permission of the Action or Page attached to that Menu Item.\r\n\r\nh2. System Settings\r\n\r\nGo here to view and edit the settings that determine how Goldberg operates.\r\n',1,'2006-06-21 11:32:35','2006-08-18 13:05:56');
+INSERT INTO `content_pages` VALUES (9,'Administration','admin',2,'h1. Site Administration\r\n\r\nThis is where the administrator can set up the site.\r\n\r\nThere is one menu item here by default -- [Setup](/menu/setup).  That contains all the Goldberg configuration options.\r\n\r\nYou can add more menu items here to administer your application if you want, by going to [Setup, Menu Editor](/menu/setup/menus).  \r\n',1,'2006-06-26 06:47:09','2006-08-18 12:51:34');
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `content_pages` ENABLE KEYS */;
-
---
--- Table structure for table `controller_actions`
---
-
 DROP TABLE IF EXISTS `controller_actions`;
 CREATE TABLE `controller_actions` (
   `id` int(11) NOT NULL auto_increment,
@@ -64,21 +51,26 @@ CREATE TABLE `controller_actions` (
   CONSTRAINT `fk_controller_action_site_controller_id` FOREIGN KEY (`site_controller_id`) REFERENCES `site_controllers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `controller_actions`
---
-
 
 /*!40000 ALTER TABLE `controller_actions` DISABLE KEYS */;
 LOCK TABLES `controller_actions` WRITE;
-INSERT INTO `controller_actions` VALUES (1,1,'view_default',3),(2,1,'view',3),(3,7,'list',NULL),(4,6,'list',NULL),(5,3,'login',4),(6,3,'logout',4),(7,5,'link',4),(8,1,'list',NULL),(9,8,'list',NULL),(10,2,'list',NULL),(11,5,'list',NULL),(12,9,'list',NULL),(13,3,'forgotten',4),(14,3,'login_failed',4),(15,10,'list',NULL);
+INSERT INTO `controller_actions` VALUES (1,1,'view_default',3);
+INSERT INTO `controller_actions` VALUES (2,1,'view',3);
+INSERT INTO `controller_actions` VALUES (3,7,'list',NULL);
+INSERT INTO `controller_actions` VALUES (4,6,'list',NULL);
+INSERT INTO `controller_actions` VALUES (5,3,'login',4);
+INSERT INTO `controller_actions` VALUES (6,3,'logout',4);
+INSERT INTO `controller_actions` VALUES (7,5,'link',4);
+INSERT INTO `controller_actions` VALUES (8,1,'list',NULL);
+INSERT INTO `controller_actions` VALUES (9,8,'list',NULL);
+INSERT INTO `controller_actions` VALUES (10,2,'list',NULL);
+INSERT INTO `controller_actions` VALUES (11,5,'list',NULL);
+INSERT INTO `controller_actions` VALUES (12,9,'list',NULL);
+INSERT INTO `controller_actions` VALUES (13,3,'forgotten',4);
+INSERT INTO `controller_actions` VALUES (14,3,'login_failed',4);
+INSERT INTO `controller_actions` VALUES (15,10,'list',NULL);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `controller_actions` ENABLE KEYS */;
-
---
--- Table structure for table `markup_styles`
---
-
 DROP TABLE IF EXISTS `markup_styles`;
 CREATE TABLE `markup_styles` (
   `id` int(11) NOT NULL auto_increment,
@@ -86,21 +78,13 @@ CREATE TABLE `markup_styles` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `markup_styles`
---
-
 
 /*!40000 ALTER TABLE `markup_styles` DISABLE KEYS */;
 LOCK TABLES `markup_styles` WRITE;
-INSERT INTO `markup_styles` VALUES (1,'Textile'),(2,'Markdown');
+INSERT INTO `markup_styles` VALUES (1,'Textile');
+INSERT INTO `markup_styles` VALUES (2,'Markdown');
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `markup_styles` ENABLE KEYS */;
-
---
--- Table structure for table `menu_items`
---
-
 DROP TABLE IF EXISTS `menu_items`;
 CREATE TABLE `menu_items` (
   `id` int(11) NOT NULL auto_increment,
@@ -119,21 +103,22 @@ CREATE TABLE `menu_items` (
   CONSTRAINT `fk_menu_item_parent_id` FOREIGN KEY (`parent_id`) REFERENCES `menu_items` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `menu_items`
---
-
 
 /*!40000 ALTER TABLE `menu_items` DISABLE KEYS */;
 LOCK TABLES `menu_items` WRITE;
-INSERT INTO `menu_items` VALUES (1,NULL,'home','Home',1,NULL,1),(2,NULL,'contact_us','Contact Us',3,NULL,6),(3,NULL,'admin','Administration',2,NULL,9),(5,9,'setup/permissions','Permissions',3,4,NULL),(6,9,'setup/roles','Roles',2,3,NULL),(7,9,'setup/pages','Content Pages',5,8,NULL),(8,9,'setup/controllers','Controllers / Actions',4,9,NULL),(9,3,'setup','Setup',1,NULL,8),(11,9,'setup/menus','Menu Editor',6,11,NULL),(12,9,'setup/system_settings','System Settings',7,12,NULL),(13,9,'setup/users','Users',1,15,NULL);
+INSERT INTO `menu_items` VALUES (1,NULL,'home','Home',1,NULL,1);
+INSERT INTO `menu_items` VALUES (2,NULL,'contact_us','Contact Us',3,NULL,6);
+INSERT INTO `menu_items` VALUES (3,NULL,'admin','Administration',2,NULL,9);
+INSERT INTO `menu_items` VALUES (5,9,'setup/permissions','Permissions',3,4,NULL);
+INSERT INTO `menu_items` VALUES (6,9,'setup/roles','Roles',2,3,NULL);
+INSERT INTO `menu_items` VALUES (7,9,'setup/pages','Content Pages',5,8,NULL);
+INSERT INTO `menu_items` VALUES (8,9,'setup/controllers','Controllers / Actions',4,9,NULL);
+INSERT INTO `menu_items` VALUES (9,3,'setup','Setup',1,NULL,8);
+INSERT INTO `menu_items` VALUES (11,9,'setup/menus','Menu Editor',6,11,NULL);
+INSERT INTO `menu_items` VALUES (12,9,'setup/system_settings','System Settings',7,12,NULL);
+INSERT INTO `menu_items` VALUES (13,9,'setup/users','Users',1,15,NULL);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `menu_items` ENABLE KEYS */;
-
---
--- Table structure for table `permissions`
---
-
 DROP TABLE IF EXISTS `permissions`;
 CREATE TABLE `permissions` (
   `id` int(11) NOT NULL auto_increment,
@@ -141,21 +126,16 @@ CREATE TABLE `permissions` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `permissions`
---
-
 
 /*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
 LOCK TABLES `permissions` WRITE;
-INSERT INTO `permissions` VALUES (1,'Administer site'),(2,'Public pages - edit'),(3,'Public pages - view'),(4,'Public actions - execute'),(5,'Members only page -- view');
+INSERT INTO `permissions` VALUES (1,'Administer site');
+INSERT INTO `permissions` VALUES (2,'Public pages - edit');
+INSERT INTO `permissions` VALUES (3,'Public pages - view');
+INSERT INTO `permissions` VALUES (4,'Public actions - execute');
+INSERT INTO `permissions` VALUES (5,'Members only page -- view');
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
-
---
--- Table structure for table `roles`
---
-
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles` (
   `id` int(11) NOT NULL auto_increment,
@@ -173,21 +153,14 @@ CREATE TABLE `roles` (
   CONSTRAINT `fk_role_parent_id` FOREIGN KEY (`parent_id`) REFERENCES `roles` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `roles`
---
-
 
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
 LOCK TABLES `roles` WRITE;
-INSERT INTO `roles` VALUES (1,'Public',NULL,'Members of the public who are not logged in.',NULL,'--- \n:menu: &id004 !ruby/object:Menu \n  by_id: \n    1: &id002 !ruby/object:Menu::Node \n      content_page_id: 1\n      controller_action_id: \n      id: 1\n      label: Home\n      name: home\n      parent: &id001 !ruby/object:Menu::Node \n        children: \n        - *id002\n        - &id003 !ruby/object:Menu::Node \n          content_page_id: 6\n          controller_action_id: \n          id: 2\n          label: Contact Us\n          name: contact_us\n          parent: *id001\n          parent_id: \n          site_controller_id: \n          url: /contact_us\n        parent: \n      parent_id: \n      site_controller_id: \n      url: /home\n    2: *id003\n  by_name: \n    contact_us: *id003\n    home: *id002\n  root: *id001\n  selected: \n    1: *id002\n  vector: \n  - *id001\n  - *id002\n:credentials: &id006 !ruby/object:Credentials \n  actions: \n    menu_items: \n      list: false\n      link: true\n    roles: \n      list: false\n    auth: \n      logout: true\n      login_failed: true\n      forgotten: true\n      login: true\n    site_controllers: \n      list: false\n    users: \n      list: false\n    system_settings: \n      list: false\n    controller_actions: \n      list: false\n    permissions: \n      list: false\n    content_pages: \n      list: false\n      view_default: true\n      view: true\n  controllers: \n    roles: false\n    menu_items: false\n    auth: false\n    site_controllers: false\n    markup_styles: false\n    roles_permissions: false\n    users: false\n    system_settings: false\n    permissions: false\n    controller_actions: false\n    content_pages: false\n  pages: \n    admin: false\n    notfound: true\n    site_admin: false\n    contact_us: true\n    denied: true\n    expired: true\n    home: true\n  permission_ids: \n  - 4\n  - 3\n  permissions: \n  - !ruby/object:Permission \n    attributes: \n      name: Public actions - execute\n      id: \"4\"\n  - !ruby/object:Permission \n    attributes: \n      name: Public pages - view\n      id: \"3\"\n  role: &id005 !ruby/object:Role \n    attributes: \n      name: Public\n      updated_at: 2006-08-20 19:54:56.668202 +10:00\n      cache: \n        :menu: *id004\n        :credentials: *id006\n      default_page_id: \n      id: \"1\"\n      description: Members of the public who are not logged in.\n      parent_id: \n      created_at: 2006-06-23 21:03:49\n    errors: !ruby/object:ActiveRecord::Errors \n      base: *id005\n      errors: {}\n\n  role_ids: \n  - 1\n','2006-06-23 11:03:49','2006-08-20 09:54:56'),(2,'Member',1,'',NULL,'--- \n:menu: &id004 !ruby/object:Menu \n  by_id: \n    1: &id002 !ruby/object:Menu::Node \n      content_page_id: 1\n      controller_action_id: \n      id: 1\n      label: Home\n      name: home\n      parent: &id001 !ruby/object:Menu::Node \n        children: \n        - *id002\n        - &id003 !ruby/object:Menu::Node \n          content_page_id: 6\n          controller_action_id: \n          id: 2\n          label: Contact Us\n          name: contact_us\n          parent: *id001\n          parent_id: \n          site_controller_id: \n          url: /contact_us\n        parent: \n      parent_id: \n      site_controller_id: \n      url: /home\n    2: *id003\n  by_name: \n    contact_us: *id003\n    home: *id002\n  root: *id001\n  selected: \n    1: *id002\n  vector: \n  - *id001\n  - *id002\n:credentials: &id006 !ruby/object:Credentials \n  actions: \n    menu_items: \n      list: false\n      link: true\n    roles: \n      list: false\n    auth: \n      logout: true\n      login_failed: true\n      forgotten: true\n      login: true\n    site_controllers: \n      list: false\n    users: \n      list: false\n    system_settings: \n      list: false\n    controller_actions: \n      list: false\n    permissions: \n      list: false\n    content_pages: \n      list: false\n      view_default: true\n      view: true\n  controllers: \n    roles: false\n    menu_items: false\n    auth: false\n    site_controllers: false\n    markup_styles: false\n    roles_permissions: false\n    users: false\n    system_settings: false\n    permissions: false\n    controller_actions: false\n    content_pages: false\n  pages: \n    admin: false\n    notfound: true\n    site_admin: false\n    contact_us: true\n    denied: true\n    expired: true\n    home: true\n  permission_ids: \n  - 5\n  - 4\n  - 3\n  permissions: \n  - !ruby/object:Permission \n    attributes: \n      name: Members only page -- view\n      id: \"5\"\n  - !ruby/object:Permission \n    attributes: \n      name: Public actions - execute\n      id: \"4\"\n  - !ruby/object:Permission \n    attributes: \n      name: Public pages - view\n      id: \"3\"\n  role: &id005 !ruby/object:Role \n    attributes: \n      name: Member\n      updated_at: 2006-08-20 19:54:56.780083 +10:00\n      cache: \n        :menu: *id004\n        :credentials: *id006\n      default_page_id: \n      id: \"2\"\n      description: \"\"\n      parent_id: \"1\"\n      created_at: 2006-06-23 21:03:50\n    errors: !ruby/object:ActiveRecord::Errors \n      base: *id005\n      errors: {}\n\n  role_ids: \n  - 2\n  - 1\n','2006-06-23 11:03:50','2006-08-20 09:54:56'),(3,'Administrator',2,'',8,'--- \n:menu: &id013 !ruby/object:Menu \n  by_id: \n    5: &id004 !ruby/object:Menu::Node \n      content_page_id: \n      controller_action_id: 4\n      id: 5\n      label: Permissions\n      name: setup/permissions\n      parent: &id001 !ruby/object:Menu::Node \n        children: \n        - &id011 !ruby/object:Menu::Node \n          content_page_id: \n          controller_action_id: 15\n          id: 13\n          label: Users\n          name: setup/users\n          parent: *id001\n          parent_id: 9\n          site_controller_id: 10\n          url: /users/list\n        - &id006 !ruby/object:Menu::Node \n          content_page_id: \n          controller_action_id: 3\n          id: 6\n          label: Roles\n          name: setup/roles\n          parent: *id001\n          parent_id: 9\n          site_controller_id: 7\n          url: /roles/list\n        - *id004\n        - &id012 !ruby/object:Menu::Node \n          content_page_id: \n          controller_action_id: 9\n          id: 8\n          label: Controllers / Actions\n          name: setup/controllers\n          parent: *id001\n          parent_id: 9\n          site_controller_id: 8\n          url: /site_controllers/list\n        - &id009 !ruby/object:Menu::Node \n          content_page_id: \n          controller_action_id: 8\n          id: 7\n          label: Content Pages\n          name: setup/pages\n          parent: *id001\n          parent_id: 9\n          site_controller_id: 1\n          url: /content_pages/list\n        - &id005 !ruby/object:Menu::Node \n          content_page_id: \n          controller_action_id: 11\n          id: 11\n          label: Menu Editor\n          name: setup/menus\n          parent: *id001\n          parent_id: 9\n          site_controller_id: 5\n          url: /menu_items/list\n        - &id007 !ruby/object:Menu::Node \n          content_page_id: \n          controller_action_id: 12\n          id: 12\n          label: System Settings\n          name: setup/system_settings\n          parent: *id001\n          parent_id: 9\n          site_controller_id: 9\n          url: /system_settings/list\n        content_page_id: 8\n        controller_action_id: \n        id: 9\n        label: Setup\n        name: setup\n        parent: &id003 !ruby/object:Menu::Node \n          children: \n          - *id001\n          content_page_id: 9\n          controller_action_id: \n          id: 3\n          label: Administration\n          name: admin\n          parent: &id002 !ruby/object:Menu::Node \n            children: \n            - &id008 !ruby/object:Menu::Node \n              content_page_id: 1\n              controller_action_id: \n              id: 1\n              label: Home\n              name: home\n              parent: *id002\n              parent_id: \n              site_controller_id: \n              url: /home\n            - *id003\n            - &id010 !ruby/object:Menu::Node \n              content_page_id: 6\n              controller_action_id: \n              id: 2\n              label: Contact Us\n              name: contact_us\n              parent: *id002\n              parent_id: \n              site_controller_id: \n              url: /contact_us\n            parent: \n          parent_id: \n          site_controller_id: \n          url: /admin\n        parent_id: 3\n        site_controller_id: \n        url: /site_admin\n      parent_id: 9\n      site_controller_id: 6\n      url: /permissions/list\n    11: *id005\n    6: *id006\n    12: *id007\n    1: *id008\n    7: *id009\n    2: *id010\n    13: *id011\n    8: *id012\n    3: *id003\n    9: *id001\n  by_name: \n    setup/pages: *id009\n    setup/users: *id011\n    setup/system_settings: *id007\n    setup/menus: *id005\n    admin: *id003\n    setup/roles: *id006\n    contact_us: *id010\n    setup/permissions: *id004\n    setup: *id001\n    setup/controllers: *id012\n    home: *id008\n  root: *id002\n  selected: \n    1: *id008\n  vector: \n  - *id002\n  - *id008\n:credentials: &id015 !ruby/object:Credentials \n  actions: \n    menu_items: \n      list: true\n      link: true\n    roles: \n      list: true\n    auth: \n      logout: true\n      login_failed: true\n      forgotten: true\n      login: true\n    site_controllers: \n      list: true\n    users: \n      list: true\n    system_settings: \n      list: true\n    controller_actions: \n      list: true\n    permissions: \n      list: true\n    content_pages: \n      list: true\n      view_default: true\n      view: true\n  controllers: \n    roles: true\n    menu_items: true\n    auth: true\n    site_controllers: true\n    markup_styles: true\n    roles_permissions: true\n    users: true\n    system_settings: true\n    permissions: true\n    controller_actions: true\n    content_pages: true\n  pages: \n    admin: true\n    notfound: true\n    site_admin: true\n    contact_us: true\n    denied: true\n    expired: true\n    home: true\n  permission_ids: \n  - 1\n  - 5\n  - 4\n  - 2\n  - 3\n  permissions: \n  - !ruby/object:Permission \n    attributes: \n      name: Administer site\n      id: \"1\"\n  - !ruby/object:Permission \n    attributes: \n      name: Members only page -- view\n      id: \"5\"\n  - !ruby/object:Permission \n    attributes: \n      name: Public actions - execute\n      id: \"4\"\n  - !ruby/object:Permission \n    attributes: \n      name: Public pages - edit\n      id: \"2\"\n  - !ruby/object:Permission \n    attributes: \n      name: Public pages - view\n      id: \"3\"\n  role: &id014 !ruby/object:Role \n    attributes: \n      name: Administrator\n      updated_at: 2006-08-20 19:54:56.925416 +10:00\n      cache: \n        :menu: *id013\n        :credentials: *id015\n      default_page_id: \"8\"\n      id: \"3\"\n      description: \"\"\n      parent_id: \"2\"\n      created_at: 2006-06-23 21:03:48\n    errors: !ruby/object:ActiveRecord::Errors \n      base: *id014\n      errors: {}\n\n  role_ids: \n  - 3\n  - 2\n  - 1\n','2006-06-23 11:03:48','2006-08-20 09:54:56');
+INSERT INTO `roles` VALUES (1,'Public',NULL,'Members of the public who are not logged in.',NULL,NULL,'2006-06-23 11:03:49','2006-08-20 09:54:56');
+INSERT INTO `roles` VALUES (2,'Member',1,'',NULL,NULL,'2006-06-23 11:03:50','2006-08-20 09:54:56');
+INSERT INTO `roles` VALUES (3,'Administrator',2,'',8,NULL,'2006-06-23 11:03:48','2006-08-20 09:54:56');
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
-
---
--- Table structure for table `roles_permissions`
---
-
 DROP TABLE IF EXISTS `roles_permissions`;
 CREATE TABLE `roles_permissions` (
   `id` int(11) NOT NULL auto_increment,
@@ -200,21 +173,16 @@ CREATE TABLE `roles_permissions` (
   CONSTRAINT `fk_roles_permission_role_id` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `roles_permissions`
---
-
 
 /*!40000 ALTER TABLE `roles_permissions` DISABLE KEYS */;
 LOCK TABLES `roles_permissions` WRITE;
-INSERT INTO `roles_permissions` VALUES (4,3,1),(6,1,3),(7,3,2),(9,1,4),(10,2,5);
+INSERT INTO `roles_permissions` VALUES (4,3,1);
+INSERT INTO `roles_permissions` VALUES (6,1,3);
+INSERT INTO `roles_permissions` VALUES (7,3,2);
+INSERT INTO `roles_permissions` VALUES (9,1,4);
+INSERT INTO `roles_permissions` VALUES (10,2,5);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `roles_permissions` ENABLE KEYS */;
-
---
--- Table structure for table `sessions`
---
-
 DROP TABLE IF EXISTS `sessions`;
 CREATE TABLE `sessions` (
   `id` int(11) NOT NULL auto_increment,
@@ -225,21 +193,11 @@ CREATE TABLE `sessions` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `sessions`
---
-
 
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
 LOCK TABLES `sessions` WRITE;
-INSERT INTO `sessions` VALUES (17,'2cd90cf8b9e91933671220df3eb0ea0c','BAh7CToJbWVudW86CU1lbnUKOgtAYnlfaWR7B2kGbzoPTWVudTo6Tm9kZQ46\nCEBpZGkGOglAdXJsIgovaG9tZToYQHNpdGVfY29udHJvbGxlcl9pZDA6C0Bs\nYWJlbCIJSG9tZToKQG5hbWUiCWhvbWU6D0BwYXJlbnRfaWQwOhVAY29udGVu\ndF9wYWdlX2lkaQY6DEBwYXJlbnRvOwgHOg5AY2hpbGRyZW5bB0AIbzsIDjsJ\naQc7CiIQL2NvbnRhY3RfdXM7CzA7DCIPQ29udGFjdCBVczsNIg9jb250YWN0\nX3VzOw4wOw9pCzsQQAw6GkBjb250cm9sbGVyX2FjdGlvbl9pZDA7EDA7EjBp\nB0AOOgxAdmVjdG9yWwdADEAIOgpAcm9vdEAMOg5Ac2VsZWN0ZWR7BmkGQAg6\nDUBieV9uYW1lewciD2NvbnRhY3RfdXNADiIJaG9tZUAIOhBjcmVkZW50aWFs\nc286EENyZWRlbnRpYWxzDDoLQHBhZ2VzewwiDW5vdGZvdW5kVCIKYWRtaW5G\nIg9zaXRlX2FkbWluRiIPY29udGFjdF91c1QiCWhvbWVUIgxleHBpcmVkVCIL\nZGVuaWVkVDoRQHBlcm1pc3Npb25zWwdvOg9QZXJtaXNzaW9uBjoQQGF0dHJp\nYnV0ZXN7ByIJbmFtZSIdUHVibGljIGFjdGlvbnMgLSBleGVjdXRlIgdpZCIG\nNG87GwY7HHsHIgluYW1lIhhQdWJsaWMgcGFnZXMgLSB2aWV3IgdpZCIGMzoK\nQHJvbGVvOglSb2xlBzoMQGVycm9yc286GUFjdGl2ZVJlY29yZDo6RXJyb3Jz\nBzsfewA6CkBiYXNlQC07HHsNIgluYW1lIgtQdWJsaWMiD3VwZGF0ZWRfYXR1\nOglUaW1lDYmeGoAqMorbIhRkZWZhdWx0X3BhZ2VfaWQwIgpjYWNoZXsHOwBA\nBjsXQBciB2lkIgYxIhBkZXNjcmlwdGlvbiIxTWVtYmVycyBvZiB0aGUgcHVi\nbGljIHdobyBhcmUgbm90IGxvZ2dlZCBpbi4iDnBhcmVudF9pZDAiD2NyZWF0\nZWRfYXQiGDIwMDYtMDYtMjMgMjE6MDM6NDk6FEBwZXJtaXNzaW9uX2lkc1sH\naQlpCDoOQHJvbGVfaWRzWwZpBjoNQGFjdGlvbnN7DiIKcm9sZXN7BiIJbGlz\ndEYiD21lbnVfaXRlbXN7ByIJbGlzdEYiCWxpbmtUIglhdXRoewkiC2xvZ291\ndFQiDmZvcmdvdHRlblQiEWxvZ2luX2ZhaWxlZFQiCmxvZ2luVCIVc2l0ZV9j\nb250cm9sbGVyc3sGIglsaXN0RiISY29udGVudF9wYWdlc3sIIglsaXN0RiIR\ndmlld19kZWZhdWx0VCIJdmlld1QiEHBlcm1pc3Npb25zewYiCWxpc3RGIhdj\nb250cm9sbGVyX2FjdGlvbnN7BiIJbGlzdEYiFHN5c3RlbV9zZXR0aW5nc3sG\nIglsaXN0RiIKdXNlcnN7BiIJbGlzdEY6EUBjb250cm9sbGVyc3sQIg9tZW51\nX2l0ZW1zRiIKcm9sZXNGIglhdXRoRiIVc2l0ZV9jb250cm9sbGVyc0YiEm1h\ncmt1cF9zdHlsZXNGIhZyb2xlc19wZXJtaXNzaW9uc0YiEmNvbnRlbnRfcGFn\nZXNGIhdjb250cm9sbGVyX2FjdGlvbnNGIhBwZXJtaXNzaW9uc0YiFHN5c3Rl\nbV9zZXR0aW5nc0YiCnVzZXJzRjoObGFzdF90aW1ldTsiDYmeGoAxSSzfIgpm\nbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAG\nOgpAdXNlZHsA\n','2006-08-20 09:55:50','2006-08-20 09:55:50');
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
-
---
--- Table structure for table `site_controllers`
---
-
 DROP TABLE IF EXISTS `site_controllers`;
 CREATE TABLE `site_controllers` (
   `id` int(11) NOT NULL auto_increment,
@@ -251,21 +209,22 @@ CREATE TABLE `site_controllers` (
   CONSTRAINT `fk_site_controller_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `site_controllers`
---
-
 
 /*!40000 ALTER TABLE `site_controllers` DISABLE KEYS */;
 LOCK TABLES `site_controllers` WRITE;
-INSERT INTO `site_controllers` VALUES (1,'content_pages',1,1),(2,'controller_actions',1,1),(3,'auth',1,1),(4,'markup_styles',1,1),(5,'menu_items',1,1),(6,'permissions',1,1),(7,'roles',1,1),(8,'site_controllers',1,1),(9,'system_settings',1,1),(10,'users',1,1),(11,'roles_permissions',1,1);
+INSERT INTO `site_controllers` VALUES (1,'content_pages',1,1);
+INSERT INTO `site_controllers` VALUES (2,'controller_actions',1,1);
+INSERT INTO `site_controllers` VALUES (3,'auth',1,1);
+INSERT INTO `site_controllers` VALUES (4,'markup_styles',1,1);
+INSERT INTO `site_controllers` VALUES (5,'menu_items',1,1);
+INSERT INTO `site_controllers` VALUES (6,'permissions',1,1);
+INSERT INTO `site_controllers` VALUES (7,'roles',1,1);
+INSERT INTO `site_controllers` VALUES (8,'site_controllers',1,1);
+INSERT INTO `site_controllers` VALUES (9,'system_settings',1,1);
+INSERT INTO `site_controllers` VALUES (10,'users',1,1);
+INSERT INTO `site_controllers` VALUES (11,'roles_permissions',1,1);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `site_controllers` ENABLE KEYS */;
-
---
--- Table structure for table `system_settings`
---
-
 DROP TABLE IF EXISTS `system_settings`;
 CREATE TABLE `system_settings` (
   `id` int(11) NOT NULL auto_increment,
@@ -293,21 +252,12 @@ CREATE TABLE `system_settings` (
   CONSTRAINT `fk_system_settings_site_default_page_id` FOREIGN KEY (`site_default_page_id`) REFERENCES `content_pages` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `system_settings`
---
-
 
 /*!40000 ALTER TABLE `system_settings` DISABLE KEYS */;
 LOCK TABLES `system_settings` WRITE;
 INSERT INTO `system_settings` VALUES (1,'Goldberg','An application deployment environment for Rails','A <a href=\"http://goldberg.rubyforge.org\">Goldberg</a> site',1,7200,2,1,3,4,2,3);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `system_settings` ENABLE KEYS */;
-
---
--- Table structure for table `users`
---
-
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL auto_increment,
@@ -319,21 +269,12 @@ CREATE TABLE `users` (
   CONSTRAINT `fk_user_role_id` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `users`
---
-
 
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 LOCK TABLES `users` WRITE;
 INSERT INTO `users` VALUES (2,'admin','d033e22ae348aeb5660fc2140aec35850c4da997',3);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
-
---
--- Table structure for table `view_controller_actions`
---
-
 DROP TABLE IF EXISTS `view_controller_actions`;
 /*!50001 DROP VIEW IF EXISTS `view_controller_actions`*/;
 /*!50001 DROP TABLE IF EXISTS `view_controller_actions`*/;
@@ -344,11 +285,6 @@ DROP TABLE IF EXISTS `view_controller_actions`;
   `name` varchar(255),
   `permission_id` bigint(11)
 ) */;
-
---
--- Table structure for table `view_menu_items`
---
-
 DROP TABLE IF EXISTS `view_menu_items`;
 /*!50001 DROP VIEW IF EXISTS `view_menu_items`*/;
 /*!50001 DROP TABLE IF EXISTS `view_menu_items`*/;
@@ -368,21 +304,11 @@ DROP TABLE IF EXISTS `view_menu_items`;
   `permission_id` int(11),
   `permission_name` varchar(255)
 ) */;
-
---
--- View structure for view `view_controller_actions`
---
-
 /*!50001 DROP TABLE IF EXISTS `view_controller_actions`*/;
 /*!50001 DROP VIEW IF EXISTS `view_controller_actions`*/;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 
 /*!50001 VIEW `view_controller_actions` AS select `controller_actions`.`id` AS `id`,`site_controllers`.`id` AS `site_controller_id`,`site_controllers`.`name` AS `site_controller_name`,`controller_actions`.`name` AS `name`,coalesce(`controller_actions`.`permission_id`,`site_controllers`.`permission_id`) AS `permission_id` from (`site_controllers` join `controller_actions` on((`site_controllers`.`id` = `controller_actions`.`site_controller_id`))) */;
-
---
--- View structure for view `view_menu_items`
---
-
 /*!50001 DROP TABLE IF EXISTS `view_menu_items`*/;
 /*!50001 DROP VIEW IF EXISTS `view_menu_items`*/;
 /*!50001 CREATE ALGORITHM=UNDEFINED */

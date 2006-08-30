@@ -19,8 +19,8 @@ read -p "Database catalog: " DBCATALOG
 read -p "Database user: " DBUSER
 
 # Remove contents of tables that don't need to be backed up.
-# Sessions that have already expired:
+#  - Sessions that have already expired:
 mysql -h $DBHOST -u $DBUSER $DBCATALOG -e 'delete from sessions where curdate() > (date_add(updated_at, INTERVAL (select session_timeout from system_settings) SECOND))'
 
 # Backup database:
-mysqldump -h $DBHOST -u $DBUSER --no-create-db $DBCATALOG | sed "{s/\/\*\!50013 DEFINER=.*//}" > db/goldberg_db_mysql.sql
+mysqldump -h $DBHOST -u $DBUSER --no-create-db --skip-extended-insert --skip-comments $DBCATALOG | sed "{s/\/\*\!50013 DEFINER=.*//}" > db/goldberg_db_mysql.sql
