@@ -1,4 +1,5 @@
-<% for item in items do -%>
+<% for item_id in items do 
+     item = @menu.get_item(item_id) -%>
   <% if item.id != @menu_item.id -%>
 <tr class="depth<%= depth %>">
 <td><%= radio_button :menu_item, :parent_id, item.id  %></td>
