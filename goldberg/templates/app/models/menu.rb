@@ -61,7 +61,7 @@ class Menu
   end  # class Node
 
 
-  attr_accessor :root, :selected
+  attr_accessor :root, :selected, :crumbs
 
   def initialize(role = nil)
     @root = Node.new
@@ -69,6 +69,7 @@ class Menu
     @by_name = Hash.new
     @selected = Hash.new
     @vector = Array.new
+    @crumbs = Array.new
 
     items = nil
 
@@ -141,10 +142,12 @@ class Menu
       node = @by_name[name]
       @selected = Hash.new
       @vector = Array.new
+      @crumbs = Array.new
       
       while node and node.id
         @selected[node.id] = node
         @vector.unshift node
+        @crumbs.unshift node.label
         node = @by_id[node.parent_id]
       end
       @vector.unshift @root

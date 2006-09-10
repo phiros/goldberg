@@ -26,4 +26,10 @@ class Page::MenubarController < ActionController::Base
       :depth => (@settings.menu_depth - 1), :class_attr => 'sidemenu'}
   end
 
+  def suckerfish
+    @settings ||= SystemSettings.find(:first)
+    render :partial => 'suckerfish', :locals => {:items =>
+      session[:menu].get_menu(0)}
+  end
+
 end

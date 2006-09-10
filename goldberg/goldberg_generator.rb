@@ -1,4 +1,4 @@
-class GoldbergGenerator < Rails::Generator::Base
+class GoldbergGenerator < Rails::Generator::NamedBase
 
   def manifest
     record do |m|
@@ -208,12 +208,27 @@ class GoldbergGenerator < Rails::Generator::Base
       "components/page/auth/_login.rhtml"
       m.file "components/page/auth/_logout.rhtml", 
       "components/page/auth/_logout.rhtml"
+
+      m.file "components/page/breadcrumbs_controller.rb",
+      "components/page/breadcrumbs_controller.rb"
+      m.directory "components/page/breadcrumbs"
+      m.file "components/page/breadcrumbs/_breadcrumbs.rhtml",
+      "components/page/breadcrumbs/_breadcrumbs.rhtml"
       
       m.file "components/page/menubar_controller.rb", 
       "components/page/menubar_controller.rb"
       m.directory "components/page/menubar"
       m.file "components/page/menubar/_menubar.rhtml", 
       "components/page/menubar/_menubar.rhtml"
+      m.file "components/page/menubar/_suckerfish.rhtml",
+      "components/page/menubar/_suckerfish.rhtml"
+
+      # DATABASE
+      m.file "db/goldberg_backup_mysql.sh",  "db/goldberg_backup_mysql.sh"
+      m.file "db/goldberg_restore_mysql.sh", "db/goldberg_restore_mysql.sh"
+      m.file "db/goldberg_db_mysql.sql",     "db/goldberg_db_mysql.sql"
+      m.file "db/goldberg_db_postgresql.sql","db/goldberg_db_postgresql.sql" 
+ 
 
       # CONFIG
       m.file "config/routes.rb",      "config/routes.rb"
@@ -223,8 +238,12 @@ class GoldbergGenerator < Rails::Generator::Base
       "public/stylesheets/layout.css"
       m.file "public/stylesheets/goldberg.css", 
       "public/stylesheets/goldberg.css"
+      m.file "public/stylesheets/suckerfish.css",
+      "public/stylesheets/suckerfish.css"
+
+      m.file "public/javascripts/suckerfish.js",
+      "public/javascripts/suckerfish.js"
       
-      m.directory "public/images"
       m.file "public/images/action.png",     "public/images/action.png"
       m.file "public/images/add.png",        "public/images/add.png"
       m.file "public/images/bodybg.jpg",     "public/images/bodybg.jpg"
@@ -238,18 +257,28 @@ class GoldbergGenerator < Rails::Generator::Base
       m.file "public/images/role.png",       "public/images/role.png"
       m.file "public/images/up.png",         "public/images/up.png"
 
-      # db/
-      m.file "db/goldberg_backup_mysql.sh",  "db/goldberg_backup_mysql.sh"
-      m.file "db/goldberg_restore_mysql.sh", "db/goldberg_restore_mysql.sh"
-      m.file "db/goldberg_db_mysql.sql",     "db/goldberg_db_mysql.sql"
-      m.file "db/goldberg_db_postgresql.sql","db/goldberg_db_postgresql.sql" 
- 
+      # TEMPLATES
+      if name == 'ewnf'
+        m.file "layouts/ewnf/app/views/layouts/application.rhtml",
+        "app/views/layouts/application.rhtml"
+
+        m.file "layouts/ewnf/public/images/bg.gif", 
+        "public/images/bg.gif"
+        m.file "layouts/ewnf/public/images/sample.jpg", 
+        "public/images/sample.jpg"
+        m.file "layouts/ewnf/public/images/title_img.jpg", 
+        "public/images/title_img.jpg"
+
+        m.file "layouts/ewnf/public/stylesheets/layout.css",
+        "public/stylesheets/layout.css"
+      end
+
       # Show message
       m.file "README_GOLDBERG", "README_GOLDBERG"
       m.readme "README_GOLDBERG"
 
-
     end
+
   end  # manifest
 
 end  # class
