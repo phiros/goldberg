@@ -61,7 +61,7 @@ class Menu
   end  # class Node
 
 
-  attr_accessor :root, :selected, :crumbs
+  attr_accessor :root, :selected
 
   def initialize(role = nil)
     @root = Node.new
@@ -147,7 +147,7 @@ class Menu
       while node and node.id
         @selected[node.id] = node
         @vector.unshift node
-        @crumbs.unshift node.label
+        @crumbs.unshift node.id
         node = @by_id[node.parent_id]
       end
       @vector.unshift @root
@@ -185,6 +185,16 @@ class Menu
   # Returns true if the specified item is selected; false if otherwise.
   def selected?(menu_id)
     @selected.has_key?(menu_id) ? true : false
+  end
+
+  def crumbs
+    crumbs = Array.new
+    for crumb in @crumbs do
+      item = get_item(crumb)
+      crumbs << item
+    end
+
+    return crumbs
   end
 
 end

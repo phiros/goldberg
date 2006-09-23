@@ -10,7 +10,6 @@ class SiteControllersController < ApplicationController
   end
 
   def list
-    # @site_controller_pages, @site_controllers = paginate :site_controllers, :per_page => 10
     @builtin_site_controllers = SiteController.find(:all,
                                             :conditions => "builtin = 1",
                                             :order => 'name')
@@ -18,6 +17,7 @@ class SiteControllersController < ApplicationController
       SiteController.find(:all,
                           :conditions => "builtin is null or builtin = 0",
                           :order => 'name')
+    classify_controllers
   end
 
   def show
@@ -31,6 +31,12 @@ class SiteControllersController < ApplicationController
   def new
     foreign
     @site_controller = SiteController.new
+  end
+
+  def new_called
+    foreign
+    @site_controller = SiteController.new(:name => params[:id])
+    render :action => 'new'
   end
 
   def create
@@ -68,10 +74,81 @@ class SiteControllersController < ApplicationController
     redirect_to :action => 'list'
   end
 
+
   protected 
+
 
   def foreign
     @permissions = Permission.find(:all, :order => 'name')
   end
 
-end
+
+
+  # @unknown contains ApplicationController class objects hashed by
+  # name, while @app, @builtin and @missing are arrays of
+  # SiteController ActiveRecord objects.
+
+  def classify_controllers
+    from_classes = SiteController.classes
+    
+    from_db = SiteController.find(:all,
+                                      :order => 'name')
+    known = Hash.new
+    @missing = Array.new
+    for dbc in from_db do
+      if from_classes.has_key? dbc.name
+        known[dbc.name] = dbc
+      else
+        @missing << dbc
+      end
+    end
+
+    @unknown = Hash.new
+    @app = Array.new
+    @builtin = Array.new
+
+    for name in from_classes.keys.sort do
+      if known.has_key? name
+        if known[name].builtin == 1
+          @builtin << known[name]
+        else
+          @app << known[name]
+        end
+      else
+        @unknown[name] = from_classes[name]
+      end
+    end
+
+    @has_missing = (@missing.length > 0) ? true : false
+    @has_unknown = (@unknown.keys.length > 0) ? true : false
+    @has_app     = (@app.length > 0)     ? true : false
+    @has_builtin = (@builtin.length > 0) ? true : false
+
+    return
+  end
+
+  
+  # Given a controller name, returns an array of available actions to
+  # which that controller will respond.
+
+  def controller_actions(controller_name)
+    
+    controllers = controller_classes()
+    actions = Hash.new()
+    
+    if @controller_classes.has_key? controller_name
+      controller = @controller_classes[controller_name]
+
+      for method in controller.public_instance_methods do
+        actions[method] = true
+      end
+
+      for hidden in controller.hidden_actions do
+        actions.delete hidden
+      end
+    end
+    
+    return actions.keys
+  end  # def controller_actions
+
+end  # class

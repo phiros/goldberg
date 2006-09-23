@@ -15,4 +15,21 @@ class SiteController < ActiveRecord::Base
                                        :order => 'name')
   end
 
+
+  def self.classes
+    for file in Dir.glob("#{RAILS_ROOT}/app/controllers/*.rb") do
+      load file
+    end
+    
+    classes = Hash.new
+    
+    ObjectSpace.each_object(Class) do |klass|
+      if klass.superclass == ApplicationController
+        classes[klass.controller_name] = klass
+      end
+    end
+
+    return classes
+  end
+
 end

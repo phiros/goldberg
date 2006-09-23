@@ -1,17 +1,41 @@
 <%= error_messages_for 'controller_action' %>
 
 <!--[form:controller_action]-->
-
-<p><label for="controller_action_site_controller_id">Controller ID</label><br/>
+<table>
+<tr>
+<th>Controller</th>
+<td>
+<% if @site_controller -%>
+<%= hidden_field :controller_action, :site_controller_id %>
+<%= link_to @site_controller.name, :controller => 'site_controllers', 
+       :action => 'show', :id => @site_controller.id %>
+<% else -%>
 <%= collection_select :controller_action, :site_controller_id,
     @controllers, :id, :name %></p>
+<% end -%>
+</td>
+</tr>
 
-<p><label for="controller_action_name">Name</label><br/>
+<tr>
+<th>Action</th>
+<td>
+<% if @actions %>
+<%= collection_select :controller_action, :name,
+    @actions, :name, :name %></p>
+<% else -%>
 <%= text_field :controller_action, :name  %></p>
+<% end -%>
+</td>
+</tr>
 
-<p><label for="controller_action_permission_id">Permission</label><br/>
+<tr>
+<th>Permission</th>
+<td>
 <%= collection_select 'controller_action', 'permission_id',
       @permissions, :id, :name %></p>
+</td>
+</tr>
+</table>
 
 <!--[eoform:controller_action]-->
 

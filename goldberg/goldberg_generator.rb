@@ -92,7 +92,12 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       "app/views/controller_actions/show.rhtml"
 
       m.directory "app/views/layouts"
-      m.file "app/views/layouts/application.rhtml", "app/views/layouts/application.rhtml"
+      m.file "app/views/layouts/application.rhtml",
+      "app/views/layouts/application.rhtml"
+      m.file "app/views/layouts/_tabpanel_js.rhtml",
+      "app/views/layouts/_tabpanel_js.rhtml"
+      m.file "app/views/layouts/_tabpanel_list.rhtml",
+      "app/views/layouts/_tabpanel_list.rhtml"
       
       m.directory "app/views/markup_styles"
       m.file "app/views/markup_styles/edit.rhtml", 
@@ -270,6 +275,30 @@ class GoldbergGenerator < Rails::Generator::NamedBase
         "public/images/title_img.jpg"
 
         m.file "layouts/ewnf/public/stylesheets/layout.css",
+        "public/stylesheets/layout.css"
+
+      elsif name == 'spoiled_brat'
+        m.file "layouts/spoiled_brat/app/views/layouts/application.rhtml",
+        "app/views/layouts/application.rhtml"
+
+        m.file "layouts/spoiled_brat/public/images/blockquote-bg.gif", 
+        "public/images/blockquote-bg.gif"
+        m.file "layouts/spoiled_brat/public/images/body-bg.jpg", 
+        "public/images/body-bg.jpg"
+        m.file "layouts/spoiled_brat/public/images/centerColumn-bg.jpg", 
+        "public/images/centerColumn-bg.jpg"
+        m.file "layouts/spoiled_brat/public/images/h2-bg.gif", 
+        "public/images/h2-bg.gif"
+        m.file "layouts/spoiled_brat/public/images/h3-bg.gif", 
+        "public/images/h3-bg.gif"
+        m.file "layouts/spoiled_brat/public/images/header-bg.jpg", 
+        "public/images/header-bg.jpg"
+        m.file "layouts/spoiled_brat/public/images/hr-bg.jpg", 
+        "public/images/hr-bg.jpg"
+        m.file "layouts/spoiled_brat/public/images/logo.jpg", 
+        "public/images/logo.jpg"
+
+        m.file "layouts/spoiled_brat/public/stylesheets/layout.css",
         "public/stylesheets/layout.css"
       end
 
