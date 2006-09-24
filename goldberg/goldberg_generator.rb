@@ -2,7 +2,7 @@ class GoldbergGenerator < Rails::Generator::NamedBase
 
   def manifest
     record do |m|
-      #CONTROLLERS
+      # === CONTROLLERS ===
       m.file "app/controllers/application.rb", 
       "app/controllers/application.rb"
 
@@ -39,7 +39,7 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.file "app/controllers/users_controller.rb", 
       "app/controllers/users_controller.rb"
 
-      # MODELS
+      # === MODELS ===
       m.file "app/models/content_page.rb", "app/models/content_page.rb"
       m.file "app/models/controller_action.rb", 
       "app/models/controller_action.rb"
@@ -55,7 +55,7 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.file "app/models/system_settings.rb", "app/models/system_settings.rb"
       m.file "app/models/user.rb", "app/models/user.rb"
 
-      # VIEWS
+      # === VIEWS ===
       m.directory "app/views/auth"
       m.file "app/views/auth/forgotten.rhtml", 
       "app/views/auth/forgotten.rhtml" 
@@ -92,8 +92,6 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       "app/views/controller_actions/show.rhtml"
 
       m.directory "app/views/layouts"
-      m.file "app/views/layouts/application.rhtml",
-      "app/views/layouts/application.rhtml"
       m.file "app/views/layouts/_tabpanel_js.rhtml",
       "app/views/layouts/_tabpanel_js.rhtml"
       m.file "app/views/layouts/_tabpanel_list.rhtml",
@@ -203,7 +201,7 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.file "app/views/users/show.rhtml", 
       "app/views/users/show.rhtml"
 
-      # COMPONENTS
+      # === COMPONENTS ===
       m.directory "components/page"
       
       m.file "components/page/auth_controller.rb", 
@@ -228,19 +226,17 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.file "components/page/menubar/_suckerfish.rhtml",
       "components/page/menubar/_suckerfish.rhtml"
 
-      # DATABASE
+      # === DATABASE ===
       m.file "db/goldberg_backup_mysql.sh",  "db/goldberg_backup_mysql.sh"
       m.file "db/goldberg_restore_mysql.sh", "db/goldberg_restore_mysql.sh"
       m.file "db/goldberg_db_mysql.sql",     "db/goldberg_db_mysql.sql"
       m.file "db/goldberg_db_postgresql.sql","db/goldberg_db_postgresql.sql" 
  
 
-      # CONFIG
+      # === CONFIG ===
       m.file "config/routes.rb",      "config/routes.rb"
 
-      # PUBLIC
-      m.file "public/stylesheets/layout.css",   
-      "public/stylesheets/layout.css"
+      # === PUBLIC ===
       m.file "public/stylesheets/goldberg.css", 
       "public/stylesheets/goldberg.css"
       m.file "public/stylesheets/suckerfish.css",
@@ -251,18 +247,15 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       
       m.file "public/images/action.png",     "public/images/action.png"
       m.file "public/images/add.png",        "public/images/add.png"
-      m.file "public/images/bodybg.jpg",     "public/images/bodybg.jpg"
       m.file "public/images/delete.png",     "public/images/delete.png"
       m.file "public/images/down.png",       "public/images/down.png"
-      m.file "public/images/footerbg.jpg",   "public/images/footerbg.jpg"
-      m.file "public/images/logo_right.jpg", "public/images/logo_right.jpg"
-      m.file "public/images/menuhover.jpg",  "public/images/menuhover.jpg"
       m.file "public/images/page.png",       "public/images/page.png"
       m.file "public/images/permission.png", "public/images/permission.png"
       m.file "public/images/role.png",       "public/images/role.png"
       m.file "public/images/up.png",         "public/images/up.png"
 
-      # TEMPLATES
+      # === TEMPLATES ===
+      # EARTH WIND AND FIRE
       if name == 'ewnf'
         m.file "layouts/ewnf/app/views/layouts/application.rhtml",
         "app/views/layouts/application.rhtml"
@@ -277,6 +270,7 @@ class GoldbergGenerator < Rails::Generator::NamedBase
         m.file "layouts/ewnf/public/stylesheets/layout.css",
         "public/stylesheets/layout.css"
 
+      # SPOILED BRAT
       elsif name == 'spoiled_brat'
         m.file "layouts/spoiled_brat/app/views/layouts/application.rhtml",
         "app/views/layouts/application.rhtml"
@@ -300,6 +294,20 @@ class GoldbergGenerator < Rails::Generator::NamedBase
 
         m.file "layouts/spoiled_brat/public/stylesheets/layout.css",
         "public/stylesheets/layout.css"
+
+      # GOLDBERG CLASSIC BLUE (the default)
+      else
+        m.file "app/views/layouts/application.rhtml",
+        "app/views/layouts/application.rhtml"
+
+        m.file "public/images/bodybg.jpg",     "public/images/bodybg.jpg"
+        m.file "public/images/footerbg.jpg",   "public/images/footerbg.jpg"
+        m.file "public/images/logo_right.jpg", "public/images/logo_right.jpg"
+        m.file "public/images/menuhover.jpg",  "public/images/menuhover.jpg"
+
+        m.file "public/stylesheets/layout.css",   
+        "public/stylesheets/layout.css"
+
       end
 
       # Show message
@@ -311,6 +319,3 @@ class GoldbergGenerator < Rails::Generator::NamedBase
   end  # manifest
 
 end  # class
-    
-
-    
