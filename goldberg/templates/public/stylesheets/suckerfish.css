@@ -56,7 +56,14 @@ have a flexible width. */
 /*** TOPMENU SUCKERFISH ***/
 
 .topmenu #suckerfish, .topmenu #suckerfish ul { /* all lists */
-  width : 60em ;
+  float: left ;
+  width: 100% ;
+/*  width : 60em ;*/
+}
+
+.topmenu #suckerfish li {
+  position: relative ;
+  float: left ;
 }
 
 .topmenu #suckerfish li ul { /* second-level lists */
@@ -69,7 +76,7 @@ have a flexible width. */
 
 .topmenu #suckerfish ul li a {
   width: 11em;
-  w\idth : 10em;
+/*  w\idth : 10em;*/
 }
 
 

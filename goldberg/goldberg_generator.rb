@@ -295,6 +295,20 @@ class GoldbergGenerator < Rails::Generator::NamedBase
         m.file "layouts/spoiled_brat/public/stylesheets/layout.css",
         "public/stylesheets/layout.css"
 
+      elsif name == 'snooker'
+        m.file "layouts/snooker/app/views/layouts/application.rhtml",
+        "app/views/layouts/application.rhtml"
+
+        m.file "layouts/snooker/public/images/column_200.png", 
+        "public/images/column_200.png"
+        m.file "layouts/snooker/public/images/footer_bg.png", 
+        "public/images/footer_bg.png"
+        m.file "layouts/snooker/public/images/logo.jpg", 
+        "public/images/logo.jpg"
+
+        m.file "layouts/snooker/public/stylesheets/layout.css",
+        "public/stylesheets/layout.css"
+
       # GOLDBERG CLASSIC BLUE (the default)
       else
         m.file "app/views/layouts/application.rhtml",
