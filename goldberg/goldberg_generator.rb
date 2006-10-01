@@ -239,8 +239,8 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       # === PUBLIC ===
       m.file "public/stylesheets/goldberg.css", 
       "public/stylesheets/goldberg.css"
-      m.file "public/stylesheets/suckerfish.css",
-      "public/stylesheets/suckerfish.css"
+      # m.file "public/stylesheets/suckerfish.css",
+      # "public/stylesheets/suckerfish.css"
 
       m.file "public/javascripts/suckerfish.js",
       "public/javascripts/suckerfish.js"
@@ -266,6 +266,8 @@ class GoldbergGenerator < Rails::Generator::NamedBase
         "public/images/sample.jpg"
         m.file "layouts/ewnf/public/images/title_img.jpg", 
         "public/images/title_img.jpg"
+        m.file "layouts/ewnf/public/images/daddy_rightarrow.gif", 
+        "public/images/daddy_rightarrow.gif"
 
         m.file "layouts/ewnf/public/stylesheets/layout.css",
         "public/stylesheets/layout.css"
@@ -291,6 +293,8 @@ class GoldbergGenerator < Rails::Generator::NamedBase
         "public/images/hr-bg.jpg"
         m.file "layouts/spoiled_brat/public/images/logo.jpg", 
         "public/images/logo.jpg"
+        m.file "layouts/spoiled_brat/public/images/daddy_leftarrow.gif", 
+        "public/images/daddy_leftarrow.gif"
 
         m.file "layouts/spoiled_brat/public/stylesheets/layout.css",
         "public/stylesheets/layout.css"
@@ -305,6 +309,8 @@ class GoldbergGenerator < Rails::Generator::NamedBase
         "public/images/footer_bg.png"
         m.file "layouts/snooker/public/images/logo.jpg", 
         "public/images/logo.jpg"
+        m.file "layouts/snooker/public/images/daddy_rightarrow.gif", 
+        "public/images/daddy_rightarrow.gif"
 
         m.file "layouts/snooker/public/stylesheets/layout.css",
         "public/stylesheets/layout.css"
