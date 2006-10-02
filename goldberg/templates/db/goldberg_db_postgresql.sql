@@ -368,7 +368,7 @@ Goldberg contains original material and third party material from various source
 
 All original material is (p) Public Domain, No Rights Reserved.  Goldberg comes with no warranty whatsoever.
 
-The copyright for any third party material remains with the original author, and is distributed here under the original terms.  
+The copyright for any third party material remains with the original author, and the material is distributed here under the original terms.  
 
 Material has been selected from sources with licensing terms and conditions that allow use and redistribution for both personal and business purposes.  These licences include public domain, BSD-style licences, and Creative Commons licences (but *not* Creative Commons Non-Commercial).
 
@@ -381,7 +381,7 @@ Goldberg comes with a choice of layouts, adapted from various sources.
 
 h3. The Default
 
-The default layout is a modified version of Andreas09 by Anreas Viklund.  It is distributed under free/unlicensed terms, with an informal request that credit be given to the original author.  The original template can be obtained from "Open Source Web Design":http://www.oswd.org/design/preview/id/2493/.
+The default layout is a modified version of Andreas09 by Anreas Viklund.  Andreas09 is distributed under free/unlicensed terms, with an informal request that credit be given to the original author.  The original template can be obtained from "Open Source Web Design":http://www.oswd.org/design/preview/id/2493/.
 
 Author''s website: "andreasviklund.com":http://andreasviklund.com/.
 

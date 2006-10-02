@@ -5,7 +5,8 @@ set up a fully functional Rails web site.  The files include:
 
 * Controller, model and view code and templates.
 
-* A backup of a minimally-configured Goldberg database.
+* A backup of a minimally-configured Goldberg database -- the
+  "starter" database.
 
 * A custom routing file.
 
@@ -15,39 +16,10 @@ application you are designing.
 
 USING GOLDBERG
 
-Start by setting up your rails site, then install Goldberg into it:
+Documentation on how to install Goldberg and to set up Goldberg-based
+websites is on the Goldberg website:
 
-    $ rails mysite
-    $ cd mysite
-    $ script/generate goldberg
-
-Further details will then be displayed on how to complete the setup.
-
-
-REQUIREMENTS
-
-Goldberg depends on some other free software:
-
-* MySQL version 5 or above (sorry, but Goldberg will *never* work on
-  MySQL 4), or PostgreSQL.
-
-* Bluecloth: the Ruby implementation of Markdown, available from:
-    http://www.deveiate.org/projects/BlueCloth
-
-* Redcloth: the Ruby implementation of Textile, available from:
-    http://whytheluckystiff.net/ruby/redcloth/
-
-
-If you can't install Bluecloth and Redcloth on your system (e.g. if
-you are using shared hosting) download them and copy the
-"bluecloth.rb" and "redcloth.rb" files to the lib/ folder in your
-Rails site.
-
-
-LICENSING
-
-Goldberg is (P) Public Domain 2006, no rights reserved.  Goldberg
-comes with no warranty whatsoever.
+  http://goldberg.240gl.org/installation
 
 
 CONTACT DETAILS

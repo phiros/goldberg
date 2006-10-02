@@ -1,4 +1,12 @@
 WELCOME TO GOLDBERG
+===================
+
+VERSION
+
+Goldberg 0.1.3
+
+
+INSTALLATION
 
 Goldberg is a Rails generator.  The "goldberg" directory here needs to
 be installed in a place where Rails looks for generators.  On
@@ -21,3 +29,32 @@ Goldberg:
 Or visit Goldberg's Rubyforge project page:
 
     http://rubyforge.org/projects/goldberg
+
+
+LICENSE
+
+Goldberg contains original material and third party material from
+various sources.
+
+All original material is (p) Public Domain, No Rights
+Reserved. Goldberg comes with no warranty whatsoever.
+
+The copyright for any third party material remains with the original
+author, and the material is distributed here under the original terms.
+
+Material has been selected from sources with licensing terms and
+conditions that allow use and redistribution for both personal and
+business purposes. These licences include public domain, BSD-style
+licences, and Creative Commons licences (but NOT Creative Commons
+Non-Commercial).
+
+More information can be found on the Goldberg website:
+
+  http://goldberg.240gl.org/credits
+
+(A copy of that page is in the starter database contained herein.)
+
+
+
+Dave Nelson
+urbanus at 240gl dot org
