@@ -2,23 +2,32 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'SQL_ASCII';
+SET client_encoding = 'UTF8';
 SET check_function_bodies = false;
+SET client_min_messages = warning;
 
 --
--- TOC entry 4 (OID 2200)
--- Name: public; Type: ACL; Schema: -; Owner: postgres
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: postgres
 --
 
-REVOKE ALL ON SCHEMA public FROM PUBLIC;
-GRANT ALL ON SCHEMA public TO PUBLIC;
+COMMENT ON SCHEMA public IS 'Standard public schema';
+
+
+--
+-- Name: plpgsql; Type: PROCEDURAL LANGUAGE; Schema: -; Owner: 
+--
+
+CREATE PROCEDURAL LANGUAGE plpgsql;
 
 
 SET search_path = public, pg_catalog;
 
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
 --
--- TOC entry 5 (OID 26179)
--- Name: content_pages; Type: TABLE; Schema: public; Owner: david
+-- Name: content_pages; Type: TABLE; Schema: public; Owner: david; Tablespace: 
 --
 
 CREATE TABLE content_pages (
@@ -34,8 +43,14 @@ CREATE TABLE content_pages (
 
 
 --
--- TOC entry 6 (OID 26187)
--- Name: controller_actions; Type: TABLE; Schema: public; Owner: david
+-- Name: content_pages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('content_pages', 'id'), 10, true);
+
+
+--
+-- Name: controller_actions; Type: TABLE; Schema: public; Owner: david; Tablespace: 
 --
 
 CREATE TABLE controller_actions (
@@ -47,8 +62,14 @@ CREATE TABLE controller_actions (
 
 
 --
--- TOC entry 7 (OID 26192)
--- Name: markup_styles; Type: TABLE; Schema: public; Owner: david
+-- Name: controller_actions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('controller_actions', 'id'), 15, true);
+
+
+--
+-- Name: markup_styles; Type: TABLE; Schema: public; Owner: david; Tablespace: 
 --
 
 CREATE TABLE markup_styles (
@@ -58,8 +79,14 @@ CREATE TABLE markup_styles (
 
 
 --
--- TOC entry 8 (OID 26197)
--- Name: menu_items; Type: TABLE; Schema: public; Owner: david
+-- Name: markup_styles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('markup_styles', 'id'), 2, true);
+
+
+--
+-- Name: menu_items; Type: TABLE; Schema: public; Owner: david; Tablespace: 
 --
 
 CREATE TABLE menu_items (
@@ -74,8 +101,14 @@ CREATE TABLE menu_items (
 
 
 --
--- TOC entry 9 (OID 26202)
--- Name: permissions; Type: TABLE; Schema: public; Owner: david
+-- Name: menu_items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('menu_items', 'id'), 14, true);
+
+
+--
+-- Name: permissions; Type: TABLE; Schema: public; Owner: david; Tablespace: 
 --
 
 CREATE TABLE permissions (
@@ -85,8 +118,14 @@ CREATE TABLE permissions (
 
 
 --
--- TOC entry 10 (OID 26207)
--- Name: roles; Type: TABLE; Schema: public; Owner: david
+-- Name: permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('permissions', 'id'), 5, true);
+
+
+--
+-- Name: roles; Type: TABLE; Schema: public; Owner: david; Tablespace: 
 --
 
 CREATE TABLE roles (
@@ -102,8 +141,14 @@ CREATE TABLE roles (
 
 
 --
--- TOC entry 11 (OID 26215)
--- Name: roles_permissions; Type: TABLE; Schema: public; Owner: david
+-- Name: roles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('roles', 'id'), 3, true);
+
+
+--
+-- Name: roles_permissions; Type: TABLE; Schema: public; Owner: david; Tablespace: 
 --
 
 CREATE TABLE roles_permissions (
@@ -114,8 +159,14 @@ CREATE TABLE roles_permissions (
 
 
 --
--- TOC entry 12 (OID 26220)
--- Name: sessions; Type: TABLE; Schema: public; Owner: david
+-- Name: roles_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('roles_permissions', 'id'), 10, true);
+
+
+--
+-- Name: sessions; Type: TABLE; Schema: public; Owner: david; Tablespace: 
 --
 
 CREATE TABLE sessions (
@@ -128,8 +179,14 @@ CREATE TABLE sessions (
 
 
 --
--- TOC entry 13 (OID 26228)
--- Name: site_controllers; Type: TABLE; Schema: public; Owner: david
+-- Name: sessions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('sessions', 'id'), 1, false);
+
+
+--
+-- Name: site_controllers; Type: TABLE; Schema: public; Owner: david; Tablespace: 
 --
 
 CREATE TABLE site_controllers (
@@ -141,8 +198,14 @@ CREATE TABLE site_controllers (
 
 
 --
--- TOC entry 14 (OID 26233)
--- Name: system_settings; Type: TABLE; Schema: public; Owner: david
+-- Name: site_controllers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('site_controllers', 'id'), 11, true);
+
+
+--
+-- Name: system_settings; Type: TABLE; Schema: public; Owner: david; Tablespace: 
 --
 
 CREATE TABLE system_settings (
@@ -162,8 +225,14 @@ CREATE TABLE system_settings (
 
 
 --
--- TOC entry 15 (OID 26238)
--- Name: users; Type: TABLE; Schema: public; Owner: david
+-- Name: system_settings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('system_settings', 'id'), 1, true);
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: david; Tablespace: 
 --
 
 CREATE TABLE users (
@@ -175,7 +244,13 @@ CREATE TABLE users (
 
 
 --
--- TOC entry 16 (OID 26243)
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('users', 'id'), 2, true);
+
+
+--
 -- Name: view_controller_actions; Type: VIEW; Schema: public; Owner: david
 --
 
@@ -184,7 +259,6 @@ CREATE VIEW view_controller_actions AS
 
 
 --
--- TOC entry 17 (OID 26246)
 -- Name: view_menu_items; Type: VIEW; Schema: public; Owner: david
 --
 
@@ -193,54 +267,43 @@ CREATE VIEW view_menu_items AS
 
 
 --
--- Data for TOC entry 45 (OID 26179)
--- Name: content_pages; Type: TABLE DATA; Schema: public; Owner: david
+-- Data for Name: content_pages; Type: TABLE DATA; Schema: public; Owner: david
 --
 
-INSERT INTO content_pages (id, title, name, markup_style_id, content, permission_id, created_at, updated_at) VALUES (1, 'Home Page', 'home', 2, 'h1. Welcome to Goldberg!
+INSERT INTO content_pages (id, title, name, markup_style_id, content, permission_id, created_at, updated_at) VALUES (1, 'Home Page', 'home', 1, 'h1. Welcome to Goldberg!
 
 Looks like you have succeeded in getting Goldberg up and running.  Now you will probably want to customise your site.
 
 *Very important:* The default login for the administrator is "admin", password "admin".  You must change that before you make your site public!
-
 
 h2. Administering the Site
 
 At the login prompt, enter an administrator username and password.  The top menu should change: a new item called "Administration" will appear.  Go there for further details.
 
 
-h2. Further Assistance
-
-See [Contact Us](/menu/contact_us), above, for links to the Goldberg website and project page.
-
-
-', 3, '2006-06-12 00:31:56', '2006-08-25 14:30:37');
-INSERT INTO content_pages (id, title, name, markup_style_id, content, permission_id, created_at, updated_at) VALUES (2, 'Session Expired', 'expired', 2, 'h1. Session Expired
+', 3, '2006-06-12 00:31:56', '2006-10-01 23:43:39');
+INSERT INTO content_pages (id, title, name, markup_style_id, content, permission_id, created_at, updated_at) VALUES (2, 'Session Expired', 'expired', 1, 'h1. Session Expired
 
 Your session has expired due to inactivity.
 
-Please log in again.
-', 3, '2006-06-12 00:33:14', '2006-08-25 12:57:36');
-INSERT INTO content_pages (id, title, name, markup_style_id, content, permission_id, created_at, updated_at) VALUES (3, 'Not Found', 'notfound', 2, 'h1. Not Found
+To continue please login again.
 
-The page you requested was not found.  
+', 3, '2006-06-12 00:33:14', '2006-10-01 23:43:03');
+INSERT INTO content_pages (id, title, name, markup_style_id, content, permission_id, created_at, updated_at) VALUES (3, 'Not Found!', 'notfound', 1, 'h1. Not Found
 
-Please check the URL, or contact your system administrator.', 3, '2006-06-12 00:33:49', '2006-08-25 12:56:44');
-INSERT INTO content_pages (id, title, name, markup_style_id, content, permission_id, created_at, updated_at) VALUES (4, 'Permission Denied!', 'denied', 2, 'h1. Permission Denied!
+The page you requested was not found!
+
+Please contact your system administrator.', 3, '2006-06-12 00:33:49', '2006-10-01 23:44:55');
+INSERT INTO content_pages (id, title, name, markup_style_id, content, permission_id, created_at, updated_at) VALUES (4, 'Permission Denied!', 'denied', 1, 'h1. Permission Denied
 
 Sorry, but you don''t have permission to view that page.
 
-Please contact your system administrator.', 3, '2006-06-12 00:34:30', '2006-08-25 12:55:45');
-INSERT INTO content_pages (id, title, name, markup_style_id, content, permission_id, created_at, updated_at) VALUES (6, 'Contact Us', 'contact_us', 2, 'h1. Contact Us
+Please contact your system administrator.', 3, '2006-06-12 00:34:30', '2006-10-01 23:41:24');
+INSERT INTO content_pages (id, title, name, markup_style_id, content, permission_id, created_at, updated_at) VALUES (6, 'Contact Us', 'contact_us', 1, 'h1. Contact Us
 
-Visit the Goldberg Project Homepage at [http://goldberg.rubyforge.org](http://goldberg.rubyforge.org) for further information on Goldberg.  Visit the Goldberg RubyForge Project Page at [http://rubyforge.org/projects/goldberg](http://rubyforge.org/projects/goldberg/) to access the project''s files and development information.  The Project page has forums and a mailing list for Goldberg users.
-
-h2. Credits
-
-The default Goldberg site layout is based on Andreas Viklund''s excellent template "Andreas09".  Andreas is widely known as the designer of some of the finest open source web templates.  His website is at [http://andreasviklund.com](http://andreasviklund.com).
-
-', 3, '2006-06-12 10:13:47', '2006-08-25 14:33:32');
-INSERT INTO content_pages (id, title, name, markup_style_id, content, permission_id, created_at, updated_at) VALUES (8, 'Site Administration', 'site_admin', 2, 'h1. Goldberg Setup
+Visit the Goldberg Project Homepage at "http://goldberg.rubyforge.org":http://goldberg.rubyforge.org for further information on Goldberg.  Visit the Goldberg RubyForge Project Info Page at "http://rubyforge.org/projects/goldberg":http://rubyforge.org/projects/goldberg to access the project''s files and development information.
+', 3, '2006-06-12 10:13:47', '2006-10-02 14:01:19');
+INSERT INTO content_pages (id, title, name, markup_style_id, content, permission_id, created_at, updated_at) VALUES (8, 'Site Administration', 'site_admin', 1, 'h1. Goldberg Setup
 
 This is where you will find all the Goldberg-specific administration and configuration features.  In here you can:
 
@@ -290,20 +353,76 @@ In the Menu Editor you can add and remove Menu Items and move them around.  The 
 h2. System Settings
 
 Go here to view and edit the settings that determine how Goldberg operates.
-', 1, '2006-06-21 21:32:35', '2006-08-18 23:05:56');
-INSERT INTO content_pages (id, title, name, markup_style_id, content, permission_id, created_at, updated_at) VALUES (9, 'Administration', 'admin', 2, 'h1. Site Administration
+', 1, '2006-06-21 21:32:35', '2006-10-01 23:46:01');
+INSERT INTO content_pages (id, title, name, markup_style_id, content, permission_id, created_at, updated_at) VALUES (9, 'Administration', 'admin', 1, 'h1. Site Administration
 
 This is where the administrator can set up the site.
 
-There is one menu item here by default -- [Setup](/menu/setup).  That contains all the Goldberg configuration options.
+There is one menu item here by default -- "Setup":/menu/setup.  That contains all the Goldberg configuration options.
 
-You can add more menu items here to administer your application if you want, by going to [Setup, Menu Editor](/menu/setup/menus).  
-', 1, '2006-06-26 16:47:09', '2006-08-18 22:51:34');
+You can add more menu items here to administer your application if you want, by going to "Setup, Menu Editor":/menu/setup/menus.
+', 1, '2006-06-26 16:47:09', '2006-10-01 23:38:20');
+INSERT INTO content_pages (id, title, name, markup_style_id, content, permission_id, created_at, updated_at) VALUES (10, 'Credits and Licence', 'credits', 1, 'h1. Credits and Licence
+
+Goldberg contains original material and third party material from various sources.
+
+All original material is (p) Public Domain, No Rights Reserved.  Goldberg comes with no warranty whatsoever.
+
+The copyright for any third party material remains with the original author, and is distributed here under the original terms.  
+
+Material has been selected from sources with licensing terms and conditions that allow use and redistribution for both personal and business purposes.  These licences include public domain, BSD-style licences, and Creative Commons licences (but *not* Creative Commons Non-Commercial).
+
+If you are an author and you believe your copyrighted material has been included in Goldberg in breach of your licensing terms and conditions, please contact Dave Nelson (urbanus at 240gl dot org).
+
+
+h2. Layouts
+
+Goldberg comes with a choice of layouts, adapted from various sources.
+
+h3. The Default
+
+The default layout is a modified version of Andreas09 by Anreas Viklund.  It is distributed under free/unlicensed terms, with an informal request that credit be given to the original author.  The original template can be obtained from "Open Source Web Design":http://www.oswd.org/design/preview/id/2493/.
+
+Author''s website: "andreasviklund.com":http://andreasviklund.com/.
+
+
+h3. "Earth Wind and Fire"
+
+Originally designed by Brett Hillesheim (brett7481 at msn dot com) and distributed under free terms (from the MadSeason website: "Every template we create is completely open source, meaning you can take it and do whatever you want with it").  The original template can be obtained from "Open Source Web Design":http://www.oswd.org/design/preview/id/2453/.
+
+Author''s website: "www.madseason.co.uk":http://www.madseason.co.uk/.
+
+
+h3. "Snooker"
+
+"Snooker" is an original design and is therefore Public Domain.  It incorporates dynamic two-column layout techniques described on the "A List Apart":http://alistapart.com/articles/negativemargins website.
+
+
+h3. "Spoiled Brat"
+
+Originally designed by "Rayk Web Design":http://www.raykdesign.net/ and distributed under the terms of the "Creative Commons Attribution Share Alike":http://creativecommons.org/licenses/by-sa/2.5/legalcode licence.  The original template can be obtained from "Open Web Design":http://www.openwebdesign.org/viewdesign.phtml?id=2894/.
+
+Author''s website: "www.csstinderbox.com":http://www.csstinderbox.com/.
+
+
+h2. Other Features
+
+Goldberg also contains some miscellaneous code and techniques from other sources.
+
+h3. Suckerfish Menus
+
+The three templates "Earth Wind and Fire", "Snooker" and "Spoiled Brat" have all been configured to use Suckerfish menus.  This technique of using a combination of CSS and Javascript to implement dynamic menus was first described by "A List Apart":http://www.alistapart.com/articles/dropdowns/.  Goldberg''s implementation also incorporates techniques described by "HTMLDog":http://www.htmldog.com/articles/suckerfish/dropdowns/.
+
+h3. Tabbed Panels
+
+Goldberg''s implementation of tabbed panels was adapted from 
+"InternetConnection":http://support.internetconnection.net/CODE_LIBRARY/Javascript_Show_Hide.shtml.
+
+', 3, '2006-10-02 10:35:35', '2006-10-02 13:59:02');
 
 
 --
--- Data for TOC entry 46 (OID 26187)
--- Name: controller_actions; Type: TABLE DATA; Schema: public; Owner: david
+-- Data for Name: controller_actions; Type: TABLE DATA; Schema: public; Owner: david
 --
 
 INSERT INTO controller_actions (id, site_controller_id, name, permission_id) VALUES (1, 1, 'view_default', 3);
@@ -324,8 +443,7 @@ INSERT INTO controller_actions (id, site_controller_id, name, permission_id) VAL
 
 
 --
--- Data for TOC entry 47 (OID 26192)
--- Name: markup_styles; Type: TABLE DATA; Schema: public; Owner: david
+-- Data for Name: markup_styles; Type: TABLE DATA; Schema: public; Owner: david
 --
 
 INSERT INTO markup_styles (id, name) VALUES (1, 'Textile');
@@ -333,26 +451,25 @@ INSERT INTO markup_styles (id, name) VALUES (2, 'Markdown');
 
 
 --
--- Data for TOC entry 48 (OID 26197)
--- Name: menu_items; Type: TABLE DATA; Schema: public; Owner: david
+-- Data for Name: menu_items; Type: TABLE DATA; Schema: public; Owner: david
 --
 
 INSERT INTO menu_items (id, parent_id, name, label, seq, controller_action_id, content_page_id) VALUES (1, NULL, 'home', 'Home', 1, NULL, 1);
 INSERT INTO menu_items (id, parent_id, name, label, seq, controller_action_id, content_page_id) VALUES (2, NULL, 'contact_us', 'Contact Us', 3, NULL, 6);
 INSERT INTO menu_items (id, parent_id, name, label, seq, controller_action_id, content_page_id) VALUES (3, NULL, 'admin', 'Administration', 2, NULL, 9);
-INSERT INTO menu_items (id, parent_id, name, label, seq, controller_action_id, content_page_id) VALUES (9, 3, 'setup', 'Setup', 1, NULL, 8);
 INSERT INTO menu_items (id, parent_id, name, label, seq, controller_action_id, content_page_id) VALUES (5, 9, 'setup/permissions', 'Permissions', 3, 4, NULL);
 INSERT INTO menu_items (id, parent_id, name, label, seq, controller_action_id, content_page_id) VALUES (6, 9, 'setup/roles', 'Roles', 2, 3, NULL);
 INSERT INTO menu_items (id, parent_id, name, label, seq, controller_action_id, content_page_id) VALUES (7, 9, 'setup/pages', 'Content Pages', 5, 8, NULL);
 INSERT INTO menu_items (id, parent_id, name, label, seq, controller_action_id, content_page_id) VALUES (8, 9, 'setup/controllers', 'Controllers / Actions', 4, 9, NULL);
+INSERT INTO menu_items (id, parent_id, name, label, seq, controller_action_id, content_page_id) VALUES (9, 3, 'setup', 'Setup', 1, NULL, 8);
 INSERT INTO menu_items (id, parent_id, name, label, seq, controller_action_id, content_page_id) VALUES (11, 9, 'setup/menus', 'Menu Editor', 6, 11, NULL);
 INSERT INTO menu_items (id, parent_id, name, label, seq, controller_action_id, content_page_id) VALUES (12, 9, 'setup/system_settings', 'System Settings', 7, 12, NULL);
 INSERT INTO menu_items (id, parent_id, name, label, seq, controller_action_id, content_page_id) VALUES (13, 9, 'setup/users', 'Users', 1, 15, NULL);
+INSERT INTO menu_items (id, parent_id, name, label, seq, controller_action_id, content_page_id) VALUES (14, 2, 'credits', 'Credits &amp; Licence', 1, NULL, 10);
 
 
 --
--- Data for TOC entry 49 (OID 26202)
--- Name: permissions; Type: TABLE DATA; Schema: public; Owner: david
+-- Data for Name: permissions; Type: TABLE DATA; Schema: public; Owner: david
 --
 
 INSERT INTO permissions (id, name) VALUES (1, 'Administer site');
@@ -363,18 +480,16 @@ INSERT INTO permissions (id, name) VALUES (5, 'Members only page -- view');
 
 
 --
--- Data for TOC entry 50 (OID 26207)
--- Name: roles; Type: TABLE DATA; Schema: public; Owner: david
+-- Data for Name: roles; Type: TABLE DATA; Schema: public; Owner: david
 --
 
-INSERT INTO roles (id, name, parent_id, description, default_page_id, "cache", created_at, updated_at) VALUES (1, 'Public', NULL, 'Members of the public who are not logged in.', NULL, NULL, '2006-06-23 21:03:49', '2006-08-25 14:33:32');
-INSERT INTO roles (id, name, parent_id, description, default_page_id, "cache", created_at, updated_at) VALUES (2, 'Member', 1, '', NULL, NULL, '2006-06-23 21:03:50', '2006-08-25 14:33:32');
-INSERT INTO roles (id, name, parent_id, description, default_page_id, "cache", created_at, updated_at) VALUES (3, 'Administrator', 2, '', 8, NULL, '2006-06-23 21:03:48', '2006-08-25 14:33:33');
+INSERT INTO roles (id, name, parent_id, description, default_page_id, "cache", created_at, updated_at) VALUES (1, 'Public', NULL, 'Members of the public who are not logged in.', NULL, NULL, '2006-06-23 21:03:49', '2006-10-02 14:13:10');
+INSERT INTO roles (id, name, parent_id, description, default_page_id, "cache", created_at, updated_at) VALUES (2, 'Member', 1, '', NULL, NULL, '2006-06-23 21:03:50', '2006-10-02 14:13:10');
+INSERT INTO roles (id, name, parent_id, description, default_page_id, "cache", created_at, updated_at) VALUES (3, 'Administrator', 2, '', 8, NULL, '2006-06-23 21:03:48', '2006-10-02 14:13:10');
 
 
 --
--- Data for TOC entry 51 (OID 26215)
--- Name: roles_permissions; Type: TABLE DATA; Schema: public; Owner: david
+-- Data for Name: roles_permissions; Type: TABLE DATA; Schema: public; Owner: david
 --
 
 INSERT INTO roles_permissions (id, role_id, permission_id) VALUES (4, 3, 1);
@@ -385,15 +500,13 @@ INSERT INTO roles_permissions (id, role_id, permission_id) VALUES (10, 2, 5);
 
 
 --
--- Data for TOC entry 52 (OID 26220)
--- Name: sessions; Type: TABLE DATA; Schema: public; Owner: david
+-- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: david
 --
 
 
 
 --
--- Data for TOC entry 53 (OID 26228)
--- Name: site_controllers; Type: TABLE DATA; Schema: public; Owner: david
+-- Data for Name: site_controllers; Type: TABLE DATA; Schema: public; Owner: david
 --
 
 INSERT INTO site_controllers (id, name, permission_id, builtin) VALUES (1, 'content_pages', 1, 1);
@@ -410,33 +523,21 @@ INSERT INTO site_controllers (id, name, permission_id, builtin) VALUES (11, 'rol
 
 
 --
--- Data for TOC entry 54 (OID 26233)
--- Name: system_settings; Type: TABLE DATA; Schema: public; Owner: david
+-- Data for Name: system_settings; Type: TABLE DATA; Schema: public; Owner: david
 --
 
-INSERT INTO system_settings (id, site_name, site_subtitle, footer_message, public_role_id, session_timeout, default_markup_style_id, site_default_page_id, not_found_page_id, permission_denied_page_id, session_expired_page_id, menu_depth) VALUES (1, 'Goldberg', 'A website development tool for Ruby on Rails', 'A <a href="http://goldberg.rubyforge.org">Goldberg</a> site', 1, 7200, 2, 1, 3, 4, 2, 3);
+INSERT INTO system_settings (id, site_name, site_subtitle, footer_message, public_role_id, session_timeout, default_markup_style_id, site_default_page_id, not_found_page_id, permission_denied_page_id, session_expired_page_id, menu_depth) VALUES (1, 'Goldberg', 'A website development tool for Ruby on Rails', 'A <a href="http://goldberg.rubyforge.org">Goldberg</a> site', 1, 7200, 1, 1, 3, 4, 2, 3);
 
 
 --
--- Data for TOC entry 55 (OID 26238)
--- Name: users; Type: TABLE DATA; Schema: public; Owner: david
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: david
 --
 
 INSERT INTO users (id, name, "password", role_id) VALUES (2, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 3);
 
 
 --
--- TOC entry 29 (OID 26309)
--- Name: content_pages_name_unique; Type: CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY content_pages
-    ADD CONSTRAINT content_pages_name_unique UNIQUE (name);
-
-
---
--- TOC entry 30 (OID 26311)
--- Name: content_pages_pkey; Type: CONSTRAINT; Schema: public; Owner: david
+-- Name: content_pages_pkey; Type: CONSTRAINT; Schema: public; Owner: david; Tablespace: 
 --
 
 ALTER TABLE ONLY content_pages
@@ -444,8 +545,7 @@ ALTER TABLE ONLY content_pages
 
 
 --
--- TOC entry 31 (OID 26313)
--- Name: controller_actions_pkey; Type: CONSTRAINT; Schema: public; Owner: david
+-- Name: controller_actions_pkey; Type: CONSTRAINT; Schema: public; Owner: david; Tablespace: 
 --
 
 ALTER TABLE ONLY controller_actions
@@ -453,17 +553,7 @@ ALTER TABLE ONLY controller_actions
 
 
 --
--- TOC entry 32 (OID 26315)
--- Name: markup_styles_name_unique; Type: CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY markup_styles
-    ADD CONSTRAINT markup_styles_name_unique UNIQUE (name);
-
-
---
--- TOC entry 33 (OID 26317)
--- Name: markup_styles_pkey; Type: CONSTRAINT; Schema: public; Owner: david
+-- Name: markup_styles_pkey; Type: CONSTRAINT; Schema: public; Owner: david; Tablespace: 
 --
 
 ALTER TABLE ONLY markup_styles
@@ -471,8 +561,7 @@ ALTER TABLE ONLY markup_styles
 
 
 --
--- TOC entry 34 (OID 26319)
--- Name: menu_items_pkey; Type: CONSTRAINT; Schema: public; Owner: david
+-- Name: menu_items_pkey; Type: CONSTRAINT; Schema: public; Owner: david; Tablespace: 
 --
 
 ALTER TABLE ONLY menu_items
@@ -480,17 +569,7 @@ ALTER TABLE ONLY menu_items
 
 
 --
--- TOC entry 35 (OID 26321)
--- Name: permissions_name_unique; Type: CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY permissions
-    ADD CONSTRAINT permissions_name_unique UNIQUE (name);
-
-
---
--- TOC entry 36 (OID 26323)
--- Name: permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: david
+-- Name: permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: david; Tablespace: 
 --
 
 ALTER TABLE ONLY permissions
@@ -498,8 +577,7 @@ ALTER TABLE ONLY permissions
 
 
 --
--- TOC entry 38 (OID 26325)
--- Name: roles_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: david
+-- Name: roles_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: david; Tablespace: 
 --
 
 ALTER TABLE ONLY roles_permissions
@@ -507,8 +585,7 @@ ALTER TABLE ONLY roles_permissions
 
 
 --
--- TOC entry 37 (OID 26327)
--- Name: roles_pkey; Type: CONSTRAINT; Schema: public; Owner: david
+-- Name: roles_pkey; Type: CONSTRAINT; Schema: public; Owner: david; Tablespace: 
 --
 
 ALTER TABLE ONLY roles
@@ -516,8 +593,7 @@ ALTER TABLE ONLY roles
 
 
 --
--- TOC entry 39 (OID 26329)
--- Name: sessions_pkey; Type: CONSTRAINT; Schema: public; Owner: david
+-- Name: sessions_pkey; Type: CONSTRAINT; Schema: public; Owner: david; Tablespace: 
 --
 
 ALTER TABLE ONLY sessions
@@ -525,17 +601,7 @@ ALTER TABLE ONLY sessions
 
 
 --
--- TOC entry 40 (OID 26331)
--- Name: site_controllers_name_unique; Type: CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY site_controllers
-    ADD CONSTRAINT site_controllers_name_unique UNIQUE (name);
-
-
---
--- TOC entry 41 (OID 26333)
--- Name: site_controllers_pkey; Type: CONSTRAINT; Schema: public; Owner: david
+-- Name: site_controllers_pkey; Type: CONSTRAINT; Schema: public; Owner: david; Tablespace: 
 --
 
 ALTER TABLE ONLY site_controllers
@@ -543,8 +609,7 @@ ALTER TABLE ONLY site_controllers
 
 
 --
--- TOC entry 42 (OID 26335)
--- Name: system_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: david
+-- Name: system_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: david; Tablespace: 
 --
 
 ALTER TABLE ONLY system_settings
@@ -552,17 +617,7 @@ ALTER TABLE ONLY system_settings
 
 
 --
--- TOC entry 43 (OID 26337)
--- Name: users_name_unique; Type: CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY users
-    ADD CONSTRAINT users_name_unique UNIQUE (name);
-
-
---
--- TOC entry 44 (OID 26339)
--- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: david
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: david; Tablespace: 
 --
 
 ALTER TABLE ONLY users
@@ -570,88 +625,6 @@ ALTER TABLE ONLY users
 
 
 --
--- TOC entry 56 (OID 26341)
--- Name: content_pages_markup_style_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY content_pages
-    ADD CONSTRAINT content_pages_markup_style_fkey FOREIGN KEY (markup_style_id) REFERENCES markup_styles(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 57 (OID 26345)
--- Name: content_pages_permission_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY content_pages
-    ADD CONSTRAINT content_pages_permission_fkey FOREIGN KEY (permission_id) REFERENCES permissions(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 58 (OID 26349)
--- Name: controller_actions_permission_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY controller_actions
-    ADD CONSTRAINT controller_actions_permission_fkey FOREIGN KEY (permission_id) REFERENCES permissions(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 59 (OID 26353)
--- Name: controller_actions_site_controller_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY controller_actions
-    ADD CONSTRAINT controller_actions_site_controller_fkey FOREIGN KEY (site_controller_id) REFERENCES site_controllers(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 63 (OID 26357)
--- Name: default_page_id; Type: FK CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY roles
-    ADD CONSTRAINT default_page_id FOREIGN KEY (default_page_id) REFERENCES content_pages(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 60 (OID 26361)
--- Name: menu_items_content_page_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY menu_items
-    ADD CONSTRAINT menu_items_content_page_fkey FOREIGN KEY (content_page_id) REFERENCES content_pages(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 61 (OID 26365)
--- Name: menu_items_controller_action_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY menu_items
-    ADD CONSTRAINT menu_items_controller_action_fkey FOREIGN KEY (controller_action_id) REFERENCES controller_actions(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 62 (OID 26369)
--- Name: menu_items_parent_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY menu_items
-    ADD CONSTRAINT menu_items_parent_fkey FOREIGN KEY (parent_id) REFERENCES menu_items(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 64 (OID 26373)
--- Name: roles_parent_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY roles
-    ADD CONSTRAINT roles_parent_fkey FOREIGN KEY (parent_id) REFERENCES roles(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 65 (OID 26377)
 -- Name: roles_permissions_permission_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
 --
 
@@ -660,7 +633,6 @@ ALTER TABLE ONLY roles_permissions
 
 
 --
--- TOC entry 66 (OID 26381)
 -- Name: roles_permissions_role_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
 --
 
@@ -669,170 +641,6 @@ ALTER TABLE ONLY roles_permissions
 
 
 --
--- TOC entry 67 (OID 26385)
--- Name: site_controllers_permission_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
+-- PostgreSQL database dump complete
 --
-
-ALTER TABLE ONLY site_controllers
-    ADD CONSTRAINT site_controllers_permission_fkey FOREIGN KEY (permission_id) REFERENCES permissions(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 68 (OID 26389)
--- Name: system_settings_default_markup_style_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY system_settings
-    ADD CONSTRAINT system_settings_default_markup_style_fkey FOREIGN KEY (default_markup_style_id) REFERENCES markup_styles(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 69 (OID 26393)
--- Name: system_settings_not_found_page_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY system_settings
-    ADD CONSTRAINT system_settings_not_found_page_fkey FOREIGN KEY (not_found_page_id) REFERENCES content_pages(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 70 (OID 26397)
--- Name: system_settings_permission_denied_page_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY system_settings
-    ADD CONSTRAINT system_settings_permission_denied_page_fkey FOREIGN KEY (permission_denied_page_id) REFERENCES content_pages(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 71 (OID 26401)
--- Name: system_settings_public_role_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY system_settings
-    ADD CONSTRAINT system_settings_public_role_fkey FOREIGN KEY (public_role_id) REFERENCES roles(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 72 (OID 26405)
--- Name: system_settings_session_expired_page_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY system_settings
-    ADD CONSTRAINT system_settings_session_expired_page_fkey FOREIGN KEY (session_expired_page_id) REFERENCES content_pages(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 73 (OID 26409)
--- Name: system_settings_site_default_page_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY system_settings
-    ADD CONSTRAINT system_settings_site_default_page_fkey FOREIGN KEY (site_default_page_id) REFERENCES content_pages(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 74 (OID 26413)
--- Name: users_role_fkey; Type: FK CONSTRAINT; Schema: public; Owner: david
---
-
-ALTER TABLE ONLY users
-    ADD CONSTRAINT users_role_fkey FOREIGN KEY (role_id) REFERENCES roles(id) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- TOC entry 18 (OID 26177)
--- Name: content_pages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
---
-
-SELECT pg_catalog.setval('content_pages_id_seq', 9, true);
-
-
---
--- TOC entry 19 (OID 26185)
--- Name: controller_actions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
---
-
-SELECT pg_catalog.setval('controller_actions_id_seq', 15, true);
-
-
---
--- TOC entry 20 (OID 26190)
--- Name: markup_styles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
---
-
-SELECT pg_catalog.setval('markup_styles_id_seq', 2, true);
-
-
---
--- TOC entry 21 (OID 26195)
--- Name: menu_items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
---
-
-SELECT pg_catalog.setval('menu_items_id_seq', 13, true);
-
-
---
--- TOC entry 22 (OID 26200)
--- Name: permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
---
-
-SELECT pg_catalog.setval('permissions_id_seq', 5, true);
-
-
---
--- TOC entry 23 (OID 26205)
--- Name: roles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
---
-
-SELECT pg_catalog.setval('roles_id_seq', 3, true);
-
-
---
--- TOC entry 24 (OID 26213)
--- Name: roles_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
---
-
-SELECT pg_catalog.setval('roles_permissions_id_seq', 10, true);
-
-
---
--- TOC entry 25 (OID 26218)
--- Name: sessions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
---
-
-SELECT pg_catalog.setval('sessions_id_seq', 1, false);
-
-
---
--- TOC entry 26 (OID 26226)
--- Name: site_controllers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
---
-
-SELECT pg_catalog.setval('site_controllers_id_seq', 11, true);
-
-
---
--- TOC entry 27 (OID 26231)
--- Name: system_settings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
---
-
-SELECT pg_catalog.setval('system_settings_id_seq', 1, true);
-
-
---
--- TOC entry 28 (OID 26236)
--- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: david
---
-
-SELECT pg_catalog.setval('users_id_seq', 2, true);
-
-
---
--- TOC entry 3 (OID 2200)
--- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: postgres
---
-
-COMMENT ON SCHEMA public IS 'Standard public schema';
-
 

@@ -313,29 +313,6 @@ SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('system_settings', 'i
 
 
 --
--- TOC entry 1237 (class 1259 OID 16525)
--- Dependencies: 4
--- Name: test; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
-
-CREATE TABLE test (
-    id serial NOT NULL,
-    name character varying(255) NOT NULL
-);
-
-
--- ALTER TABLE public.test OWNER TO postgres;
-
---
--- TOC entry 1625 (class 0 OID 0)
--- Dependencies: 1236
--- Name: test_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('test', 'id'), 22, true);
-
-
---
 -- TOC entry 1233 (class 1259 OID 16511)
 -- Dependencies: 4
 -- Name: users; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
@@ -485,25 +462,6 @@ COPY system_settings (id, site_name, site_subtitle, footer_message, public_role_
 
 
 --
--- TOC entry 1610 (class 0 OID 16525)
--- Dependencies: 1237
--- Data for Name: test; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY test (id, name) FROM stdin;
-17	hello there
-1	hi
-3	hi there
-2	hi
-18	hi
-20	hi there
-19	hi
-21	hi
-22	hi
-\.
-
-
---
 -- TOC entry 1609 (class 0 OID 16511)
 -- Dependencies: 1233
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
@@ -611,16 +569,6 @@ ALTER TABLE ONLY site_controllers
 
 ALTER TABLE ONLY system_settings
     ADD CONSTRAINT system_settings_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 1596 (class 2606 OID 16529)
--- Dependencies: 1237 1237
--- Name: test_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
---
-
-ALTER TABLE ONLY test
-    ADD CONSTRAINT test_pkey PRIMARY KEY (id);
 
 
 --

@@ -18,7 +18,7 @@ a:hover {
 }
 
 .wrapper {
-  background: #f1f2ea url('/images/column_200.png') repeat-y right ;
+  background: white url('/images/column_200.png') repeat-y right ;
 }
 
 .header * {
@@ -28,7 +28,7 @@ a:hover {
 
 .header {
   height: 90px ;
-  color: #f2f0d5 ;
+  color: #fafaea ;
   background: #003e00 ;
 }
 
@@ -122,19 +122,19 @@ a:hover {
 
 .container {
   width: 100%;
-  background: #f1f2ea url('/images/column_200.png') repeat-y right ;
+  background: white url('/images/column_200.png') repeat-y right ;
   float: left ;
   margin-right: -200px ;
 }
 
 .main {
-  background: #f1f2ea ;
+  background: white ;
   margin-right: 200px ;
 }
 
 .breadcrumbs {
   font-size: .75em ;
-  background: #f2f0d5;
+  background: #fafaea;
   border-top: 1px solid #986633 ;
   border-bottom: 1px solid #986633 ;
   margin-bottom: 8px ;
