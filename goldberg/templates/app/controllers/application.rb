@@ -65,10 +65,22 @@ class ApplicationController < ActionController::Base
         end
       end
       
+      # If this is a page request check that it exists, and if not
+      # redirect to the "unknown" page
+      if params[:controller] == 'content_pages' and
+          params[:action] == 'view'
+        if not session[:credentials].pages.has_key?(params[:page_name].to_s)
+          logger.warn "(Unknown page? #{params[:page_name].to_s})"
+          redirect_to @settings.not_found_page.url
+          return
+        end
+      end
+
       # PERMISSIONS
-      # If this is a page request, check the page permissions
+      # Check whether the user is authorised for this page or action.
       if not AuthController.authorised?(session, params)
         redirect_to @settings.permission_denied_page.url
+        return
       end
     end  # if @settings
     

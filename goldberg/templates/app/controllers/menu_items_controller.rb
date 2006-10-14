@@ -41,6 +41,20 @@ class MenuItemsController < ApplicationController
   end
 
   def create
+    # Flash an error if neither an action nor a page has been selected
+    if (params[:menu_item][:controller_action_id] == nil or
+        params[:menu_item][:controller_action_id].length == 0 ) and
+        (params[:menu_item][:content_page_id] == nil or
+         params[:menu_item][:content_page_id].length == 0 )
+      flash[:error] = "You must specify either an Action or a Page!"
+      @menu_item = MenuItem.new(params[:menu_item])
+      @parent_item = MenuItem.find(params[:menu_item][:parent_id])
+      foreign
+      @can_change_parent = false
+      render :action => 'new', :id => params[:id]
+      return
+    end
+
     @menu_item = MenuItem.new(params[:menu_item])
     @menu_item.seq = MenuItem.next_seq(@menu_item.parent_id)
     
@@ -63,6 +77,17 @@ class MenuItemsController < ApplicationController
   end
 
   def update
+    # Flash an error if neither an action nor a page has been selected
+    if (params[:menu_item][:controller_action_id] == nil or
+        params[:menu_item][:controller_action_id].length == 0 ) and
+        (params[:menu_item][:content_page_id] == nil or
+         params[:menu_item][:content_page_id].length == 0 )
+      flash[:error] = "You must specify either an Action or a Page!"
+      edit
+      render :action => 'edit'
+      return
+    end
+
     @menu_item = MenuItem.find(params[:id])
     # If this has been moved from another parent, need to repack
     # that parent
