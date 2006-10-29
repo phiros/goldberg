@@ -15,6 +15,19 @@ namespace :goldberg do
     end
   end
 
+  desc "Set up a legacy Goldberg database for migrations"
+  task :migrate_legacy => :environment do
+    ActiveRecord::Base.transaction do
+      ActiveRecord::Schema.create_table "schema_info", :id => false do |t|
+        t.column "version", :integer
+      end
+      ActiveRecord::Migration.execute <<-END
+insert into schema_info (version)
+values (1)
+END
+    end
+  end
+
 end
 
 
