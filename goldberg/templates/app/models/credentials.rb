@@ -27,15 +27,16 @@ class Credentials
       @permission_ids << 0
     end
 
-    actions = ControllerAction.find_by_sql ["select *, (case when permission_id in (?) then 1 else 0 end) as allowed from view_controller_actions", 
-                                            @permission_ids]
+#    actions = ControllerAction.find_by_sql ["select *, (case when permission_id in (?) then 1 else 0 end) as allowed from view_controller_actions", 
+#                                           @permission_ids]
+    actions = ControllerAction.actions_allowed(@permission_ids)
     @actions = Hash.new
     for a in actions do
-      @actions[a.site_controller_name] ||= Hash.new
+      @actions[a.controller.name] ||= Hash.new
       if a.allowed.to_i == 1
-        @actions[a.site_controller_name][a.name] = true
+        @actions[a.controller.name][a.name] = true
       else
-        @actions[a.site_controller_name][a.name] = false
+        @actions[a.controller.name][a.name] = false
       end
     end
 

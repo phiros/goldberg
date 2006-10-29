@@ -10,20 +10,30 @@ class Menu
     end
 
     def setup(item)
-      @parent_id = item.menu_item_parent_id
-      @name = item.menu_item_name
-      @id = item.menu_item_id
-      @label = item.menu_item_label
+      @parent_id = item.parent_id
+      @name = item.name
+      @id = item.id
+      @label = item.label
       
-      @site_controller_id = item.site_controller_id
-      @controller_action_id = item.controller_action_id
-      @content_page_id = item.content_page_id
+      if item.controller_action
+        @site_controller_id = item.controller_action.controller.id
+        @controller_action_id = item.controller_action.id
+      else
+        @site_controller_id = nil
+        @controller_action_id = nil
+      end
+
+      if item.content_page
+        @content_page_id = item.content_page.id
+      else
+        @content_page_id = nil
+      end
 
       @url = String.new
-      if item.site_controller_id # and @item.site_controller_id.to_i > 0
-        @url = "/#{item.site_controller_name}/#{item.controller_action_name}"
+      if item.controller_action # and @item.site_controller_id.to_i > 0
+        @url = "/#{item.controller_action.controller.name}/#{item.controller_action.name}"
       else
-        @url = "/#{item.content_page_name}"
+        @url = "/#{item.content_page.name}"
       end
       
     end
@@ -75,45 +85,42 @@ class Menu
 
     if role
       if role.cache[:credentials].permission_ids.size > 0
-        items = MenuItem.find_by_sql(["select * from view_menu_items " +
-                                      "where permission_id in (?) " +
-                                      "order by menu_item_seq", 
-                                      role.cache[:credentials].permission_ids ])
+        items = MenuItem.items_for_permissions(role.cache[:credentials].permission_ids)
+#         items = MenuItem.find_by_sql(["select * from view_menu_items " +
+#                                       "where permission_id in (?) " +
+#                                       "order by menu_item_seq", 
+#                                       role.cache[:credentials].permission_ids ])
       else  # role has no permissions
         # (items will remain as nil: the only node will be the root)
       end
     else  # No role given: build menu of everything
-      items = MenuItem.find_by_sql("select * from view_menu_items " +
-                                   "order by menu_item_seq")
+      items = MenuItem.items_for_permissions
+#       items = MenuItem.find_by_sql("select * from view_menu_items " +
+#                                    "order by menu_item_seq")
     end
 
-#     if role.cache[:credentials].permission_ids.size > 0
-#       items = MenuItem.find_by_sql(["select * from view_menu_items " +
-#                                     "where permission_id in (?) " +
-#                                     "order by menu_item_seq", 
-#                                     role.cache[:credentials].permission_ids ])
     if items
       if items.size > 0
         # Build hashes of items by name and id
         for item in items do
           # Convert keys to integers (for braindead DB backends)
-          item.menu_item_id         &&= item.menu_item_id.to_i
-          item.menu_item_seq        &&= item.menu_item_seq.to_i
-          item.menu_item_parent_id  &&= item.menu_item_parent_id.to_i
-          item.site_controller_id   &&= item.site_controller_id.to_i
-          item.controller_action_id &&= item.controller_action_id.to_i
-          item.content_page_id      &&= item.content_page_id.to_i
-          item.permission_id        &&= item.permission_id.to_i
+#           item.menu_item_id         &&= item.menu_item_id.to_i
+#           item.menu_item_seq        &&= item.menu_item_seq.to_i
+#           item.menu_item_parent_id  &&= item.menu_item_parent_id.to_i
+#           item.site_controller_id   &&= item.site_controller_id.to_i
+#           item.controller_action_id &&= item.controller_action_id.to_i
+#           item.content_page_id      &&= item.content_page_id.to_i
+#           item.permission_id        &&= item.permission_id.to_i
 
           node = Node.new
           node.setup(item)
-          @by_id[item.menu_item_id] = node
-          @by_name[item.menu_item_name] = node
+          @by_id[item.id] = node
+          @by_name[item.name] = node
         end
 
         # Then build tree of items
         for item in items do
-          node = @by_id[item.menu_item_id]
+          node = @by_id[item.id]
           p_id = node.parent_id
           if p_id
             if @by_id.has_key?(p_id)

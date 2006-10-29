@@ -1,4 +1,7 @@
 class MenuItem < ActiveRecord::Base
+
+  attr_accessor :controller_action, :content_page
+
   validates_uniqueness_of :name
 
   def above
@@ -63,5 +66,46 @@ class MenuItem < ActiveRecord::Base
     end
   end
 
+
+  def MenuItem.items_for_permissions(permission_ids = nil)
+    # Hash for faster & easier lookups
+    if permission_ids
+      perms = {}
+      for id in permission_ids do
+        perms[id] = true
+      end
+    end
+
+    # List of items to return
+    items = []
+
+    menu_items = self.find(:all,
+                           :order => 'parent_id, seq, id')
+    for item in menu_items do
+      if item.controller_action_id.to_i > 0
+        item.controller_action = 
+          ControllerAction.find(item.controller_action_id)
+        if perms
+          if perms.has_key?(item.controller_action.effective_permission_id)
+            items << item
+          end
+        else
+          items << item
+        end
+      elsif item.content_page_id.to_i > 0
+        item.content_page = 
+          ContentPage.find(item.content_page_id)
+        if perms
+          if perms.has_key?(item.content_page.permission_id)
+            items << item
+          end
+        else
+          items << item
+        end
+      end
+    end
+
+    return items
+  end
 
 end

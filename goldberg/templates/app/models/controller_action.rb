@@ -2,7 +2,7 @@ class ControllerAction < ActiveRecord::Base
 
   validates_uniqueness_of :name, :scope => 'site_controller_id'
 
-  attr_accessor :controller, :permission, :url
+  attr_accessor :controller, :permission, :url, :allowed
 
   def controller
     @controller ||= SiteController.find(self.site_controller_id)
@@ -20,6 +20,10 @@ class ControllerAction < ActiveRecord::Base
     return @permission
   end
 
+  def effective_permission_id
+    return self.permission_id || self.controller.permission_id
+  end
+
   def fullname
     if self.site_controller_id and self.site_controller_id > 0
       return "#{self.controller.name}: #{self.name}"
@@ -31,6 +35,35 @@ class ControllerAction < ActiveRecord::Base
   def url
     @url ||= "/#{self.controller.name}/#{self.name}"
     return @url
+  end
+
+  def self.actions_allowed(permission_ids)
+        # Hash for faster & easier lookups
+    if permission_ids
+      perms = {}
+      for id in permission_ids do
+        perms[id] = true
+      end
+    end
+
+    actions = ControllerAction.find(:all)
+    for action in actions do
+      if action.permission_id
+        if perms.has_key?(action.permission_id)
+          action.allowed = 1
+        else
+          action.allowed = 0
+        end
+      else  # Controller's permission
+        if perms.has_key?(action.controller.permission_id)
+          action.allowed = 1
+        else
+          action.allowed = 0
+        end
+      end
+    end
+
+    return actions
   end
 
   def self.find_for_permission(p_ids)

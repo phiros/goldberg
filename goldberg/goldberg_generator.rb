@@ -231,10 +231,28 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.file "db/goldberg_restore_mysql.sh", "db/goldberg_restore_mysql.sh"
       m.file "db/goldberg_db_mysql.sql",     "db/goldberg_db_mysql.sql"
       m.file "db/goldberg_db_postgresql.sql","db/goldberg_db_postgresql.sql" 
- 
+
+      m.directory "db/migrate"
+      m.file "db/migrate/001_initial_setup.rb", 
+      "db/migrate/001_initial_setup.rb"
+
+      m.file "db/ContentPage.yml",      "db/ContentPage.yml"
+      m.file "db/ControllerAction.yml", "db/ControllerAction.yml"
+      m.file "db/MarkupStyle.yml",      "db/MarkupStyle.yml"
+      m.file "db/MenuItem.yml",         "db/MenuItem.yml"
+      m.file "db/Permission.yml",       "db/Permission.yml"
+      m.file "db/Role.yml",             "db/Role.yml"
+      m.file "db/RolesPermission.yml",  "db/RolesPermission.yml"
+      m.file "db/SiteController.yml",   "db/SiteController.yml"
+      m.file "db/SystemSettings.yml",   "db/SystemSettings.yml"
+      m.file "db/User.yml",             "db/User.yml"
+
+      # === LIB ===
+      m.directory "lib/tasks"
+      m.file "lib/tasks/goldberg.rake", "lib/tasks/goldberg.rake"
 
       # === CONFIG ===
-      m.file "config/routes.rb",      "config/routes.rb"
+      m.file "config/routes.rb",        "config/routes.rb"
 
       # === PUBLIC ===
       m.file "public/stylesheets/goldberg.css", 

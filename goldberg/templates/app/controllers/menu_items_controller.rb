@@ -157,6 +157,11 @@ class MenuItemsController < ApplicationController
     end
   end
 
+  def noview
+    @items = MenuItem.items_for_permissions(session[:credentials].permission_ids)
+  end
+
+
   protected
   
   def foreign
