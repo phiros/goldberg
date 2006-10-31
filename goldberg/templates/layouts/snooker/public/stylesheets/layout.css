@@ -149,6 +149,10 @@ a:hover {
   margin: 16px ;
 }
 
+.sidecontent { 
+  margin: 16px ;
+}
+
 .footer {
   color: white ;
   background: #6d7a73 url('/images/footer_bg.png') repeat-x top ;

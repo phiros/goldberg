@@ -57,4 +57,8 @@ def load_for_class(klass, src)
         puts "#{klass.to_s} record #{record} not saved!"
     end
   end
+  # Reset table sequence if applicable (i.e. PostgreSQL)
+  if klass.connection.respond_to?(:reset_pk_sequence!)
+    klass.connection.reset_pk_sequence!(klass.table_name)
+  end
 end

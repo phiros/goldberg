@@ -1,5 +1,4 @@
-<p> Welcome, 
-<%= if session[:user] then h(session[:user].name) else "" end %>
+<p> User:&nbsp;<%= if session[:user] then h(session[:user].name) else "" end %>
 <%= start_form_tag :controller => 'auth', :action => 'logout' %>
   <%= submit_tag "Logout" %>
 <%= end_form_tag %>

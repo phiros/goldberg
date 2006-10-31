@@ -6,6 +6,14 @@ VERSION
 Goldberg 0.1.3
 
 
+PREREQUISITES
+
+* Ruby on Rails -- a working installation, including a database engine
+  of your choice.
+
+* Redcloth ("gem install redcloth")
+
+
 INSTALLATION
 
 Goldberg is a Rails generator.  The "goldberg" directory here needs to
