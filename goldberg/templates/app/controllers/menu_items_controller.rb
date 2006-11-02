@@ -174,7 +174,7 @@ class MenuItemsController < ApplicationController
                                :order => 'name')
     end
     @parents.unshift MenuItem.new(:id => nil, :name => '(root)')
-    @actions = ControllerAction.find_by_sql('select * from view_controller_actions order by site_controller_name, name')
+    @actions = ControllerAction.find(:all, :order => 'site_controller_id, name')
     @actions.unshift ControllerAction.new(:id => nil, 
                                           :name => '(none)')
 
