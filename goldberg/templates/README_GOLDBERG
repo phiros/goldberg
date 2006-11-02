@@ -3,14 +3,12 @@ WELCOME TO GOLDBERG!
 All the files for your site should now be in place.  The following
 steps are required to complete your setup:
 
-1. Set up your database.  This distribution includes starter databases
-   with minimal configurations for either MySQL 5 or PostgreSQL.
-   These database files have already been unpacked to the /db
-   directory here.  The Goldberg website <http://goldberg.240gl.org>
-   provides more information on setting these up on specific
-   platforms.
+1. Create your database and edit config/database.yml accordingly.
 
-2. Edit your config/databases.yml in accordance with the above.
+2. Execute the following commands to set up your database:
+
+    rake migrate
+    rake goldberg:load_starter
 
 3. Delete the file public/index.html that was automatically generated
    by Rails.  You won't need it.

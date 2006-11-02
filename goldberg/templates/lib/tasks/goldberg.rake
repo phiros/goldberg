@@ -17,6 +17,7 @@ namespace :goldberg do
 
   desc "Set up a legacy Goldberg database for migrations"
   task :migrate_legacy => :environment do
+    puts "Setting up schema_info"
     ActiveRecord::Base.transaction do
       ActiveRecord::Schema.create_table "schema_info", :id => false do |t|
         t.column "version", :integer
@@ -26,6 +27,23 @@ insert into schema_info (version)
 values (1)
 END
     end
+  end
+
+  desc "Flush cached data out of sessions and Roles"
+  task :flush => :environment do
+    puts "Deleting any Rails session files"
+    Dir["#{RAILS_ROOT}/tmp/sessions/ruby_sess*"].each do |fname|
+      File.delete fname
+    end
+    
+    puts "Deleting any ActiveRecord sessions, and resetting the Role cache"
+    conn = ActiveRecord::Base.connection
+    conn.execute "delete from sessions"
+    conn.execute "update roles set cache = NULL"
+  end
+
+  desc "Upgrade a legacy Goldberg database to the latest version"
+  task :upgrade => [:flush, :migrate_legacy] do
   end
 
 end
@@ -62,3 +80,4 @@ def load_for_class(klass, src)
     klass.connection.reset_pk_sequence!(klass.table_name)
   end
 end
+
