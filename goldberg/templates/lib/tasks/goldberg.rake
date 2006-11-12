@@ -50,10 +50,9 @@ end
 
 
 def goldberg_classes
-  return [ Permission, Role, RolesPermission, User,
-           SiteController, ControllerAction,
-           MarkupStyle, ContentPage,
-           MenuItem, SystemSettings ]
+  return [ MarkupStyle, Permission, SiteController, 
+	   ContentPage, ControllerAction, MenuItem, 
+           Role, RolesPermission, SystemSettings, User ]
 end
 
 def dump_for_class(klass, dest)

@@ -21,7 +21,10 @@
 <td>
 <% if @actions %>
 <%= collection_select :controller_action, :name,
-    @actions, :name, :name %></p>
+    @actions, :name, :name %>
+ or type here: 
+<%= text_field :controller_action, :specific_name %>
+</p>
 <% else -%>
 <%= text_field :controller_action, :name  %></p>
 <% end -%>

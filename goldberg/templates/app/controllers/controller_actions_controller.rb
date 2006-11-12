@@ -47,6 +47,11 @@ class ControllerActionsController < ApplicationController
 
 
   def create
+    if params[:controller_action][:specific_name] and 
+        params[:controller_action][:specific_name].length > 0
+      params[:controller_action][:name] = 
+        params[:controller_action][:specific_name]
+    end
     @controller_action = ControllerAction.new(params[:controller_action])
     if @controller_action.save
       flash[:notice] = 'ControllerAction was successfully created.'

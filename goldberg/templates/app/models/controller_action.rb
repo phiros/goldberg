@@ -2,7 +2,7 @@ class ControllerAction < ActiveRecord::Base
 
   validates_uniqueness_of :name, :scope => 'site_controller_id'
 
-  attr_accessor :controller, :permission, :url, :allowed
+  attr_accessor :controller, :permission, :url, :allowed, :specific_name
 
   def controller
     @controller ||= SiteController.find(self.site_controller_id)
