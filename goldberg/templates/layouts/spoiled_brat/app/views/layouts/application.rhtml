@@ -44,8 +44,11 @@
 <h3>Navigation</h3>
 <div class="rightmenu">
 <ul id="suckerfish">
-<%= render_component(:controller => 'page/menubar', :action =>
-'suckerfish') %>
+<!--%= render_component(:controller => 'page/menubar', :action =>
+'suckerfish') %-->
+  <%= render :partial => 'menu_items/suckerfish',
+      :locals => {:items => session[:menu].get_menu(0)} %>
+
 </ul>
 </div>
 <div class="clearing"></div>
@@ -53,15 +56,20 @@
 <h3>Authentication</h3>
 
 <div class="auth">
-<%= render_component(:controller => 'page/auth', :action =>
-'login_logout') %>
+<!--%= render_component(:controller => 'page/auth', :action =>
+'login_logout') %-->
+  <%= render :partial => 'auth/login' %>
+
 </div>
 
 </div><!--//end #rightColumn//-->
 
 <div class="breadcrumbs">
-<%= render_component(:controller => 'page/breadcrumbs', :action =>
-'breadcrumbs') %>
+<!--%= render_component(:controller => 'page/breadcrumbs', :action =>
+'breadcrumbs') %-->
+  <%= render :partial => 'menu_items/breadcrumbs', 
+      :locals => {:crumbs => session[:menu].crumbs} %>
+
 </div>
 
 <% if @flash[:note] -%>

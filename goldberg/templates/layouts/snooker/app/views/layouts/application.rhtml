@@ -40,8 +40,10 @@
 <div class="navbar">
   <div class="topmenu">
     <ul id="suckerfish">
-      <%= render_component(:controller => 'page/menubar', :action =>
-      'suckerfish') %>
+      <!--%= render_component(:controller => 'page/menubar', :action =>
+      'suckerfish') %-->
+      <%= render :partial => 'menu_items/suckerfish',
+          :locals => {:items => session[:menu].get_menu(0)} %>
     </ul>
   </div>
 </div>
@@ -52,8 +54,10 @@
     <div class="main">
       <div class="content">
         <div class="breadcrumbs">
-<%= render_component(:controller => 'page/breadcrumbs', :action =>
-'breadcrumbs') %>
+<!--%= render_component(:controller => 'page/breadcrumbs', :action =>
+'breadcrumbs') %-->
+          <%= render :partial => 'menu_items/breadcrumbs', 
+	      :locals => {:crumbs => session[:menu].crumbs} %>
         </div>
 <% if @flash[:note] -%>
 <div class="flash_note"><%= @flash[:note] %></div>
@@ -67,8 +71,9 @@
   
   <div class="sidebar">
     <div class="sidecontent">
-<%= render_component(:controller => 'page/auth', :action =>
-'login_logout') %>
+<!--%= render_component(:controller => 'page/auth', :action =>
+'login_logout') %-->
+      <%= render :partial => 'auth/login' %>
     </div>
   </div>  <!-- class="sidebar" -->
   <div class="clearing">&nbsp;</div>

@@ -47,16 +47,21 @@
 
 <!-- Horizontal menu, along top -->
 <div class="mainmenu">
-<%= render_component(:controller => 'page/menubar', :action =>
-'top_menu') %>
+<!-- %= render_component(:controller => 'page/menubar', :action =>
+'top_menu') %-->
+  <%= render :partial => 'menu_items/menubar', :locals => {:level => 0,
+      :depth => 0, :class_attr => nil} %>
+
 </div>  <!-- class="mainmenu" -->
  
 <div class="wrap">
 
 <!-- Left-hand side.  Vertical submenus, plus other stuff -->
 <div class="leftside">
-<%= render_component(:controller => 'page/menubar', :action =>
-'side_menu') %>
+<!-- %= render_component(:controller => 'page/menubar', :action =>
+'side_menu') %-->
+  <%= render :partial => 'menu_items/menubar', :locals => {:level => 1,
+      :depth => (@settings.menu_depth - 2), :class_attr => 'sidemenu'} %>
 
 <!-- Put other LHS stuff here -->
 </div>  <!-- class="leftside" -->
@@ -65,8 +70,9 @@
 <!-- Right-hand side.  Login/status, plus other stuff -->
 <div class="rightside">
 
-<%= render_component(:controller => 'page/auth', :action =>
-'login_logout') %>
+<!-- %= render_component(:controller => 'page/auth', :action =>
+'login_logout') %-->
+  <%= render :partial => 'auth/login' %>
 
 <!-- Put other RHS stuff here -->
 </div>  <!-- class="rightside" -->

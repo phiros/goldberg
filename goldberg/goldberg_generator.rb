@@ -62,6 +62,7 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.file "app/views/auth/_form.rhtml", "app/views/auth/_form.rhtml"
       m.file "app/views/auth/login.rhtml", "app/views/auth/login.rhtml"
       m.file "app/views/auth/logout.rhtml", "app/views/auth/logout.rhtml"
+      m.file "app/views/auth/_login.rhtml", "app/views/auth/_login.rhtml"
 
       m.directory "app/views/content_pages"
       m.file "app/views/content_pages/edit.rhtml", 
@@ -124,6 +125,12 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       "app/views/menu_items/new.rhtml"
       m.file "app/views/menu_items/show.rhtml", 
       "app/views/menu_items/show.rhtml"
+      m.file "app/views/menu_items/_suckerfish.rhtml", 
+      "app/views/menu_items/_suckerfish.rhtml"
+      m.file "app/views/menu_items/_breadcrumbs.rhtml",
+      "app/views/menu_items/_breadcrumbs.rhtml"
+      m.file "app/views/menu_items/_menubar.rhtml",
+      "app/views/menu_items/_menubar.rhtml"
 
       m.directory "app/views/permissions"
       m.file "app/views/permissions/edit.rhtml", 
@@ -202,29 +209,29 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       "app/views/users/show.rhtml"
 
       # === COMPONENTS ===
-      m.directory "components/page"
+#       m.directory "components/page"
       
-      m.file "components/page/auth_controller.rb", 
-      "components/page/auth_controller.rb"
-      m.directory "components/page/auth"
-      m.file "components/page/auth/_login.rhtml", 
-      "components/page/auth/_login.rhtml"
-      m.file "components/page/auth/_logout.rhtml", 
-      "components/page/auth/_logout.rhtml"
+#       m.file "components/page/auth_controller.rb", 
+#       "components/page/auth_controller.rb"
+#       m.directory "components/page/auth"
+#       m.file "components/page/auth/_login.rhtml", 
+#       "components/page/auth/_login.rhtml"
+#       m.file "components/page/auth/_logout.rhtml", 
+#       "components/page/auth/_logout.rhtml"
 
-      m.file "components/page/breadcrumbs_controller.rb",
-      "components/page/breadcrumbs_controller.rb"
-      m.directory "components/page/breadcrumbs"
-      m.file "components/page/breadcrumbs/_breadcrumbs.rhtml",
-      "components/page/breadcrumbs/_breadcrumbs.rhtml"
+#       m.file "components/page/breadcrumbs_controller.rb",
+#       "components/page/breadcrumbs_controller.rb"
+#       m.directory "components/page/breadcrumbs"
+#       m.file "components/page/breadcrumbs/_breadcrumbs.rhtml",
+#       "components/page/breadcrumbs/_breadcrumbs.rhtml"
       
-      m.file "components/page/menubar_controller.rb", 
-      "components/page/menubar_controller.rb"
-      m.directory "components/page/menubar"
-      m.file "components/page/menubar/_menubar.rhtml", 
-      "components/page/menubar/_menubar.rhtml"
-      m.file "components/page/menubar/_suckerfish.rhtml",
-      "components/page/menubar/_suckerfish.rhtml"
+#       m.file "components/page/menubar_controller.rb", 
+#       "components/page/menubar_controller.rb"
+#       m.directory "components/page/menubar"
+#       m.file "components/page/menubar/_menubar.rhtml", 
+#       "components/page/menubar/_menubar.rhtml"
+#       m.file "components/page/menubar/_suckerfish.rhtml",
+#       "components/page/menubar/_suckerfish.rhtml"
 
       # === DATABASE ===
       m.file "db/goldberg_backup_mysql.sh",  "db/goldberg_backup_mysql.sh"
