@@ -3,8 +3,10 @@ class GoldbergGenerator < Rails::Generator::NamedBase
   def manifest
     record do |m|
       # === CONTROLLERS ===
-      m.file "app/controllers/application.rb", 
-      "app/controllers/application.rb"
+
+      # (Obsolete: filters now in a plugin)
+      # m.file "app/controllers/application.rb", 
+      # "app/controllers/application.rb"
 
       m.file "app/controllers/auth_controller.rb", 
       "app/controllers/auth_controller.rb"
@@ -259,7 +261,8 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.file "lib/tasks/goldberg.rake", "lib/tasks/goldberg.rake"
 
       # === CONFIG ===
-      m.file "config/routes.rb",        "config/routes.rb"
+      # (Obsolete: routes now in a plugin)
+      # m.file "config/routes.rb",        "config/routes.rb"
 
       # === PUBLIC ===
       m.file "public/stylesheets/goldberg.css", 
@@ -355,6 +358,55 @@ class GoldbergGenerator < Rails::Generator::NamedBase
 
       end
 
+
+      # === GOLDBERG PLUGINS ===
+      m.directory 'vendor/'
+      m.directory 'vendor/plugins/'
+
+      # ROUTES PLUGIN
+      m.directory 'vendor/plugins/goldberg_routes/'
+      
+      m.directory 'vendor/plugins/goldberg_routes/lib/'
+      m.template 'vendor/plugins/goldberg_routes/lib/goldberg_routes.rb', 
+      'vendor/plugins/goldberg_routes/lib/goldberg_routes.rb'
+      
+      m.directory 'vendor/plugins/goldberg_routes/tasks/'
+      m.template 'vendor/plugins/goldberg_routes/tasks/goldberg_routes_tasks.rake', 
+      'vendor/plugins/goldberg_routes/tasks/goldberg_routes_tasks.rake'
+      
+      m.directory 'vendor/plugins/goldberg_routes/test/'
+      m.template 'vendor/plugins/goldberg_routes/test/goldberg_routes_test.rb', 'vendor/plugins/goldberg_routes/test/goldberg_routes_test.rb'
+      m.template 'vendor/plugins/goldberg_routes/README', 
+      'vendor/plugins/goldberg_routes/README'
+      m.template 'vendor/plugins/goldberg_routes/Rakefile', 
+      'vendor/plugins/goldberg_routes/Rakefile'
+      m.template 'vendor/plugins/goldberg_routes/init.rb', 
+      'vendor/plugins/goldberg_routes/init.rb'
+      m.template 'vendor/plugins/goldberg_routes/install.rb', 
+      'vendor/plugins/goldberg_routes/install.rb'
+      
+      # FILTERS PLUGIN
+      m.directory 'vendor/plugins/goldberg_filters/'
+      
+      m.directory 'vendor/plugins/goldberg_filters/lib/'
+      m.template 'vendor/plugins/goldberg_filters/lib/goldberg_filters.rb', 
+      'vendor/plugins/goldberg_filters/lib/goldberg_filters.rb'
+      
+      m.directory 'vendor/plugins/goldberg_filters/tasks/'
+      m.template 'vendor/plugins/goldberg_filters/tasks/goldberg_filters_tasks.rake', 'vendor/plugins/goldberg_filters/tasks/goldberg_filters_tasks.rake'
+      
+      m.directory 'vendor/plugins/goldberg_filters/test/'
+      m.template 'vendor/plugins/goldberg_filters/test/goldberg_filters_test.rb', 
+      'vendor/plugins/goldberg_filters/test/goldberg_filters_test.rb'
+      m.template 'vendor/plugins/goldberg_filters/README', 
+      'vendor/plugins/goldberg_filters/README'
+      m.template 'vendor/plugins/goldberg_filters/Rakefile', 
+      'vendor/plugins/goldberg_filters/Rakefile'
+      m.template 'vendor/plugins/goldberg_filters/init.rb', 
+      'vendor/plugins/goldberg_filters/init.rb'
+      m.template 'vendor/plugins/goldberg_filters/install.rb', 
+      'vendor/plugins/goldberg_filters/install.rb'
+      
       # Show message
       m.file "README_GOLDBERG", "README_GOLDBERG"
       m.readme "README_GOLDBERG"
