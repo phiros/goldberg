@@ -61,7 +61,7 @@ class InitialSetup < ActiveRecord::Migration
     create_table "roles", :force => false do |t|
       t.column "name", :string, :default => "", :null => false
       t.column "parent_id", :integer
-      t.column "description", :string, :limit => 1024, :default => "", :null => false
+      t.column "description", :string, :limit => 255, :default => "", :null => false
       t.column "default_page_id", :integer
       t.column "cache", :text
       t.column "created_at", :timestamp
