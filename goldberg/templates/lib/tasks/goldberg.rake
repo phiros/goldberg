@@ -9,10 +9,16 @@ namespace :goldberg do
   end
 
   desc "Load standard Goldberg tables from files in db/"
-  task :load_starter => :environment do
+  task :load_starter => 'db:migrate' do
     goldberg_classes.each do |klass|
       load_for_class klass, "db"
     end
+  end
+
+  desc "Install Goldberg"
+  task :install => :load_starter do
+    index = "#{RAILS_ROOT}/public/index.html"
+    FileTest.exists?(index) and File.delete(index)
   end
 
   desc "Set up a legacy Goldberg database for migrations"

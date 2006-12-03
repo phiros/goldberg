@@ -59,12 +59,12 @@
           <%= render :partial => 'menu_items/breadcrumbs', 
 	      :locals => {:crumbs => session[:menu].crumbs} %>
         </div>
-<% if @flash[:note] -%>
-<div class="flash_note"><%= @flash[:note] %></div>
-<% elsif @flash[:error] -%>
-<div class="flash_error"><h1>Error!</h1><%= @flash[:error] %></div>
+<% if flash[:note] -%>
+<div class="flash_note"><%= flash[:note] %></div>
+<% elsif flash[:error] -%>
+<div class="flash_error"><h1>Error!</h1><%= flash[:error] %></div>
 <% end -%>
-<%= @content_for_layout %>
+<%= yield %>
     </div>  <!-- class="content" -->
     </div>  <!-- class="main" -->
   </div>
