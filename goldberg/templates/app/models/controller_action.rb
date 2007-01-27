@@ -1,5 +1,6 @@
 class ControllerAction < ActiveRecord::Base
 
+  validates_presence_of :name
   validates_uniqueness_of :name, :scope => 'site_controller_id'
 
   attr_accessor :controller, :permission, :url, :allowed, :specific_name

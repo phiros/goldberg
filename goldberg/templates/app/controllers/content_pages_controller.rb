@@ -52,6 +52,7 @@ class ContentPagesController < ApplicationController
       Role.rebuild_cache
       redirect_to :action => 'list'
     else
+      foreign
       render :action => 'new'
     end
   end
@@ -68,6 +69,7 @@ class ContentPagesController < ApplicationController
       Role.rebuild_cache
       redirect_to :action => 'show', :id => @content_page
     else
+      foreign
       render :action => 'edit'
     end
   end

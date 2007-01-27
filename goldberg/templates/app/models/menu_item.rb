@@ -2,6 +2,7 @@ class MenuItem < ActiveRecord::Base
 
   attr_accessor :controller_action, :content_page
 
+  validates_presence_of :name
   validates_uniqueness_of :name
 
   def above

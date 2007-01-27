@@ -3,6 +3,7 @@ require "menu"
 
 class Role < ActiveRecord::Base
   serialize :cache
+  validates_presence_of :name
   validates_uniqueness_of :name
 
   def Role.rebuild_cache

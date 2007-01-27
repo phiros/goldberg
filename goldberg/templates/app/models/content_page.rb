@@ -2,6 +2,7 @@ require 'redcloth'
 
 class ContentPage < ActiveRecord::Base
   
+  validates_presence_of :name
   validates_uniqueness_of :name
   attr_accessor :content_html
 

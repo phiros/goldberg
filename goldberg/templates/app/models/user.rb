@@ -2,6 +2,7 @@ require 'digest/sha1'
 
 class User < ActiveRecord::Base
   attr_accessor :clear_password
+  validates_presence_of :name
   validates_uniqueness_of :name
 
   def role
