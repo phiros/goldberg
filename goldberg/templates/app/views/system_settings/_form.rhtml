@@ -10,18 +10,13 @@
 <p><label for="system_settings_footer_messasge">Footer Message</label><br/>
 <%= text_field 'system_settings', 'footer_message'  %></p>
 
-<p><label for="system_settings_session_timeout">Session timeout</label><br/>
-<%= text_field 'system_settings', 'session_timeout'  %></p>
-
-<p><label for="system_settings_session_expired_page_id"> Session Expired Page
-</label><br/>
-<%= collection_select :system_settings, :session_expired_page_id,
-   @pages, :id, :name %> </p>
-
 <p><label for="system_settings_public_role_id">Public
 Role</label><br/>
 <%= collection_select :system_settings, :public_role_id,
     @roles, :id, :name %> </p>
+
+<p><label for="system_settings_session_timeout">Session timeout</label><br/>
+<%= text_field 'system_settings', 'session_timeout'  %></p>
 
 <p><label for="system_settings_default_markup_style_id"> Default
 Markup Style</label><br/>
@@ -42,6 +37,14 @@ Markup Style</label><br/>
 Denied Page </label><br/>
 <%= collection_select :system_settings, :permission_denied_page_id,
    @pages, :id, :name %> </p>
+
+<p><label for="system_settings_session_expired_page_id"> Session Expired Page
+</label><br/>
+<%= collection_select :system_settings, :session_expired_page_id,
+   @pages, :id, :name %> </p>
+
+<p><label for="system_settings_menu_depth">Menu Depth</label><br/>
+<%= text_field 'system_settings', 'menu_depth'  %></p>
 
 <!--[eoform:system_settings]-->
 
