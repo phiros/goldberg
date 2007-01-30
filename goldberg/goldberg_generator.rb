@@ -244,6 +244,8 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.directory "db/migrate"
       m.file "db/migrate/001_initial_setup.rb", 
       "db/migrate/001_initial_setup.rb"
+      m.file "db/migrate/002_menu_rest_items_users_cached_content_pages.rb",
+      "db/migrate/002_menu_rest_items_users_cached_content_pages.rb"
 
       m.file "db/ContentPage.yml",      "db/ContentPage.yml"
       m.file "db/ControllerAction.yml", "db/ControllerAction.yml"

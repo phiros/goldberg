@@ -7,12 +7,10 @@ class AuthController < ApplicationController
   def login
     if request.get?
       AuthController.clear_session(session)
-      @login = Login.new
     else
-      @login = Login.new
-      user = User.find_by_name_and_password(params[:login][:name], 
-                                            params[:login][:password])
-      if user
+      user = User.find_by_name(params[:login][:name])
+      
+      if user and user.check_password(params[:login][:password])
         logger.info "User #{params[:login][:name]} successfully logged in"
         session[:user] = user
         if user.role_id
@@ -28,15 +26,30 @@ class AuthController < ApplicationController
             logger.error "Something went seriously wrong with the role"
           end
         end
-
-        redirect_to "/"
+        
+        respond_to do |wants|
+          wants.html do
+            redirect_to "/"
+          end
+          wants.xml do
+            render :nothing => true, :status => 200
+          end
+        end
+        
       else
         logger.warn "Failed login attempt"
-        redirect_to :action => 'login_failed'
+        respond_to do |wants|
+          wants.html do
+            redirect_to :action => 'login_failed'
+          end
+          wants.xml do
+            render :nothing => true, :status => 404
+          end
+          end
       end
     end
-  end
-
+  end  # def login
+  
   def forgotten
   end
 

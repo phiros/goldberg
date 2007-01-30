@@ -11,7 +11,7 @@
        :action => 'show', :id => @site_controller.id %>
 <% else -%>
 <%= collection_select :controller_action, :site_controller_id,
-    @controllers, :id, :name %></p>
+    @controllers, :id, :name %>
 <% end -%>
 </td>
 </tr>
@@ -24,7 +24,6 @@
     @actions, :name, :name %>
  or type here: 
 <%= text_field :controller_action, :specific_name %>
-</p>
 <% else -%>
 <%= text_field :controller_action, :name  %></p>
 <% end -%>
@@ -32,10 +31,20 @@
 </tr>
 
 <tr>
+<th>URL to use</th>
+<td><%= text_field :controller_action, :url_to_use %> 
+(Leave blank if not applicable)</td>
+</tr>
+
+<tr>
+<td></td><td></td>
+</tr>
+
+<tr>
 <th>Permission</th>
 <td>
 <%= collection_select 'controller_action', 'permission_id',
-      @permissions, :id, :name %></p>
+      @permissions, :id, :name %>
 </td>
 </tr>
 </table>

@@ -30,8 +30,13 @@ class Menu
       end
 
       @url = String.new
-      if item.controller_action # and @item.site_controller_id.to_i > 0
-        @url = "/#{item.controller_action.controller.name}/#{item.controller_action.name}"
+      if item.controller_action
+        if item.controller_action.url_to_use and 
+            item.controller_action.url_to_use.length > 0
+          @url = item.controller_action.url_to_use
+        else
+          @url = "/#{item.controller_action.controller.name}/#{item.controller_action.name}"
+        end
       else
         @url = "/#{item.content_page.name}"
       end

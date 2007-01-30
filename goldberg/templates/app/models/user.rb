@@ -1,9 +1,10 @@
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
-  attr_accessor :clear_password
   validates_presence_of :name
   validates_uniqueness_of :name
+
+  attr_accessor :clear_password
 
   def role
     if self.role_id
@@ -12,10 +13,11 @@ class User < ActiveRecord::Base
     return @role
   end
     
-
   def before_save
     if self.clear_password  # Only update the password if it has been changed
-      self.password = User.hash_password(self.clear_password)
+      self.password_salt = self.object_id.to_s + rand.to_s
+      self.password = Digest::SHA1.hexdigest(self.password_salt +
+                                             self.clear_password)
     end
   end
 
@@ -23,17 +25,9 @@ class User < ActiveRecord::Base
     self.clear_password = nil
   end
 
-  def self.find_by_name_and_password(name, password)
-    hashed_password = self.hash_password(password)
-    find(:first, 
-         :conditions => ["name = ? and password = ?", name, hashed_password])
+  def check_password(clear_password)
+    self.password == Digest::SHA1.hexdigest(self.password_salt.to_s +
+                                                 clear_password)
   end
-
-
-  protected
-  
-  def self.hash_password(password)
-    Digest::SHA1.hexdigest(password)
-  end
-
+    
 end
