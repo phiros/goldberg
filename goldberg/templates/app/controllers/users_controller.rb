@@ -29,12 +29,20 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    if @user.save
-      flash[:notice] = 'User was successfully created.'
-      redirect_to :action => 'list'
-    else
+
+    if params[:user][:clear_password].length == 0 or
+        params[:user][:confirm_password] != params[:user][:clear_password]
+      flash[:error] = 'Password invalid!'
       foreign
       render :action => 'new'
+    else
+      if @user.save
+        flash[:notice] = 'User was successfully created.'
+        redirect_to :action => 'list'
+      else
+        foreign
+        render :action => 'new'
+      end
     end
   end
 
@@ -52,12 +60,20 @@ class UsersController < ApplicationController
       params[:user].delete('clear_password')
     end
 
-    if @user.update_attributes(params[:user])
-      flash[:notice] = 'User was successfully updated.'
-      redirect_to :action => 'show', :id => @user
-    else
+    if params[:user][:clear_password] and
+        params[:user][:clear_password].length > 0 and
+        params[:user][:confirm_password] != params[:user][:clear_password]
+      flash[:error] = 'Password invalid!'
       foreign
       render :action => 'edit'
+    else
+      if @user.update_attributes(params[:user])
+        flash[:notice] = 'User was successfully updated.'
+        redirect_to :action => 'show', :id => @user
+      else
+        foreign
+        render :action => 'edit'
+      end
     end
   end
 

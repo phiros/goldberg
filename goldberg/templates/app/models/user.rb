@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :name
 
   attr_accessor :clear_password
+  attr_accessor :confirm_password
 
   def role
     if self.role_id
