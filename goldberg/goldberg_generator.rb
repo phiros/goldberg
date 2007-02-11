@@ -415,10 +415,14 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.directory 'test/unit'
       m.directory 'test/fixtures'
       
-      m.template 'test/unit/content_page_test.rb', 'test/unit/content_page_test.rb' 
+      m.template 'test/unit/content_page_test.rb', 'test/unit/content_page_test.rb'
+      m.template 'test/unit/system_settings_test.rb', 'test/unit/system_settings_test.rb'
+      
       m.template 'test/fixtures/content_pages.yml', 'test/fixtures/content_pages.yml'
       m.template 'test/fixtures/permissions.yml', 'test/fixtures/permissions.yml'
       m.template 'test/fixtures/markup_styles.yml', 'test/fixtures/markup_styles.yml'
+      m.template 'test/fixtures/roles.yml', 'test/fixtures/roles.yml'
+
 
 
       # Show message
