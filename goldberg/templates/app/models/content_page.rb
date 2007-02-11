@@ -21,6 +21,12 @@ class ContentPage < ActiveRecord::Base
   def url
     return "/#{self.name}"
   end
+  
+  
+  def content=(new_content)
+    write_attribute(:content, new_content)
+    self.content_cache = nil
+  end
 
 
   def markup_style
