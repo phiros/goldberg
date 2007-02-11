@@ -408,10 +408,23 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       'vendor/plugins/goldberg_filters/init.rb'
       m.template 'vendor/plugins/goldberg_filters/install.rb', 
       'vendor/plugins/goldberg_filters/install.rb'
+
       
+      # === TESTS ===
+      m.directory 'test/'
+      m.directory 'test/unit'
+      m.directory 'test/fixtures'
+      
+      m.template 'test/unit/content_page_test.rb', 'test/unit/content_page_test.rb' 
+      m.template 'test/fixtures/content_pages.yml', 'test/fixtures/content_pages.yml'
+      m.template 'test/fixtures/permissions.yml', 'test/fixtures/permissions.yml'
+      m.template 'test/fixtures/markup_styles.yml', 'test/fixtures/markup_styles.yml'
+
+
       # Show message
       m.file "README_GOLDBERG", "README_GOLDBERG"
       m.readme "README_GOLDBERG"
+      
 
     end
 
