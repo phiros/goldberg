@@ -22,3 +22,18 @@ view_permission_for_son_of_hamlet_role:
 edit_permission_for_son_of_hamlet_role:
   id: 8
   name: edit_permission_for_son_of_hamlet_role
+widget_view_permission:
+  id: 9
+  name: widget_view_permission
+sprocket_view_permission:
+  id: 10
+  name: sprocket_view_permission
+widget_edit_permission:
+  id: 11
+  name: widget_edit_permission
+sprocket_edit_permission:
+  id: 12
+  name: sprocket_edit_permission
+test_disordered_controller_actions_permission:
+  id: 13
+  name: test_disordered_controller_actions_permission

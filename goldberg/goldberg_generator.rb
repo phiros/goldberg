@@ -421,6 +421,7 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.template 'test/unit/site_controller_test.rb', 'test/unit/site_controller_test.rb'
       m.template 'test/unit/markup_style_test.rb', 'test/unit/markup_style_test.rb'
       m.template 'test/unit/permission_test.rb', 'test/unit/permission_test.rb'      
+      m.template 'test/unit/controller_action_test.rb', 'test/unit/controller_action_test.rb'      
       
       m.template 'test/fixtures/content_pages.yml', 'test/fixtures/content_pages.yml'
       m.template 'test/fixtures/permissions.yml', 'test/fixtures/permissions.yml'
@@ -430,6 +431,7 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.template 'test/fixtures/users.yml', 'test/fixtures/users.yml'
       m.template 'test/fixtures/site_controllers.yml', 'test/fixtures/site_controllers.yml'
       m.template 'test/fixtures/roles_permissions.yml', 'test/fixtures/roles_permissions.yml'
+      m.template 'test/fixtures/controller_actions.yml', 'test/fixtures/controller_actions.yml'
       
       # Show message
       m.file "README_GOLDBERG", "README_GOLDBERG"
