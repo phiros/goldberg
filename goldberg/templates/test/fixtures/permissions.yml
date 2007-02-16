@@ -4,3 +4,21 @@ dweezel:
 doozle:
   id: 2
   name: doozle
+view_permission_for_macbeth_role:
+  id: 3
+  name: view_permission_for_macbeth_role
+edit_permission_for_macbeth_role:
+  id: 4
+  name: edit_permission_for_macbeth_role
+view_permission_for_hamlet_role:
+  id: 5
+  name: view_permission_for_hamlet_role
+edit_permission_for_hamlet_role:
+  id: 6
+  name: edit_permission_for_hamlet_role
+view_permission_for_son_of_hamlet_role:
+  id: 7
+  name: view_permission_for_son_of_hamlet_role
+edit_permission_for_son_of_hamlet_role:
+  id: 8
+  name: edit_permission_for_son_of_hamlet_role
