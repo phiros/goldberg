@@ -108,5 +108,17 @@ class MenuItem < ActiveRecord::Base
 
     return items
   end
+  
+  
+  protected
+  
+  
+  def validate
+    unless self.content_page_id.to_i != 0 || controller_action_id.to_i != 0
+      errors.add(:content_page_id, 'A menu item must be attached to either a content page or a controller / action')
+      errors.add(:controller_action_id, 'A menu item must be attached to either a content page or a controller / action')
+    end
+  end
 
+  
 end
