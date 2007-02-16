@@ -9,6 +9,7 @@ class ContentPageTest < Test::Unit::TestCase
     content_page = ContentPage.new
     assert(!content_page.valid?)
     assert(content_page.errors.invalid?(:name))
+    assert(!content_page.save)
   end
 
 
