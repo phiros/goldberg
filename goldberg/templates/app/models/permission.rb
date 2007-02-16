@@ -15,8 +15,9 @@ class Permission < ActiveRecord::Base
   # the Role and its ancestors.
 
   def Permission.find_all_for_role(role)
-    roles = Role.hierarchy(role.id)
-    return find_for_role(roles)
+    roles = role.get_parents
+    roles << role
+    return find_for_role(roles.collect(&:id))
   end
 
 
