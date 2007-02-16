@@ -409,7 +409,6 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.template 'vendor/plugins/goldberg_filters/install.rb', 
       'vendor/plugins/goldberg_filters/install.rb'
 
-      
       # === TESTS ===
       m.directory 'test/'
       m.directory 'test/unit'
@@ -422,8 +421,6 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.template 'test/fixtures/permissions.yml', 'test/fixtures/permissions.yml'
       m.template 'test/fixtures/markup_styles.yml', 'test/fixtures/markup_styles.yml'
       m.template 'test/fixtures/roles.yml', 'test/fixtures/roles.yml'
-
-
 
       # Show message
       m.file "README_GOLDBERG", "README_GOLDBERG"
