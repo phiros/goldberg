@@ -422,6 +422,7 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.template 'test/fixtures/markup_styles.yml', 'test/fixtures/markup_styles.yml'
       m.template 'test/fixtures/roles.yml', 'test/fixtures/roles.yml'
 
+
       # Show message
       m.file "README_GOLDBERG", "README_GOLDBERG"
       m.readme "README_GOLDBERG"
