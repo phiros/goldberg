@@ -6,7 +6,7 @@
 <meta name="keywords" content="_your,keywords,goes,here_" />
 <meta name="author" content="_your name goes here_" />
 
-<title><% if params[:controller] == 'content_pages' and
+<title><% if params[:controller] == 'goldberg/content_pages' and
             ( params[:action] == 'view' or 
               params[:action] == 'view_default') -%>
 <%= @content_page.title %>
@@ -14,12 +14,12 @@
 <%= params[:controller] %> | <%= params[:action] %> 
 <% end -%></title>
 
-<link rel="stylesheet" href="/stylesheets/layout.css" 
+<link rel="stylesheet" href="/goldberg/stylesheets/goldberg.css" 
   type="text/css" media="screen" />
-<link rel="stylesheet" href="/stylesheets/goldberg.css" 
+<link rel="stylesheet" href="/goldberg/stylesheets/layout.css" 
   type="text/css" media="screen" />
 
-<script type="text/javascript" src="/javascripts/suckerfish.js"></script>
+<script type="text/javascript" src="/goldberg/javascripts/suckerfish.js"></script>
 
 <%= javascript_include_tag :defaults %>
 
@@ -36,44 +36,33 @@
 <body><div id="wrap">
 
 
-<img id="frontphoto" src="/images/title_img.jpg" width="760" height="189" alt="" />
+<img id="frontphoto" src="/goldberg/images/title_img.jpg" width="760" height="189" alt="" />
 <div id="title">
 <p><%= @settings.site_subtitle %></p>
 <h1> <%= @settings.site_name %> </h1>
 </div>
 
 <div id="navigation">
-<img id="navimg" src="/images/sample.jpg" width="125" height="125" alt="Sample" />
+<img id="navimg" src="/goldberg/images/sample.jpg" width="125" height="125" alt="Sample" />
 <h2>Navigation</h2>
 
 <div class="leftmenu">
 <ul id="suckerfish">
-<!-- %= render_component(:controller => 'page/menubar', :action =>
-'suckerfish') %-->
-  <%= render :partial => 'menu_items/suckerfish',
-      :locals => {:items => session[:menu].get_menu(0)} %>
-
+  <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/menu_items/_suckerfish.rhtml", :use_full_path => false, :locals => {:items => session[:menu].get_menu(0)} %>
 </ul>
 </div>
 
 <div class="auth">
-<p><!-- %= render_component(:controller => 'page/auth', :action =>
-'login_logout') %-->
-  <%= render :partial => 'auth/login' %>
-
-</div>
-
+<p>
+  <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/auth/_login.rhtml", :use_full_path => false %>
 </p>
+</div>
 </div>
 
 <div class="main">
 
 <div class="breadcrumbs">
-<!-- %= render_component(:controller => 'page/breadcrumbs', :action =>
-'breadcrumbs') %-->
-  <%= render :partial => 'menu_items/breadcrumbs', 
-      :locals => {:crumbs => session[:menu].crumbs} %>
-
+  <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/menu_items/_breadcrumbs.rhtml", :use_full_path => false, :locals => {:crumbs => session[:menu].crumbs} %>
 </div>
 
 <% if flash[:note] -%>

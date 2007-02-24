@@ -6,7 +6,7 @@ body {
   padding: 0 ;
   font: 76% Verdana,Tahoma,Arial,sans-serif ;
   background-color: #8da0a7 ;
-  background: #8da0a7 url(/images/bg.gif) top center repeat-y ;
+  background: #8da0a7 url(/goldberg/images/bg.gif) top center repeat-y ;
 }
 
 h1 {
@@ -117,7 +117,7 @@ a:hover {
 }
 
 #suckerfish a.daddy {
-  background-image: url("/images/daddy_rightarrow.gif") ;
+  background-image: url("/goldberg/images/daddy_rightarrow.gif") ;
   background-position: right center ;
   background-repeat: no-repeat ;
 }

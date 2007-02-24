@@ -23,7 +23,7 @@ body {
   font-family:Georgia, "Times New Roman", Times, serif ;
   font-size:1em ;
   background-color:#ffffff ;
-  background-image:url(/images/body-bg.jpg) ;
+  background-image:url(/goldberg/images/body-bg.jpg) ;
   background-repeat:repeat ;
 }
 
@@ -51,7 +51,7 @@ ul li ul li {
   margin:1.5em 15em 1.5em 1em ;
   height:40px ;
   background-color:#ffffff ;
-  background-image:url(/images/hr-bg.jpg) ;
+  background-image:url(/goldberg/images/hr-bg.jpg) ;
   background-position:center ;
   background-repeat:no-repeat ;
 }
@@ -65,7 +65,7 @@ blockquote {
   padding:.5em .5em 2em 4em ;
   font-size:.9em ;
   background-color:#F8E8F2 ;
-  background-image:url('/images/blockquote-bg.gif') ;
+  background-image:url('/goldberg/images/blockquote-bg.gif') ;
   background-position:0 0 ;
   background-repeat:no-repeat ;
   border-top:1px solid #DBA8C6 ;
@@ -86,7 +86,7 @@ blockquote p {
   padding:0 0 1em 1em ;
   height:13em ;
   background-color:#A57E95 ;
-  background-image:url('/images/header-bg.jpg') ;
+  background-image:url('/goldberg/images/header-bg.jpg') ;
   background-position:0 0 ;
   background-repeat:repeat-x ;
   border-top:1px solid #ffffff ;
@@ -136,7 +136,7 @@ blockquote p {
   font-size:.9em ;
   color:#544847 ;
   background-color:#ffffff ;
-  background-image:url(/images/centerColumn-bg.jpg) ;
+  background-image:url(/goldberg/images/centerColumn-bg.jpg) ;
   background-position:top ;
   background-repeat:repeat-x ;
 }
@@ -161,7 +161,7 @@ html>body .centerColumn {
   font-size:1.1em ;
   color:#C48DAD ;
   letter-spacing:.1em ;
-  background-image:url(/images/h2-bg.gif) ;
+  background-image:url(/goldberg/images/h2-bg.gif) ;
   background-position:0 0 ;
   background-repeat:no-repeat ;
 }
@@ -211,7 +211,7 @@ html>body .centerColumn {
   color:#B47B9C ;
   font-weight:100 ;
   letter-spacing:.1em ;
-  background-image:url('/images/h3-bg.gif') ;
+  background-image:url('/goldberg/images/h3-bg.gif') ;
   background-position:0 0 ;
   background-repeat:no-repeat ;
 }
@@ -255,7 +255,7 @@ div.rightmenu {
 }
 
 #suckerfish a.daddy {
-  background-image: url('/images/daddy_leftarrow.gif') ;
+  background-image: url('/goldberg/images/daddy_leftarrow.gif') ;
   background-position: left center ;
   background-repeat: no-repeat ;
 }
@@ -328,7 +328,7 @@ div.rightmenu {
   color:#907396 ;
   text-align:center ;
   background-color:#ffffff ;
-  background-image:url(/images/header-bg.jpg) ;
+  background-image:url(/goldberg/images/header-bg.jpg) ;
   background-position:top ;
   background-repeat:repeat-x ;
 }

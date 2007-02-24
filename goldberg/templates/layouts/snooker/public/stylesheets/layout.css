@@ -18,7 +18,7 @@ a:hover {
 }
 
 .wrapper {
-  background: white url('/images/column_200.png') repeat-y right ;
+  background: white url('/goldberg/images/column_200.png') repeat-y right ;
 }
 
 .header * {
@@ -88,7 +88,7 @@ a:hover {
 }
 
 #suckerfish li ul li a.daddy {
-  background-image: url("/images/daddy_rightarrow.gif") ;
+  background-image: url("/goldberg/images/daddy_rightarrow.gif") ;
   background-position: right center ;
   background-repeat: no-repeat ;
 }
@@ -122,7 +122,7 @@ a:hover {
 
 .container {
   width: 100%;
-  background: white url('/images/column_200.png') repeat-y right ;
+  background: white url('/goldberg/images/column_200.png') repeat-y right ;
   float: left ;
   margin-right: -200px ;
 }
@@ -155,7 +155,7 @@ a:hover {
 
 .footer {
   color: white ;
-  background: #6d7a73 url('/images/footer_bg.png') repeat-x top ;
+  background: #6d7a73 url('/goldberg/images/footer_bg.png') repeat-x top ;
   padding: 8px ;
 }
 
