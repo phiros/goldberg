@@ -37,7 +37,7 @@
 
 <div class="header">
 
-<img class="logo_right" src="/images/logo_right.jpg"/>
+<img class="logo_right" src="/goldberg/images/logo_right.jpg"/>
 <h1><%= @settings.site_name %></h1>
 <p><%= @settings.site_subtitle %></p>
 
@@ -49,8 +49,8 @@
 <div class="mainmenu">
 <!-- %= render_component(:controller => 'page/menubar', :action =>
 'top_menu') %-->
-  <%= render :partial => 'goldberg/menu_items/menubar', :locals => {:level => 0,
-      :depth => 0, :class_attr => nil} %>
+  <% use_full_path = true %>
+  <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/menu_items/_menubar.rhtml", :use_full_path => false, :locals => {:level => 0, :depth => 0, :class_attr => nil} %>
 
 </div>  <!-- class="mainmenu" -->
  
@@ -60,9 +60,9 @@
 <div class="leftside">
 <!-- %= render_component(:controller => 'page/menubar', :action =>
 'side_menu') %-->
-  <%= render :partial => 'goldberg/menu_items/menubar', :locals => {:level => 1,
-      :depth => (@settings.menu_depth - 2), :class_attr => 'sidemenu'} %>
-
+  <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/menu_items/_menubar.rhtml", :use_full_path => false,  
+      :locals => {:level => 1, :depth => (@settings.menu_depth - 2),
+      :class_attr => 'sidemenu'} %>
 <!-- Put other LHS stuff here -->
 </div>  <!-- class="leftside" -->
 
@@ -72,7 +72,7 @@
 
 <!-- %= render_component(:controller => 'page/auth', :action =>
 'login_logout') %-->
-  <%= render :partial => 'goldberg/auth/login' %>
+  <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/auth/_login.rhtml", :use_full_path => false %>
 
 <!-- Put other RHS stuff here -->
 </div>  <!-- class="rightside" -->
@@ -86,7 +86,6 @@
 <% end -%>
 <%= yield %>
 </div>  <!-- class="content" -->
-
 
 <div class="clearingdiv">&nbsp;</div>
 </div>  <!-- class="wrap" -->
