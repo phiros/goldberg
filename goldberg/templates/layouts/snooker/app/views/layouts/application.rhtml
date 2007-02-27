@@ -34,13 +34,13 @@
 <body>
 <div class="header">
 <img src="/goldberg/images/logo.jpg"/>
-<h1><%= @settings.site_name %></h1>
-<h2><%= @settings.site_subtitle %></h2>
+<h1><%= Goldberg.settings.site_name %></h1>
+<h2><%= Goldberg.settings.site_subtitle %></h2>
 </div>
 <div class="navbar">
   <div class="topmenu">
     <ul id="suckerfish">
-      <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/menu_items/_suckerfish.rhtml", :use_full_path => false, :locals => {:items => session[:menu].get_menu(0)} %>
+      <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/menu_items/_suckerfish.rhtml", :use_full_path => false, :locals => {:items => Goldberg.menu.get_menu(0)} %>
     </ul>
   </div>
 </div>
@@ -51,7 +51,7 @@
     <div class="main">
       <div class="content">
         <div class="breadcrumbs">
-          <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/menu_items/_breadcrumbs.rhtml", :use_full_path => false, :locals => {:crumbs => session[:menu].crumbs} %>
+          <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/menu_items/_breadcrumbs.rhtml", :use_full_path => false, :locals => {:crumbs => Goldberg.menu.crumbs} %>
         </div>
 <% if flash[:note] -%>
 <div class="flash_note"><%= flash[:note] %></div>
@@ -73,7 +73,7 @@
 </div>  <!-- class="wrapper" -->
 
 <div class="footer" align="center">
-<%= @settings.footer_message %>
+<%= Goldberg.settings.footer_message %>
 </div>  <!-- class="footer" -->
 
 </body>

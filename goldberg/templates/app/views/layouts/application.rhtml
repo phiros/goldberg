@@ -38,8 +38,8 @@
 <div class="header">
 
 <img class="logo_right" src="/goldberg/images/logo_right.jpg"/>
-<h1><%= @settings.site_name %></h1>
-<p><%= @settings.site_subtitle %></p>
+<h1><%= Goldberg.settings.site_name %></h1>
+<p><%= Goldberg.settings.site_subtitle %></p>
 
 <!-- Could put something here like some top links -->
 <!--p class="right_text"></p-->
@@ -61,7 +61,7 @@
 <!-- %= render_component(:controller => 'page/menubar', :action =>
 'side_menu') %-->
   <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/menu_items/_menubar.rhtml", :use_full_path => false,  
-      :locals => {:level => 1, :depth => (@settings.menu_depth - 2),
+      :locals => {:level => 1, :depth => (Goldberg.settings.menu_depth - 2),
       :class_attr => 'sidemenu'} %>
 <!-- Put other LHS stuff here -->
 </div>  <!-- class="leftside" -->
@@ -92,6 +92,6 @@
 
 </div>  <!-- class="container" -->
 
-<div class="footer"><%= @settings.footer_message %></div>
+<div class="footer"><%= Goldberg.settings.footer_message %></div>
 </body>
 </html>

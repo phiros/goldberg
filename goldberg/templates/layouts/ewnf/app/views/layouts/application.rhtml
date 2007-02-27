@@ -38,8 +38,8 @@
 
 <img id="frontphoto" src="/goldberg/images/title_img.jpg" width="760" height="189" alt="" />
 <div id="title">
-<p><%= @settings.site_subtitle %></p>
-<h1> <%= @settings.site_name %> </h1>
+<p><%= Goldberg.settings.site_subtitle %></p>
+<h1> <%= Goldberg.settings.site_name %> </h1>
 </div>
 
 <div id="navigation">
@@ -48,7 +48,7 @@
 
 <div class="leftmenu">
 <ul id="suckerfish">
-  <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/menu_items/_suckerfish.rhtml", :use_full_path => false, :locals => {:items => session[:menu].get_menu(0)} %>
+  <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/menu_items/_suckerfish.rhtml", :use_full_path => false, :locals => {:items => Goldberg.menu.get_menu(0)} %>
 </ul>
 </div>
 
@@ -62,7 +62,7 @@
 <div class="main">
 
 <div class="breadcrumbs">
-  <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/menu_items/_breadcrumbs.rhtml", :use_full_path => false, :locals => {:crumbs => session[:menu].crumbs} %>
+  <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/menu_items/_breadcrumbs.rhtml", :use_full_path => false, :locals => {:crumbs => Goldberg.menu.crumbs} %>
 </div>
 
 <% if flash[:note] -%>
@@ -73,7 +73,7 @@
 <%= yield %>
 </div>
 
-<div class="footer"><%= @settings.footer_message %></div>
+<div class="footer"><%= Goldberg.settings.footer_message %></div>
 
 </div>
 </body>
