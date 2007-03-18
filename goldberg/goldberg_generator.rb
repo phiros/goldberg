@@ -92,7 +92,7 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.file "#{@models}/site_controller.rb", "#{@models}/site_controller.rb"
       m.file "#{@models}/system_settings.rb", "#{@models}/system_settings.rb"
       m.file "#{@models}/user.rb", "#{@models}/user.rb"
-
+      m.file "#{@models}/user_mailer.rb", "#{@models}/user_mailer.rb"
 
       # === VIEWS ===
       m.directory "#{@goldberg}/app"
@@ -241,6 +241,16 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       "#{@views}/system_settings/show.rhtml"
 
       m.directory "#{@views}/users"
+      m.file "#{@views}/users/confirm_registration.rhtml",
+      "#{@views}/users/confirm_registration.rhtml"
+      m.file "#{@views}/users/confirm_registration_submit.rhtml",
+      "#{@views}/users/confirm_registration_submit.rhtml"
+      m.file "#{@views}/users/create.rhtml",
+      "#{@views}/users/create.rhtml"
+      m.file "#{@views}/users/forgot_password.rhtml",
+      "#{@views}/users/forgot_password.rhtml"
+      m.file "#{@views}/users/forgot_password_submit.rhtml",
+      "#{@views}/users/forgot_password_submit.rhtml"
       m.file "#{@views}/users/edit.rhtml", 
       "#{@views}/users/edit.rhtml"
       m.file "#{@views}/users/_form.rhtml", 
@@ -249,10 +259,21 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       "#{@views}/users/list.rhtml"
       m.file "#{@views}/users/new.rhtml", 
       "#{@views}/users/new.rhtml"
+      m.file "#{@views}/users/reset_password.rhtml",
+      "#{@views}/users/reset_password.rhtml"
+      m.file "#{@views}/users/reset_password_submit.rhtml",
+      "#{@views}/users/reset_password_submit.rhtml"
       m.file "#{@views}/users/show.rhtml", 
       "#{@views}/users/show.rhtml"
 
-      
+      m.directory "#{@views}/user_mailer"
+      m.file "#{@views}/user_mailer/confirmation_request.rhtml",
+      "#{@views}/user_mailer/confirmation_request.rhtml"
+      m.file "#{@views}/user_mailer/reset_password.rhtml",
+      "#{@views}/user_mailer/reset_password.rhtml"
+      m.file "#{@views}/user_mailer/reset_password_request.rhtml",
+      "#{@views}/user_mailer/reset_password_request.rhtml"
+     
       # === DATABASE ===
       @db = "#{@goldberg}/db"
       m.directory @db
@@ -264,7 +285,9 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       "#{@migrate}/001_initial_setup.rb"
       m.file "#{@migrate}/002_menu_rest_items_users_cached_content_pages.rb",
       "#{@migrate}/002_menu_rest_items_users_cached_content_pages.rb"
-
+      m.file "#{@migrate}/003_self_registration.rb",
+      "#{@migrate}/003_self_registration.rb"
+      
       m.file "#{@db}/ContentPage.yml",      "#{@db}/ContentPage.yml"
       m.file "#{@db}/ControllerAction.yml", "#{@db}/ControllerAction.yml"
       m.file "#{@db}/MarkupStyle.yml",      "#{@db}/MarkupStyle.yml"
