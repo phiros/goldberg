@@ -47,9 +47,6 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.file "#{@controllers}/controller_actions_controller.rb", 
       "#{@controllers}/controller_actions_controller.rb"
 
-      m.file "#{@controllers}/markup_styles_controller.rb", 
-      "#{@controllers}/markup_styles_controller.rb"
-
       m.file "#{@controllers}/menu_items_controller.rb", 
       "#{@controllers}/menu_items_controller.rb"
 
@@ -71,6 +68,33 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.file "#{@controllers}/users_controller.rb", 
       "#{@controllers}/users_controller.rb"
 
+      # === HELPERS ===
+      m.directory "#{@goldberg}/app"
+      m.directory "#{@goldberg}/app/helpers"
+      @helpers = "#{@goldberg}/app/helpers/goldberg"
+      m.directory @helpers
+
+      m.file "#{@helpers}/auth_helper.rb",
+      "#{@helpers}/auth_helper.rb"
+      m.file "#{@helpers}/content_pages_helper.rb",
+      "#{@helpers}/content_pages_helper.rb"
+      m.file "#{@helpers}/controller_actions_helper.rb",
+      "#{@helpers}/controller_actions_helper.rb"
+      m.file "#{@helpers}/menu_items_helper.rb",
+      "#{@helpers}/menu_items_helper.rb"
+      m.file "#{@helpers}/permissions_helper.rb",
+      "#{@helpers}/permissions_helper.rb"
+      m.file "#{@helpers}/roles_helper.rb",
+      "#{@helpers}/roles_helper.rb"
+      m.file "#{@helpers}/roles_permissions_helper.rb",
+      "#{@helpers}/roles_permissions_helper.rb"
+      m.file "#{@helpers}/site_controllers_helper.rb",
+      "#{@helpers}/site_controllers_helper.rb"
+      m.file "#{@helpers}/system_settings_helper.rb",
+      "#{@helpers}/system_settings_helper.rb"
+      m.file "#{@helpers}/users_helper.rb",
+      "#{@helpers}/users_helper.rb"
+
 
       # === MODELS ===
       m.directory "#{@goldberg}/app"
@@ -82,8 +106,6 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.file "#{@models}/controller_action.rb", 
       "#{@models}/controller_action.rb"
       m.file "#{@models}/credentials.rb", "#{@models}/credentials.rb"
-      m.file "#{@models}/login.rb", "#{@models}/login.rb"
-      m.file "#{@models}/markup_style.rb", "#{@models}/markup_style.rb"
       m.file "#{@models}/menu_item.rb", "#{@models}/menu_item.rb"
       m.file "#{@models}/menu.rb", "#{@models}/menu.rb"
       m.file "#{@models}/permission.rb", "#{@models}/permission.rb"
@@ -101,9 +123,6 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.directory @views
 
       m.directory "#{@views}/auth"
-      m.file "#{@views}/auth/forgotten.rhtml", 
-      "#{@views}/auth/forgotten.rhtml" 
-      m.file "#{@views}/auth/_form.rhtml", "#{@views}/auth/_form.rhtml"
       m.file "#{@views}/auth/login.rhtml", "#{@views}/auth/login.rhtml"
       m.file "#{@views}/auth/logout.rhtml", "#{@views}/auth/logout.rhtml"
       m.file "#{@views}/auth/_login.rhtml", "#{@views}/auth/_login.rhtml"
@@ -111,6 +130,13 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.directory "#{@views}/content_pages"
       m.file "#{@views}/content_pages/edit.rhtml", 
       "#{@views}/content_pages/edit.rhtml"
+
+      m.file "#{@views}/content_pages/_fck_create_folder.rxml",
+      "#{@views}/content_pages/_fck_create_folder.rxml"
+      m.file "#{@views}/content_pages/_fck_files.rxml",
+      "#{@views}/content_pages/_fck_files.rxml"
+      m.file "#{@views}/content_pages/fck_speller_pages.rhtml",
+      "#{@views}/content_pages/fck_speller_pages.rhtml"
       m.file "#{@views}/content_pages/_form.rhtml", 
       "#{@views}/content_pages/_form.rhtml"
       m.file "#{@views}/content_pages/list.rhtml", 
@@ -141,18 +167,6 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       "#{@views}/layouts/_tabpanel_js.rhtml"
       m.file "#{@views}/layouts/_tabpanel_list.rhtml",
       "#{@views}/layouts/_tabpanel_list.rhtml"
-      
-      m.directory "#{@views}/markup_styles"
-      m.file "#{@views}/markup_styles/edit.rhtml", 
-      "#{@views}/markup_styles/edit.rhtml"
-      m.file "#{@views}/markup_styles/_form.rhtml", 
-      "#{@views}/markup_styles/_form.rhtml"
-      m.file "#{@views}/markup_styles/list.rhtml", 
-      "#{@views}/markup_styles/list.rhtml"
-      m.file "#{@views}/markup_styles/new.rhtml", 
-      "#{@views}/markup_styles/new.rhtml"
-      m.file "#{@views}/markup_styles/show.rhtml", 
-      "#{@views}/markup_styles/show.rhtml"
       
       m.directory "#{@views}/menu_items"
       m.file "#{@views}/menu_items/edit.rhtml", 
@@ -279,7 +293,6 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       m.directory @db
       @migrate = "#{@goldberg}/db/migrate"
       m.directory @migrate
-
       
       m.file "#{@migrate}/001_initial_setup.rb", 
       "#{@migrate}/001_initial_setup.rb"
@@ -290,7 +303,6 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       
       m.file "#{@db}/ContentPage.yml",      "#{@db}/ContentPage.yml"
       m.file "#{@db}/ControllerAction.yml", "#{@db}/ControllerAction.yml"
-      m.file "#{@db}/MarkupStyle.yml",      "#{@db}/MarkupStyle.yml"
       m.file "#{@db}/MenuItem.yml",         "#{@db}/MenuItem.yml"
       m.file "#{@db}/Permission.yml",       "#{@db}/Permission.yml"
       m.file "#{@db}/Role.yml",             "#{@db}/Role.yml"
@@ -301,6 +313,12 @@ class GoldbergGenerator < Rails::Generator::NamedBase
 
 
       # === PUBLIC ===
+      # Directories for FCKeditor integration (if applicable)
+      m.directory "public/files"
+      m.directory "public/files/Flash"
+      m.directory "public/files/Image"
+
+      # Goldberg resources
       m.directory "public/goldberg"
       m.directory "public/goldberg/stylesheets"
       m.file "public/goldberg/stylesheets/goldberg.css", 
