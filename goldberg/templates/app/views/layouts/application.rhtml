@@ -3,13 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
-<title><% if params[:controller] == 'goldberg/content_pages' and
-            ( params[:action] == 'view' or 
-              params[:action] == 'view_default') -%>
-<%= @content_page.title %>
-<% else -%>
-<%= params[:controller] %> | <%= params[:action] %> 
-<% end -%></title>
+<title><%= goldberg_title %></title>
 
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 
@@ -47,32 +41,21 @@
 
 <!-- Horizontal menu, along top -->
 <div class="mainmenu">
-<!-- %= render_component(:controller => 'page/menubar', :action =>
-'top_menu') %-->
-  <% use_full_path = true %>
-  <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/menu_items/_menubar.rhtml", :use_full_path => false, :locals => {:level => 0, :depth => 0, :class_attr => nil} %>
-
+  <%= goldberg_main_menu %>
 </div>  <!-- class="mainmenu" -->
  
 <div class="wrap">
 
 <!-- Left-hand side.  Vertical submenus, plus other stuff -->
 <div class="leftside">
-<!-- %= render_component(:controller => 'page/menubar', :action =>
-'side_menu') %-->
-  <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/menu_items/_menubar.rhtml", :use_full_path => false,  
-      :locals => {:level => 1, :depth => (Goldberg.settings.menu_depth - 2),
-      :class_attr => 'sidemenu'} %>
+  <%= goldberg_left_menu %>
 <!-- Put other LHS stuff here -->
 </div>  <!-- class="leftside" -->
 
 
 <!-- Right-hand side.  Login/status, plus other stuff -->
 <div class="rightside">
-
-<!-- %= render_component(:controller => 'page/auth', :action =>
-'login_logout') %-->
-  <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/auth/_login.rhtml", :use_full_path => false %>
+  <%= goldberg_login %>
 
 <!-- Put other RHS stuff here -->
 </div>  <!-- class="rightside" -->

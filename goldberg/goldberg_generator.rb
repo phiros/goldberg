@@ -18,6 +18,8 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       "#{@lib}/goldberg_controller.rb"
       m.file "#{@lib}/goldberg_filters.rb",
       "#{@lib}/goldberg_filters.rb"
+      m.file "#{@lib}/goldberg_helper.rb",
+      "#{@lib}/goldberg_helper.rb"
       m.file "#{@lib}/goldberg_migration.rb",
       "#{@lib}/goldberg_migration.rb"
       m.file "#{@lib}/goldberg_model.rb",

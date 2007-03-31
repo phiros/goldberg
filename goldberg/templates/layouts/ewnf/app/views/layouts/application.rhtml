@@ -6,13 +6,7 @@
 <meta name="keywords" content="_your,keywords,goes,here_" />
 <meta name="author" content="_your name goes here_" />
 
-<title><% if params[:controller] == 'goldberg/content_pages' and
-            ( params[:action] == 'view' or 
-              params[:action] == 'view_default') -%>
-<%= @content_page.title %>
-<% else -%>
-<%= params[:controller] %> | <%= params[:action] %> 
-<% end -%></title>
+<title><%= goldberg_title %></title>
 
 <link rel="stylesheet" href="/goldberg/stylesheets/goldberg.css" 
   type="text/css" media="screen" />
@@ -48,13 +42,13 @@
 
 <div class="leftmenu">
 <ul id="suckerfish">
-  <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/menu_items/_suckerfish.rhtml", :use_full_path => false, :locals => {:items => Goldberg.menu.get_menu(0)} %>
+  <%= goldberg_suckerfish_menu %>
 </ul>
 </div>
 
 <div class="auth">
 <p>
-  <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/auth/_login.rhtml", :use_full_path => false %>
+  <%= goldberg_login %>
 </p>
 </div>
 </div>
@@ -62,7 +56,7 @@
 <div class="main">
 
 <div class="breadcrumbs">
-  <%= render :file => "#{RAILS_ROOT}/vendor/plugins/goldberg/app/views/goldberg/menu_items/_breadcrumbs.rhtml", :use_full_path => false, :locals => {:crumbs => Goldberg.menu.crumbs} %>
+  <%= goldberg_breadcrumbs %>
 </div>
 
 <% if flash[:note] -%>
