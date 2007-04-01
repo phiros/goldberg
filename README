@@ -3,15 +3,16 @@ WELCOME TO GOLDBERG
 
 VERSION
 
-Goldberg 0.1.6
+Goldberg 0.2.0
 
 
 PREREQUISITES
 
-* Ruby on Rails -- a working installation, including a database engine
-  of your choice.
+* Ruby on Rails 1.2 or above.
 
-* Redcloth ("gem install redcloth")
+* Plugin Migrations (http://wiki.pluginaweek.org/Plugin_migrations).
+
+* Redcloth ("gem install redcloth").
 
 
 INSTALLATION
@@ -60,7 +61,7 @@ More information can be found on the Goldberg website:
 
   http://goldberg.240gl.org/credits
 
-(A copy of that page is in the starter database contained herein.)
+(A copy of that page is in the bootstrap database contained herein.)
 
 
 
