@@ -3,7 +3,7 @@ WELCOME TO GOLDBERG
 
 VERSION
 
-Goldberg 0.2.0
+Goldberg 0.2.1
 
 
 PREREQUISITES
@@ -17,17 +17,23 @@ PREREQUISITES
 
 INSTALLATION
 
-Goldberg is a Rails generator.  The "goldberg" directory here needs to
-be installed in a place where Rails looks for generators.  On
-UNIX/Linux systems you can put it here:
+Goldberg is a Rails generator that runs directly from the gem.  You
+can use Rubygems to automatically download and install the Goldberg
+generator:
 
-    ~/.rails/generators 
+	gem install goldberg_generator
 
-Windows users can put it here:
+Then in the root of any Rails site you can run script/generate to put
+Goldberg's files into that site:
 
-    %USERPROFILE%\.rails\generators
+	script/generate goldberg <template>
 
-(i.e. C:\Documents and Settings\<userid>\.rails\generators)
+Where <template> is the name of one of Goldberg's provided templates
+("default", "ewnf", "snooker" or "spoiled_brat").
+
+Goldberg's installation Rake task completes the installation:
+
+	rake goldberg:install
 
 
 The Goldberg website contains more information on installing and using
