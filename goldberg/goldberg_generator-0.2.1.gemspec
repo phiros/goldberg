@@ -3,7 +3,6 @@ Gem::Specification.new do |s|
   s.version = "0.2.1"
   s.date = "2007-06-01"
   s.summary = "Web application framework for Ruby on Rails with integrated security, content management, and site navigation."
-  s.description = "Goldberg is a Ruby on Rails generator that lets you set up websites within minutes."
   s.email = "urbanus@240gl.org"
   s.homepage = "http://goldberg.240gl.org"
   s.autorequire = "rails_generator/generators/components/scaffold/scaffold_generator"
