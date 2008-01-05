@@ -11,25 +11,24 @@ class GoldbergGenerator < Rails::Generator::NamedBase
 
       @lib = "#{@goldberg}/lib"
       m.directory @lib
+      m.directory "#{@lib}/goldberg"
 
       m.file("#{@lib}/goldberg.rb",
              "#{@lib}/goldberg.rb")
-      m.file("#{@lib}/goldberg_controller.rb",
-             "#{@lib}/goldberg_controller.rb")
-      m.file("#{@lib}/goldberg_filters.rb",
-             "#{@lib}/goldberg_filters.rb")
-      m.file("#{@lib}/goldberg_helper.rb",
-             "#{@lib}/goldberg_helper.rb")
-      m.file("#{@lib}/goldberg_migration.rb",
-             "#{@lib}/goldberg_migration.rb")
-      m.file("#{@lib}/goldberg_migrator.rb",
-             "#{@lib}/goldberg_migrator.rb")
-      m.file("#{@lib}/goldberg_model.rb",
-             "#{@lib}/goldberg_model.rb")
-      m.file("#{@lib}/goldberg_routes.rb",
-             "#{@lib}/goldberg_routes.rb")
-
-      m.directory "#{@lib}/goldberg"
+      m.file("#{@lib}/goldberg/controller.rb",
+             "#{@lib}/goldberg/controller.rb")
+      m.file("#{@lib}/goldberg/filters.rb",
+             "#{@lib}/goldberg/filters.rb")
+      m.file("#{@lib}/goldberg/helper.rb",
+             "#{@lib}/goldberg/helper.rb")
+      m.file("#{@lib}/goldberg/migration.rb",
+             "#{@lib}/goldberg/migration.rb")
+      m.file("#{@lib}/goldberg/migrator.rb",
+             "#{@lib}/goldberg/migrator.rb")
+      m.file("#{@lib}/goldberg/model.rb",
+             "#{@lib}/goldberg/model.rb")
+      m.file("#{@lib}/goldberg/routes.rb",
+             "#{@lib}/goldberg/routes.rb")
 
       m.file("#{@lib}/goldberg/test_helper.rb",
              "#{@lib}/goldberg/test_helper.rb")
@@ -427,32 +426,12 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       # === TESTS ===
       @test = "#{@goldberg}/test"
       m.directory @test
-      m.directory "#{@test}/fixtures"
       m.directory "#{@test}/functional"
       m.directory "#{@test}/integration"
       m.directory "#{@test}/unit"
 
       m.template("#{@test}/test_helper.rb",
                  "#{@test}/test_helper.rb")
-      
-      m.template("#{@test}/fixtures/content_pages.yml",
-                 "#{@test}/fixtures/content_pages.yml")
-      m.template("#{@test}/fixtures/permissions.yml",
-                 "#{@test}/fixtures/permissions.yml")
-      m.template("#{@test}/fixtures/markup_styles.yml",
-                 "#{@test}/fixtures/markup_styles.yml")
-      m.template("#{@test}/fixtures/roles.yml",
-                 "#{@test}/fixtures/roles.yml")
-      m.template("#{@test}/fixtures/menu_items.yml",
-                 "#{@test}/fixtures/menu_items.yml")
-      m.template("#{@test}/fixtures/users.yml",
-                 "#{@test}/fixtures/users.yml")
-      m.template("#{@test}/fixtures/site_controllers.yml",
-                 "#{@test}/fixtures/site_controllers.yml")
-      m.template("#{@test}/fixtures/roles_permissions.yml",
-                 "#{@test}/fixtures/roles_permissions.yml")
-      m.template("#{@test}/fixtures/controller_actions.yml",
-                 "#{@test}/fixtures/controller_actions.yml")
       
       m.template("#{@test}/functional/content_pages_controller_test.rb",
                  "#{@test}/functional/content_pages_controller_test.rb")

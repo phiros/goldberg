@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name = "goldberg_generator"
   s.version = "0.2.2"
-  s.date = "2008-01-04"
+  s.date = "2008-01-05"
   s.summary = "Web application framework for Ruby on Rails with integrated security, content management, and site navigation."
   s.email = "urbanus@240gl.org"
   s.homepage = "http://goldberg.240gl.org"
@@ -66,18 +66,10 @@ Gem::Specification.new do |s|
      "templates/vendor/plugins/goldberg",
      "templates/vendor/plugins/goldberg/test",
      "templates/vendor/plugins/goldberg/test/test_helper.rb",
-     "templates/vendor/plugins/goldberg/test/fixtures",
-     "templates/vendor/plugins/goldberg/test/fixtures/roles_permissions.yml",
-     "templates/vendor/plugins/goldberg/test/fixtures/users.yml",
-     "templates/vendor/plugins/goldberg/test/fixtures/markup_styles.yml",
-     "templates/vendor/plugins/goldberg/test/fixtures/controller_actions.yml",
-     "templates/vendor/plugins/goldberg/test/fixtures/roles.yml",
-     "templates/vendor/plugins/goldberg/test/fixtures/menu_items.yml",
-     "templates/vendor/plugins/goldberg/test/fixtures/content_pages.yml",
-     "templates/vendor/plugins/goldberg/test/fixtures/site_controllers.yml",
-     "templates/vendor/plugins/goldberg/test/fixtures/permissions.yml",
      "templates/vendor/plugins/goldberg/test/functional",
      "templates/vendor/plugins/goldberg/test/functional/content_pages_controller_test.rb",
+     "templates/vendor/plugins/goldberg/test/integration",
+     "templates/vendor/plugins/goldberg/test/integration/security_test.rb",
      "templates/vendor/plugins/goldberg/test/unit",
      "templates/vendor/plugins/goldberg/test/unit/user_test.rb",
      "templates/vendor/plugins/goldberg/test/unit/system_settings_test.rb",
@@ -230,14 +222,15 @@ Gem::Specification.new do |s|
      "templates/vendor/plugins/goldberg/tasks",
      "templates/vendor/plugins/goldberg/tasks/goldberg_tasks.rake",
      "templates/vendor/plugins/goldberg/lib",
-     "templates/vendor/plugins/goldberg/lib/goldberg_migration.rb",
-     "templates/vendor/plugins/goldberg/lib/goldberg_migrator.rb",
-     "templates/vendor/plugins/goldberg/lib/goldberg_filters.rb",
      "templates/vendor/plugins/goldberg/lib/goldberg.rb",
-     "templates/vendor/plugins/goldberg/lib/goldberg_controller.rb",
-     "templates/vendor/plugins/goldberg/lib/goldberg_model.rb",
-     "templates/vendor/plugins/goldberg/lib/goldberg_routes.rb",
-     "templates/vendor/plugins/goldberg/lib/goldberg_helper.rb",
+     "templates/vendor/plugins/goldberg/lib/goldberg/migration.rb",
+     "templates/vendor/plugins/goldberg/lib/goldberg/migrator.rb",
+     "templates/vendor/plugins/goldberg/lib/goldberg/filters.rb",
+     "templates/vendor/plugins/goldberg/lib/goldberg/controller.rb",
+     "templates/vendor/plugins/goldberg/lib/goldberg/model.rb",
+     "templates/vendor/plugins/goldberg/lib/goldberg/routes.rb",
+     "templates/vendor/plugins/goldberg/lib/goldberg/helper.rb",
+     "templates/vendor/plugins/goldberg/lib/goldberg/test_helper.rb",
      "templates/vendor/plugins/goldberg/init.rb",
      "templates/public",
      "templates/public/goldberg",
