@@ -351,8 +351,8 @@ class GoldbergGenerator < Rails::Generator::NamedBase
       # === TEMPLATES ===
       # EARTH WIND AND FIRE
       if name == 'ewnf'
-        m.file "layouts/ewnf/app/views/layouts/application.rhtml",
-        "app/views/layouts/application.rhtml"
+        m.file "layouts/ewnf/app/views/layouts/application.html.erb",
+        "app/views/layouts/application.html.erb"
 
         m.file "layouts/ewnf/public/images/bg.gif", 
         "public/goldberg/images/bg.gif"
@@ -368,8 +368,8 @@ class GoldbergGenerator < Rails::Generator::NamedBase
 
       # SPOILED BRAT
       elsif name == 'spoiled_brat'
-        m.file "layouts/spoiled_brat/app/views/layouts/application.rhtml",
-        "app/views/layouts/application.rhtml"
+        m.file "layouts/spoiled_brat/app/views/layouts/application.html.erb",
+        "app/views/layouts/application.html.erb"
 
         m.file "layouts/spoiled_brat/public/images/blockquote-bg.gif", 
         "public/goldberg/images/blockquote-bg.gif"
@@ -394,8 +394,8 @@ class GoldbergGenerator < Rails::Generator::NamedBase
         "public/goldberg/stylesheets/layout.css"
 
       elsif name == 'snooker'
-        m.file "layouts/snooker/app/views/layouts/application.rhtml",
-        "app/views/layouts/application.rhtml"
+        m.file "layouts/snooker/app/views/layouts/application.html.erb",
+        "app/views/layouts/application.html.erb"
 
         m.file "layouts/snooker/public/images/column_200.png", 
         "public/goldberg/images/column_200.png"
@@ -411,8 +411,8 @@ class GoldbergGenerator < Rails::Generator::NamedBase
 
       # GOLDBERG CLASSIC BLUE (the default)
       else
-        m.file "app/views/layouts/application.rhtml",
-        "app/views/layouts/application.rhtml"
+        m.file "app/views/layouts/application.html.erb",
+        "app/views/layouts/application.html.erb"
 
         m.file "public/goldberg/images/bodybg.jpg",     "public/goldberg/images/bodybg.jpg"
         m.file "public/goldberg/images/footerbg.jpg",   "public/goldberg/images/footerbg.jpg"
